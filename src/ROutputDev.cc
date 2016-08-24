@@ -1,7 +1,6 @@
+#include "Rpoppler.h"
 #include "ROutputDev.h"
 
-
-#if 0
 SEXP 
 ROutputDev::lookupRMethod(const char *name)
 {
@@ -15,6 +14,7 @@ ROutputDev::lookupRMethod(const char *name)
 }
 
 
+#if 0
 GBool 
 ROutputDev::upsideDown()
 {
@@ -113,6 +113,4 @@ ROutputDev::updateFillColor(GfxState * state)
 
 #endif
 
-
-#include "Rpoppler.h"
 #include "ROutputDev_auto.cpp_code"
