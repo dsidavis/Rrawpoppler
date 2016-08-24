@@ -1,5 +1,13 @@
+useDynLib(Rpoppler)
+
 import(methods)
 import(RAutoGenRunTime)
 
 exportPattern(".*")
+
+
+exportClasses(PDFDoc)
+
+
+exportClasses(GfxState, GfxStatePtr, XRef, XRefPtr)
 
