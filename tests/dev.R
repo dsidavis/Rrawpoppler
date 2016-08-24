@@ -30,3 +30,4 @@ dev = ROutputDevice(.funs = dev())
 f = system.file("samples", "map.pdf", package = "Rpoppler")
 displayPages(f, dev)
 
+

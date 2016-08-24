@@ -1,7 +1,5 @@
 library(Rpoppler)
 
-.Call("R_GlobalParams_init")
-
 dev =
 function()
 {    
