@@ -82,7 +82,7 @@ R_PDFDoc_displayPage(SEXP r_pdf, SEXP r_dev, SEXP r_page, SEXP r_dpi, SEXP r_rot
                           INTEGER(r_rotate)[0], LOGICAL(r_useMediaBox)[0], LOGICAL(r_crop)[0], LOGICAL(r_printing)[0]);
     else
         pdf->displayPage(dev, INTEGER(r_page)[0], REAL(r_dpi)[0], REAL(r_dpi)[1], 
-                     INTEGER(r_rotate)[0], LOGICAL(r_useMediaBox)[0], LOGICAL(r_crop)[0], LOGICAL(r_printing)[0]);
+                         INTEGER(r_rotate)[0], LOGICAL(r_useMediaBox)[0], LOGICAL(r_crop)[0], LOGICAL(r_printing)[0]);
 
     return(R_NilValue);
 }
