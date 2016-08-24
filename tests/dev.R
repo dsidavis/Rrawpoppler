@@ -26,6 +26,7 @@ function()
 }
 
 
-ROutputDevice(.funs = dev())
-displayPages(system.file("map.pdf", package = "Rpoppler"))
+dev = ROutputDevice(.funs = dev())
+f = system.file("samples", "map.pdf", package = "Rpoppler")
+displayPages(f, dev)
 

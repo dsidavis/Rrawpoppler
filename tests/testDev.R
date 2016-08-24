@@ -34,7 +34,7 @@ D = dev()
 dev = .Call("R_ROutputDev_new", D)
 
 # Create a PDFDoc with a PDF file
-doc = pdfDoc("map.pdf")
+doc = pdfDoc(system.file("samples", "map.pdf", package = "Rpoppler"))
 
 # Process one page
 invisible()
