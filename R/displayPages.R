@@ -15,9 +15,10 @@ function(doc, dev = ROutputDevice(doc), pageNum = seq(1, getNumPages(doc)), dpi 
 }
     
 ROutputDevice =
-function(..., funs = ROutputFunctions(...))
+function(..., .funs = list(...))
 {
-
+    funs = ROutputFunctions(.funs)
+    .Call("R_ROutputDev_new", funs)
 }
 
 DefaultDeviceFunctions =
@@ -27,10 +28,9 @@ DefaultDeviceFunctions =
 
 
 ROutputFunctions =
-function(..., defaults = DefaultDeviceFunctions)
+function(..., .funs = list(...), defaults = DefaultDeviceFunctions)
 {
-   funs = list(...)
-   defaults[names(funs)] = funs
+   defaults[names(funs)] = .funs
    defaults
 }
 

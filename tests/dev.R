@@ -1,7 +1,5 @@
 library(Rpoppler)
 
-.Call("R_GlobalParams_init")
-
 dev =
 function()
 {    
@@ -28,17 +26,6 @@ function()
 }
 
 
-# Generate the list of functions
-D = dev()
-# Generate the ROutputDev instance, passing it the list of functions to implement the methods
-dev = .Call("R_ROutputDev_new", D)
-
-# Create a PDFDoc with a PDF file
-doc = pdfDoc("map.pdf")
-
-# Process one page
-invisible()
-
-# Process 3 pages
-invisible(.Call("R_PDFDoc_displayPage", doc, dev, c(1L, 3L), c(300, 300), 0L, TRUE, FALSE, FALSE))
+ROutputDevice(.funs = dev())
+displayPages(system.file("map.pdf", package = "Rpoppler"))
 
