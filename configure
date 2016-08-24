@@ -1708,7 +1708,8 @@ fi
 
 
 PKG_CPPFLAGS=`$PKG_CONFIG --cflags poppler`
-PKG_LIBS=`$PKG_CONFIG --cflags poppler`
+PKG_LIBS=`$PKG_CONFIG --libs poppler`
+
 
 
 
