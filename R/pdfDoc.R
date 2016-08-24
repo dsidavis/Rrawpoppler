@@ -11,6 +11,6 @@ function(file, password = NA)
 getNumPages =
 function(doc)
 {
-    .Call("R_PDFDoc_getNumPages", as(pdf, "PDFDoc"))
+    .Call("R_PDFDoc_getNumPages", as(doc, "PDFDoc"))
 }
 

@@ -1,6 +1,6 @@
 
 displayPages =
-function(doc, dev = ROutputDevice(doc), pageNum = seq(1, getNumPages(doc)), dpi = c(600, 600), rotate = 0, useMediaBox = FALSE, crop = FALSE, printing = FALSE)
+function(doc, dev = ROutputDevice(doc), pageNum = c(1, getNumPages(doc)), dpi = c(600, 600), rotate = 0, useMediaBox = FALSE, crop = FALSE, printing = FALSE)
 {
 
   if(is.character(doc))
@@ -11,13 +11,13 @@ function(doc, dev = ROutputDevice(doc), pageNum = seq(1, getNumPages(doc)), dpi 
       dpi = rep(dpi, 2)
   
   .Call("R_PDFDoc_displayPage", as(doc, "PDFDoc"), dev, as.integer(pageNum), dpi,
-                                as.numeric(rotate), as.logical(useMediaBox), as.logical(crop), as.logical(printing))
+                                as.integer(rotate), as.logical(useMediaBox), as.logical(crop), as.logical(printing))
 }
     
 ROutputDevice =
 function(..., .funs = list(...))
 {
-    funs = ROutputFunctions(.funs)
+    funs = ROutputFunctions(.funs = .funs)
     .Call("R_ROutputDev_new", funs)
 }
 
@@ -30,7 +30,7 @@ DefaultDeviceFunctions =
 ROutputFunctions =
 function(..., .funs = list(...), defaults = DefaultDeviceFunctions)
 {
-   defaults[names(funs)] = .funs
+   defaults[names(.funs)] = .funs
    defaults
 }
 
