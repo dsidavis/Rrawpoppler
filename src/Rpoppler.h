@@ -1,4 +1,5 @@
 #include <poppler/PDFDoc.h>
+#include <poppler/GfxState.h>
 #include <Rdefines.h>
 
 #define GET_REF(obj, type) \
