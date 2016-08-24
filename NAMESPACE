@@ -11,3 +11,8 @@ exportClasses(PDFDoc)
 
 exportClasses(GfxState, GfxStatePtr, XRef, XRefPtr)
 
+
+export(displayPages)
+
+export(ROutputDevice, ROutputFunctions)
+
