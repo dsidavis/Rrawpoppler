@@ -54,32 +54,7 @@ k = lapply(e, readCppClass)
 # OutputDev we do in genOutputDev.R so ignore here.
 
 
-genClassCode =
-function(def, typeMap = NULL, omit = character(), omitRX = character())
-{
-  methods = def@methods[! sapply(def@methods, is, "C++ClassConstructor") ]
-
-#XXX Fix
-  if(length(omit))
-     methods = methods[ setdiff(names(methods), omit) ]
-
-  if(length(omitRX))
-      methods = methods[ !grepl(omitRX, names(methods)) ]
-
-  methods = methods[ !grepl("^operator", names(methods)) ]
-  
-#XXX Fix
-  i = sapply(methods, function(x) x@returnType$kind %in% c(CXType_Enum, CXType_Record))
-  methods = methods[ !i ]
-
-  lapply(getPublic(methods), createCppMethod, typeMap = typeMap)
-}
-
-cppCodeToFile =
-function(defs, file)
-{
-    cat("#define R_NO_REMAP 1", '#include "Rpoppler.h"', sapply(defs, as, "character"), file = file, sep = "\n\n")
-}
+#source("utils.R")
 
 
 if(FALSE) {
@@ -97,7 +72,10 @@ cpp.obj = lapply(getPublic(k$Object@methods), createCppMethod, typeMap = typemap
 logicCFun = function(cvar, rvar, type, typeMap, cast) { sprintf("%s = LOGICAL(%s)[0];", cvar, rvar)}
 logicToR = function(cvar, rvar, type, typeMap, cast){sprintf("Rf_ScalarLogical(%s)", cvar)}
 longlongToR = function(cvar, rvar, type, typeMap, cast){sprintf("Rf_ScalarReal(%s)", cvar)}
-typemap = list("GooString *"= list(convertValueToR = "GooStringToR"),
+typemap = list("GooString *"= list(convertValueToR = "GooStringToR",
+                                   convertRValue = "GooStringFromR",
+                                   coerceRParam = function(var, type, typeMap, ...)
+                                                            sprintf("as(%s, 'GooStringOrCharacter')", var) ),
                "long long" = list(convertValueToR = longlongToR,
                                   convertRValue = function(cvar, rvar, type, typeMap, cast) sprintf("%s = REAL(%s)[0];", cvar, rvar)),
                GBool = list(convertRValue = logicCFun, convertValueToR = logicToR),
@@ -105,6 +83,7 @@ typemap = list("GooString *"= list(convertValueToR = "GooStringToR"),
                bool = list(convertRValue = logicCFun, convertValueToR = logicToR))
 
 
+if(FALSE) {
 cpp.obj = genClassCode(k$Object, typemap)
 cppCodeToFile(cpp.obj, "../src/RObject.cc")
 
@@ -114,10 +93,36 @@ cppCodeToFile(cpp.doc, "../src/RPDFDoc.cc")
 
 cpp.state = genClassCode(k$GfxState, typemap)
 cppCodeToFile(cpp.state, "../src/RGfxState.cc")
+}
 
-ids = c("PDFDoc", "Object", "GfxState", "Catalog", "Dict", "GfxColorSpace", "GfxPath", "GfxSubpath", "Page", "PageAttrs", "PDFRectangle", "XRef")
+ids = c("PDFDoc", "Object", "GfxState", "Catalog", "Dict", "GfxColorSpace", "GfxPath", "GfxSubpath", "Page", "PDFRectangle", "XRef") # "PageAttrs",
 code = lapply(ids, function(x) genClassCode(k[[x]], typemap, c("displayPage", "displayPages", "displayPageSlice", "displaySlice", "getSignatureWidgets", "createGfx"), "get(RGB|RGBX|CMYK|DeviceN|Gray)Line"))
 invisible(mapply(cppCodeToFile, code, sprintf("../src/R%s.cc", ids)))
+
+# Now the R code
+
+rcode = lapply(ids, function(x) genClassCode(k[[x]], typemap, c("displayPage", "displayPages", "displayPageSlice", "displaySlice", "getSignatureWidgets", "createGfx"), "get(RGB|RGBX|CMYK|DeviceN|Gray)Line", fun = createRProxy))
+names(rcode) = ids
+
+#XXX Temp
+rcode[["GfxColorSpace"]] = rcode[["GfxColorSpace"]][ setdiff(names(rcode[["GfxColorSpace"]]), "setDisplayProfile") ]
+
+
+tmp = mkRGenericMethods(rcode) 
+rcode = tmp$rcode
+#Testing: envs = lapply(rcode, function(x) { e = new.env(); eval(parse(text = sapply(rcode, as, 'character')), e); e})
+cat(tmp$generics, file = "../R/A_generics.R", sep = "\n\n")
+
+invisible(mapply(function(code, file) cat(sapply(code, as, 'character'), sep = "\n\n", file = file), rcode, sprintf("../R/R_%s_auto.R", ids)))
+
+cat(unlist(mkClassDefs(k)), sep = "\n", file = "../R/A_classes.R")
+
+# For the NAMESPACE
+cat(paste(getClassNames(k), collapse = ",\n"))
+
+# Names of the R functions
+unlist(lapply(rcode, names)) 
 }
+
 
 
