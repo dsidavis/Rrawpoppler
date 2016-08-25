@@ -1,5 +1,5 @@
-Package: Rpoppler
-Title: Interface to the poppler PDF library
+Package: Rrawpoppler
+Title: Interface to the poppler PDF library for reading and querying details of PDF documents
 Description: This provides functionality to read PDF documents directly in R
   and query their contents in various ways. 
   We can query the metadata, extract and save individual pages, process and entire
@@ -7,6 +7,7 @@ Description: This provides functionality to read PDF documents directly in R
   The interface is machine generated using the RCIndex and RCodeGen packages.
   This implies that we can both a) update the package for new versions of poppler,
   and b) extend the interface to other classes and routines in the poppler API.
+  This is different from Kurt Hornik's
 Version: 0.1-0
 Author: Duncan Temple Lang
 Maintainer: Duncan Temple Lang <duncan@r-project.org>
