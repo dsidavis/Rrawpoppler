@@ -44,5 +44,26 @@ programmatically generated bindings to the important classes in this
 library. We used the RCIndex and (adapted) the RCodeGen packages to create
 the approximately 8000 lines of C++ and R code that define the interface.
 
-This gives us access to reading, splitting and querying a PDF document.
+This gives us access to reading, splitting and querying a PDF document
+and all the other aspects of the poppler API.
+
+One element we learned from pdftohtml and is shared by poppler is the
+event-driven/streaming processing provided by the OutputDev class.
+The idea is quite simple. There is a generic top-level OutptDev class
+defined that defines an interface for the PDF processor to call when
+certain events occur. We can sub-class/extend this device to provide
+handlers for these events.  (This is similar to XML's SAX, libclang's
+vistors's, etc.)   
+
+
+# Streaming Devices
+
+We have extended OuptutDev with an R-specific class that allows the
+R user to create an OutputDev implemented using R functions for the methods
+of OutputDev. One can implement zero or more of these functions/methods.
+When a C++ method in the device is invoked, we find the corresponding 
+R function or use the default routine.
+
+Examples of this device are in tests/dev.R and tests/testDev.R and 
+tests/collectText.R
 
