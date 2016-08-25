@@ -2,6 +2,7 @@
 
 #include "Rpoppler.h"
 
+extern "C"
 SEXP R_PDFRectangle_isValid(SEXP r_tthis)
 {
     PDFRectangle *tthis = GET_REF(r_tthis, PDFRectangle);
@@ -11,6 +12,7 @@ SEXP R_PDFRectangle_isValid(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFRectangle_contains(SEXP r_tthis, SEXP r_x, SEXP r_y)
 {
     PDFRectangle *tthis = GET_REF(r_tthis, PDFRectangle);
@@ -24,6 +26,7 @@ SEXP R_PDFRectangle_contains(SEXP r_tthis, SEXP r_x, SEXP r_y)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFRectangle_clipTo(SEXP r_tthis, SEXP r_rect)
 {
     PDFRectangle *tthis = GET_REF(r_tthis, PDFRectangle);

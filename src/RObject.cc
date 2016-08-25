@@ -2,6 +2,7 @@
 
 #include "Rpoppler.h"
 
+extern "C"
 SEXP R_Object_zeroUnion(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -9,6 +10,7 @@ SEXP R_Object_zeroUnion(SEXP r_tthis)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Object_initBool(SEXP r_tthis, SEXP r_boolnA)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -20,6 +22,7 @@ SEXP R_Object_initBool(SEXP r_tthis, SEXP r_boolnA)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_initInt(SEXP r_tthis, SEXP r_intgA)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -31,6 +34,7 @@ SEXP R_Object_initInt(SEXP r_tthis, SEXP r_intgA)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_initReal(SEXP r_tthis, SEXP r_realA)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -42,17 +46,19 @@ SEXP R_Object_initReal(SEXP r_tthis, SEXP r_realA)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_initString(SEXP r_tthis, SEXP r_stringA)
 {
     Object *tthis = GET_REF(r_tthis, Object);
     GooString * stringA;
-    stringA = GET_REF(r_stringA, GooString );
+    stringA = GooStringFromR(r_stringA);
     Object * ans;
     ans = tthis->initString(stringA);
     SEXP r_ans = R_createRef(ans, "ObjectPtr");
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_initName(SEXP r_tthis, SEXP r_nameA)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -64,6 +70,7 @@ SEXP R_Object_initName(SEXP r_tthis, SEXP r_nameA)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_initNull(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -73,6 +80,7 @@ SEXP R_Object_initNull(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_initArray(SEXP r_tthis, SEXP r_xref)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -84,6 +92,7 @@ SEXP R_Object_initArray(SEXP r_tthis, SEXP r_xref)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_initDict(SEXP r_tthis, SEXP r_dictA)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -95,6 +104,7 @@ SEXP R_Object_initDict(SEXP r_tthis, SEXP r_dictA)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_initStream(SEXP r_tthis, SEXP r_streamA)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -106,6 +116,7 @@ SEXP R_Object_initStream(SEXP r_tthis, SEXP r_streamA)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_initRef(SEXP r_tthis, SEXP r_numA, SEXP r_genA)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -119,6 +130,7 @@ SEXP R_Object_initRef(SEXP r_tthis, SEXP r_numA, SEXP r_genA)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_initCmd(SEXP r_tthis, SEXP r_cmdA)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -130,6 +142,7 @@ SEXP R_Object_initCmd(SEXP r_tthis, SEXP r_cmdA)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_initError(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -139,6 +152,7 @@ SEXP R_Object_initError(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_initEOF(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -148,6 +162,7 @@ SEXP R_Object_initEOF(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_initInt64(SEXP r_tthis, SEXP r_int64gA)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -159,6 +174,7 @@ SEXP R_Object_initInt64(SEXP r_tthis, SEXP r_int64gA)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_copy(SEXP r_tthis, SEXP r_obj)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -170,6 +186,7 @@ SEXP R_Object_copy(SEXP r_tthis, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_shallowCopy(SEXP r_tthis, SEXP r_obj)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -181,6 +198,7 @@ SEXP R_Object_shallowCopy(SEXP r_tthis, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_fetch(SEXP r_tthis, SEXP r_xref, SEXP r_obj, SEXP r_recursion)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -196,6 +214,7 @@ SEXP R_Object_fetch(SEXP r_tthis, SEXP r_xref, SEXP r_obj, SEXP r_recursion)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_free(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -203,6 +222,7 @@ SEXP R_Object_free(SEXP r_tthis)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Object_isBool(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -212,6 +232,7 @@ SEXP R_Object_isBool(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_isInt(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -221,6 +242,7 @@ SEXP R_Object_isInt(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_isReal(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -230,6 +252,7 @@ SEXP R_Object_isReal(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_isNum(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -239,6 +262,7 @@ SEXP R_Object_isNum(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_isString(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -248,6 +272,7 @@ SEXP R_Object_isString(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_isName(SEXP r_tthis, SEXP r_nameA)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -259,6 +284,7 @@ SEXP R_Object_isName(SEXP r_tthis, SEXP r_nameA)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_isNull(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -268,6 +294,7 @@ SEXP R_Object_isNull(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_isArray(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -277,6 +304,7 @@ SEXP R_Object_isArray(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_isDict(SEXP r_tthis, SEXP r_dictType)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -288,6 +316,7 @@ SEXP R_Object_isDict(SEXP r_tthis, SEXP r_dictType)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_isStream(SEXP r_tthis, SEXP r_dictType)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -299,6 +328,7 @@ SEXP R_Object_isStream(SEXP r_tthis, SEXP r_dictType)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_isRef(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -308,6 +338,7 @@ SEXP R_Object_isRef(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_isCmd(SEXP r_tthis, SEXP r_cmdA)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -319,6 +350,7 @@ SEXP R_Object_isCmd(SEXP r_tthis, SEXP r_cmdA)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_isError(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -328,6 +360,7 @@ SEXP R_Object_isError(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_isEOF(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -337,6 +370,7 @@ SEXP R_Object_isEOF(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_isNone(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -346,6 +380,7 @@ SEXP R_Object_isNone(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_isInt64(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -355,6 +390,7 @@ SEXP R_Object_isInt64(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_isIntOrInt64(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -364,6 +400,7 @@ SEXP R_Object_isIntOrInt64(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_getBool(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -373,6 +410,7 @@ SEXP R_Object_getBool(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_getInt(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -382,6 +420,7 @@ SEXP R_Object_getInt(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_getReal(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -391,6 +430,7 @@ SEXP R_Object_getReal(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_getNum(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -400,6 +440,7 @@ SEXP R_Object_getNum(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_getString(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -409,6 +450,7 @@ SEXP R_Object_getString(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_takeString(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -418,6 +460,7 @@ SEXP R_Object_takeString(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_getName(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -427,6 +470,7 @@ SEXP R_Object_getName(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_getArray(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -436,6 +480,7 @@ SEXP R_Object_getArray(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_getDict(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -445,6 +490,7 @@ SEXP R_Object_getDict(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_getStream(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -454,6 +500,7 @@ SEXP R_Object_getStream(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_getRefNum(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -463,6 +510,7 @@ SEXP R_Object_getRefNum(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_getRefGen(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -472,6 +520,7 @@ SEXP R_Object_getRefGen(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_getCmd(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -481,6 +530,7 @@ SEXP R_Object_getCmd(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_getInt64(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -490,6 +540,7 @@ SEXP R_Object_getInt64(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_getIntOrInt64(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -499,6 +550,7 @@ SEXP R_Object_getIntOrInt64(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_arrayGetLength(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -508,6 +560,7 @@ SEXP R_Object_arrayGetLength(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_arrayAdd(SEXP r_tthis, SEXP r_elem)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -517,6 +570,7 @@ SEXP R_Object_arrayAdd(SEXP r_tthis, SEXP r_elem)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Object_arrayRemove(SEXP r_tthis, SEXP r_i)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -526,6 +580,7 @@ SEXP R_Object_arrayRemove(SEXP r_tthis, SEXP r_i)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Object_arrayGet(SEXP r_tthis, SEXP r_i, SEXP r_obj, SEXP r_recursion)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -541,6 +596,7 @@ SEXP R_Object_arrayGet(SEXP r_tthis, SEXP r_i, SEXP r_obj, SEXP r_recursion)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_arrayGetNF(SEXP r_tthis, SEXP r_i, SEXP r_obj)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -554,6 +610,7 @@ SEXP R_Object_arrayGetNF(SEXP r_tthis, SEXP r_i, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_dictGetLength(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -563,6 +620,7 @@ SEXP R_Object_dictGetLength(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_dictAdd(SEXP r_tthis, SEXP r_key, SEXP r_val)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -574,6 +632,7 @@ SEXP R_Object_dictAdd(SEXP r_tthis, SEXP r_key, SEXP r_val)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Object_dictSet(SEXP r_tthis, SEXP r_key, SEXP r_val)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -585,6 +644,7 @@ SEXP R_Object_dictSet(SEXP r_tthis, SEXP r_key, SEXP r_val)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Object_dictRemove(SEXP r_tthis, SEXP r_key)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -594,6 +654,7 @@ SEXP R_Object_dictRemove(SEXP r_tthis, SEXP r_key)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Object_dictIs(SEXP r_tthis, SEXP r_dictType)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -605,6 +666,7 @@ SEXP R_Object_dictIs(SEXP r_tthis, SEXP r_dictType)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_dictLookup(SEXP r_tthis, SEXP r_key, SEXP r_obj, SEXP r_recursion)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -620,6 +682,7 @@ SEXP R_Object_dictLookup(SEXP r_tthis, SEXP r_key, SEXP r_obj, SEXP r_recursion)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_dictLookupNF(SEXP r_tthis, SEXP r_key, SEXP r_obj)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -633,6 +696,7 @@ SEXP R_Object_dictLookupNF(SEXP r_tthis, SEXP r_key, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_dictGetKey(SEXP r_tthis, SEXP r_i)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -644,6 +708,7 @@ SEXP R_Object_dictGetKey(SEXP r_tthis, SEXP r_i)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_dictGetVal(SEXP r_tthis, SEXP r_i, SEXP r_obj)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -657,6 +722,7 @@ SEXP R_Object_dictGetVal(SEXP r_tthis, SEXP r_i, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_dictGetValNF(SEXP r_tthis, SEXP r_i, SEXP r_obj)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -670,6 +736,7 @@ SEXP R_Object_dictGetValNF(SEXP r_tthis, SEXP r_i, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_streamIs(SEXP r_tthis, SEXP r_dictType)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -681,6 +748,7 @@ SEXP R_Object_streamIs(SEXP r_tthis, SEXP r_dictType)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_streamReset(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -688,6 +756,7 @@ SEXP R_Object_streamReset(SEXP r_tthis)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Object_streamClose(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -695,6 +764,7 @@ SEXP R_Object_streamClose(SEXP r_tthis)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Object_streamGetChar(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -704,6 +774,7 @@ SEXP R_Object_streamGetChar(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_streamGetChars(SEXP r_tthis, SEXP r_nChars, SEXP r_buffer)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -717,6 +788,7 @@ SEXP R_Object_streamGetChars(SEXP r_tthis, SEXP r_nChars, SEXP r_buffer)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_streamLookChar(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -726,6 +798,7 @@ SEXP R_Object_streamLookChar(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_streamGetLine(SEXP r_tthis, SEXP r_buf, SEXP r_size)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -739,6 +812,7 @@ SEXP R_Object_streamGetLine(SEXP r_tthis, SEXP r_buf, SEXP r_size)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_streamGetPos(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -748,6 +822,7 @@ SEXP R_Object_streamGetPos(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_streamSetPos(SEXP r_tthis, SEXP r_pos, SEXP r_dir)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -759,6 +834,7 @@ SEXP R_Object_streamSetPos(SEXP r_tthis, SEXP r_pos, SEXP r_dir)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Object_streamGetDict(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -768,6 +844,7 @@ SEXP R_Object_streamGetDict(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_getTypeName(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -777,6 +854,7 @@ SEXP R_Object_getTypeName(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Object_print(SEXP r_tthis, SEXP r_f)
 {
     Object *tthis = GET_REF(r_tthis, Object);
@@ -786,6 +864,7 @@ SEXP R_Object_print(SEXP r_tthis, SEXP r_f)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Object_memCheck(SEXP r_f)
 {
     FILE * f;

@@ -2,6 +2,7 @@
 
 #include "Rpoppler.h"
 
+extern "C"
 SEXP R_GfxPath_copy(SEXP r_tthis)
 {
     GfxPath *tthis = GET_REF(r_tthis, GfxPath);
@@ -11,6 +12,7 @@ SEXP R_GfxPath_copy(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxPath_isCurPt(SEXP r_tthis)
 {
     GfxPath *tthis = GET_REF(r_tthis, GfxPath);
@@ -20,6 +22,7 @@ SEXP R_GfxPath_isCurPt(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxPath_isPath(SEXP r_tthis)
 {
     GfxPath *tthis = GET_REF(r_tthis, GfxPath);
@@ -29,6 +32,7 @@ SEXP R_GfxPath_isPath(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxPath_getNumSubpaths(SEXP r_tthis)
 {
     GfxPath *tthis = GET_REF(r_tthis, GfxPath);
@@ -38,6 +42,7 @@ SEXP R_GfxPath_getNumSubpaths(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxPath_getSubpath(SEXP r_tthis, SEXP r_i)
 {
     GfxPath *tthis = GET_REF(r_tthis, GfxPath);
@@ -49,6 +54,7 @@ SEXP R_GfxPath_getSubpath(SEXP r_tthis, SEXP r_i)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxPath_getLastX(SEXP r_tthis)
 {
     GfxPath *tthis = GET_REF(r_tthis, GfxPath);
@@ -58,6 +64,7 @@ SEXP R_GfxPath_getLastX(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxPath_getLastY(SEXP r_tthis)
 {
     GfxPath *tthis = GET_REF(r_tthis, GfxPath);
@@ -67,6 +74,7 @@ SEXP R_GfxPath_getLastY(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxPath_moveTo(SEXP r_tthis, SEXP r_x, SEXP r_y)
 {
     GfxPath *tthis = GET_REF(r_tthis, GfxPath);
@@ -78,6 +86,7 @@ SEXP R_GfxPath_moveTo(SEXP r_tthis, SEXP r_x, SEXP r_y)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxPath_lineTo(SEXP r_tthis, SEXP r_x, SEXP r_y)
 {
     GfxPath *tthis = GET_REF(r_tthis, GfxPath);
@@ -89,6 +98,7 @@ SEXP R_GfxPath_lineTo(SEXP r_tthis, SEXP r_x, SEXP r_y)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxPath_curveTo(SEXP r_tthis, SEXP r_x1, SEXP r_y1, SEXP r_x2, SEXP r_y2, SEXP r_x3, SEXP r_y3)
 {
     GfxPath *tthis = GET_REF(r_tthis, GfxPath);
@@ -108,6 +118,7 @@ SEXP R_GfxPath_curveTo(SEXP r_tthis, SEXP r_x1, SEXP r_y1, SEXP r_x2, SEXP r_y2,
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxPath_close(SEXP r_tthis)
 {
     GfxPath *tthis = GET_REF(r_tthis, GfxPath);
@@ -115,6 +126,7 @@ SEXP R_GfxPath_close(SEXP r_tthis)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxPath_append(SEXP r_tthis, SEXP r_path)
 {
     GfxPath *tthis = GET_REF(r_tthis, GfxPath);
@@ -124,6 +136,7 @@ SEXP R_GfxPath_append(SEXP r_tthis, SEXP r_path)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxPath_offset(SEXP r_tthis, SEXP r_dx, SEXP r_dy)
 {
     GfxPath *tthis = GET_REF(r_tthis, GfxPath);

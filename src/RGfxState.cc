@@ -2,6 +2,7 @@
 
 #include "Rpoppler.h"
 
+extern "C"
 SEXP R_GfxState_copy(SEXP r_tthis, SEXP r_copyPath)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -13,6 +14,7 @@ SEXP R_GfxState_copy(SEXP r_tthis, SEXP r_copyPath)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getHDPI(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -22,6 +24,7 @@ SEXP R_GfxState_getHDPI(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getVDPI(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -31,6 +34,7 @@ SEXP R_GfxState_getVDPI(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getCTM(SEXP r_tthis, SEXP r_m)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -40,6 +44,7 @@ SEXP R_GfxState_getCTM(SEXP r_tthis, SEXP r_m)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_getX1(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -49,6 +54,7 @@ SEXP R_GfxState_getX1(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getY1(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -58,6 +64,7 @@ SEXP R_GfxState_getY1(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getX2(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -67,6 +74,7 @@ SEXP R_GfxState_getX2(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getY2(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -76,6 +84,7 @@ SEXP R_GfxState_getY2(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getPageWidth(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -85,6 +94,7 @@ SEXP R_GfxState_getPageWidth(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getPageHeight(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -94,6 +104,7 @@ SEXP R_GfxState_getPageHeight(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getRotate(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -103,6 +114,7 @@ SEXP R_GfxState_getRotate(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getFillColor(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -112,6 +124,7 @@ SEXP R_GfxState_getFillColor(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getStrokeColor(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -121,6 +134,7 @@ SEXP R_GfxState_getStrokeColor(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getFillGray(SEXP r_tthis, SEXP r_gray)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -130,6 +144,7 @@ SEXP R_GfxState_getFillGray(SEXP r_tthis, SEXP r_gray)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_getStrokeGray(SEXP r_tthis, SEXP r_gray)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -139,6 +154,7 @@ SEXP R_GfxState_getStrokeGray(SEXP r_tthis, SEXP r_gray)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_getFillRGB(SEXP r_tthis, SEXP r_rgb)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -148,6 +164,7 @@ SEXP R_GfxState_getFillRGB(SEXP r_tthis, SEXP r_rgb)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_getStrokeRGB(SEXP r_tthis, SEXP r_rgb)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -157,6 +174,7 @@ SEXP R_GfxState_getStrokeRGB(SEXP r_tthis, SEXP r_rgb)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_getFillCMYK(SEXP r_tthis, SEXP r_cmyk)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -166,6 +184,7 @@ SEXP R_GfxState_getFillCMYK(SEXP r_tthis, SEXP r_cmyk)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_getFillDeviceN(SEXP r_tthis, SEXP r_deviceN)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -175,6 +194,7 @@ SEXP R_GfxState_getFillDeviceN(SEXP r_tthis, SEXP r_deviceN)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_getStrokeCMYK(SEXP r_tthis, SEXP r_cmyk)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -184,6 +204,7 @@ SEXP R_GfxState_getStrokeCMYK(SEXP r_tthis, SEXP r_cmyk)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_getStrokeDeviceN(SEXP r_tthis, SEXP r_deviceN)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -193,6 +214,7 @@ SEXP R_GfxState_getStrokeDeviceN(SEXP r_tthis, SEXP r_deviceN)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_getFillColorSpace(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -202,6 +224,7 @@ SEXP R_GfxState_getFillColorSpace(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getStrokeColorSpace(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -211,6 +234,7 @@ SEXP R_GfxState_getStrokeColorSpace(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getFillPattern(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -220,6 +244,7 @@ SEXP R_GfxState_getFillPattern(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getStrokePattern(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -229,6 +254,7 @@ SEXP R_GfxState_getStrokePattern(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getFillOpacity(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -238,6 +264,7 @@ SEXP R_GfxState_getFillOpacity(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getStrokeOpacity(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -247,6 +274,7 @@ SEXP R_GfxState_getStrokeOpacity(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getFillOverprint(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -256,6 +284,7 @@ SEXP R_GfxState_getFillOverprint(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getStrokeOverprint(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -265,6 +294,7 @@ SEXP R_GfxState_getStrokeOverprint(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getOverprintMode(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -274,6 +304,7 @@ SEXP R_GfxState_getOverprintMode(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getTransfer(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -283,6 +314,7 @@ SEXP R_GfxState_getTransfer(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getLineWidth(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -292,6 +324,7 @@ SEXP R_GfxState_getLineWidth(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getLineDash(SEXP r_tthis, SEXP r_dash, SEXP r_length, SEXP r_start)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -305,6 +338,7 @@ SEXP R_GfxState_getLineDash(SEXP r_tthis, SEXP r_dash, SEXP r_length, SEXP r_sta
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_getFlatness(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -314,6 +348,7 @@ SEXP R_GfxState_getFlatness(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getLineJoin(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -323,6 +358,7 @@ SEXP R_GfxState_getLineJoin(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getLineCap(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -332,6 +368,7 @@ SEXP R_GfxState_getLineCap(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getMiterLimit(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -341,6 +378,7 @@ SEXP R_GfxState_getMiterLimit(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getStrokeAdjust(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -350,6 +388,7 @@ SEXP R_GfxState_getStrokeAdjust(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getAlphaIsShape(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -359,6 +398,7 @@ SEXP R_GfxState_getAlphaIsShape(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getTextKnockout(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -368,6 +408,7 @@ SEXP R_GfxState_getTextKnockout(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getFont(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -377,6 +418,7 @@ SEXP R_GfxState_getFont(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getFontSize(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -386,6 +428,7 @@ SEXP R_GfxState_getFontSize(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getTextMat(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -395,6 +438,7 @@ SEXP R_GfxState_getTextMat(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getCharSpace(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -404,6 +448,7 @@ SEXP R_GfxState_getCharSpace(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getWordSpace(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -413,6 +458,7 @@ SEXP R_GfxState_getWordSpace(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getHorizScaling(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -422,6 +468,7 @@ SEXP R_GfxState_getHorizScaling(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getLeading(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -431,6 +478,7 @@ SEXP R_GfxState_getLeading(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getRise(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -440,6 +488,7 @@ SEXP R_GfxState_getRise(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getRender(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -449,6 +498,7 @@ SEXP R_GfxState_getRender(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getRenderingIntent(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -458,6 +508,7 @@ SEXP R_GfxState_getRenderingIntent(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getPath(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -467,6 +518,7 @@ SEXP R_GfxState_getPath(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_setPath(SEXP r_tthis, SEXP r_pathA)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -476,6 +528,7 @@ SEXP R_GfxState_setPath(SEXP r_tthis, SEXP r_pathA)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_getCurX(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -485,6 +538,7 @@ SEXP R_GfxState_getCurX(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getCurY(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -494,6 +548,7 @@ SEXP R_GfxState_getCurY(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getClipBBox(SEXP r_tthis, SEXP r_xMin, SEXP r_yMin, SEXP r_xMax, SEXP r_yMax)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -509,6 +564,7 @@ SEXP R_GfxState_getClipBBox(SEXP r_tthis, SEXP r_xMin, SEXP r_yMin, SEXP r_xMax,
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_getUserClipBBox(SEXP r_tthis, SEXP r_xMin, SEXP r_yMin, SEXP r_xMax, SEXP r_yMax)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -524,6 +580,7 @@ SEXP R_GfxState_getUserClipBBox(SEXP r_tthis, SEXP r_xMin, SEXP r_yMin, SEXP r_x
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_getLineX(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -533,6 +590,7 @@ SEXP R_GfxState_getLineX(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getLineY(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -542,6 +600,7 @@ SEXP R_GfxState_getLineY(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_isCurPt(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -551,6 +610,7 @@ SEXP R_GfxState_isCurPt(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_isPath(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -560,6 +620,7 @@ SEXP R_GfxState_isPath(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_transform(SEXP r_tthis, SEXP r_x1, SEXP r_y1, SEXP r_x2, SEXP r_y2)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -575,6 +636,7 @@ SEXP R_GfxState_transform(SEXP r_tthis, SEXP r_x1, SEXP r_y1, SEXP r_x2, SEXP r_
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_transformDelta(SEXP r_tthis, SEXP r_x1, SEXP r_y1, SEXP r_x2, SEXP r_y2)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -590,6 +652,7 @@ SEXP R_GfxState_transformDelta(SEXP r_tthis, SEXP r_x1, SEXP r_y1, SEXP r_x2, SE
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_textTransform(SEXP r_tthis, SEXP r_x1, SEXP r_y1, SEXP r_x2, SEXP r_y2)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -605,6 +668,7 @@ SEXP R_GfxState_textTransform(SEXP r_tthis, SEXP r_x1, SEXP r_y1, SEXP r_x2, SEX
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_textTransformDelta(SEXP r_tthis, SEXP r_x1, SEXP r_y1, SEXP r_x2, SEXP r_y2)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -620,6 +684,7 @@ SEXP R_GfxState_textTransformDelta(SEXP r_tthis, SEXP r_x1, SEXP r_y1, SEXP r_x2
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_transformWidth(SEXP r_tthis, SEXP r_w)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -631,6 +696,7 @@ SEXP R_GfxState_transformWidth(SEXP r_tthis, SEXP r_w)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getTransformedLineWidth(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -640,6 +706,7 @@ SEXP R_GfxState_getTransformedLineWidth(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getTransformedFontSize(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -649,6 +716,7 @@ SEXP R_GfxState_getTransformedFontSize(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getFontTransMat(SEXP r_tthis, SEXP r_m11, SEXP r_m12, SEXP r_m21, SEXP r_m22)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -664,6 +732,7 @@ SEXP R_GfxState_getFontTransMat(SEXP r_tthis, SEXP r_m11, SEXP r_m12, SEXP r_m21
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setCTM(SEXP r_tthis, SEXP r_a, SEXP r_b, SEXP r_c, SEXP r_d, SEXP r_e, SEXP r_f)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -683,6 +752,7 @@ SEXP R_GfxState_setCTM(SEXP r_tthis, SEXP r_a, SEXP r_b, SEXP r_c, SEXP r_d, SEX
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_concatCTM(SEXP r_tthis, SEXP r_a, SEXP r_b, SEXP r_c, SEXP r_d, SEXP r_e, SEXP r_f)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -702,6 +772,7 @@ SEXP R_GfxState_concatCTM(SEXP r_tthis, SEXP r_a, SEXP r_b, SEXP r_c, SEXP r_d, 
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_shiftCTMAndClip(SEXP r_tthis, SEXP r_tx, SEXP r_ty)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -713,6 +784,7 @@ SEXP R_GfxState_shiftCTMAndClip(SEXP r_tthis, SEXP r_tx, SEXP r_ty)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setFillColorSpace(SEXP r_tthis, SEXP r_colorSpace)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -722,6 +794,7 @@ SEXP R_GfxState_setFillColorSpace(SEXP r_tthis, SEXP r_colorSpace)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setStrokeColorSpace(SEXP r_tthis, SEXP r_colorSpace)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -731,6 +804,7 @@ SEXP R_GfxState_setStrokeColorSpace(SEXP r_tthis, SEXP r_colorSpace)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setFillColor(SEXP r_tthis, SEXP r_color)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -740,6 +814,7 @@ SEXP R_GfxState_setFillColor(SEXP r_tthis, SEXP r_color)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setStrokeColor(SEXP r_tthis, SEXP r_color)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -749,6 +824,7 @@ SEXP R_GfxState_setStrokeColor(SEXP r_tthis, SEXP r_color)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setFillPattern(SEXP r_tthis, SEXP r_pattern)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -758,6 +834,7 @@ SEXP R_GfxState_setFillPattern(SEXP r_tthis, SEXP r_pattern)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setStrokePattern(SEXP r_tthis, SEXP r_pattern)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -767,6 +844,7 @@ SEXP R_GfxState_setStrokePattern(SEXP r_tthis, SEXP r_pattern)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setBlendMode(SEXP r_tthis, SEXP r_mode)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -776,6 +854,7 @@ SEXP R_GfxState_setBlendMode(SEXP r_tthis, SEXP r_mode)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setFillOpacity(SEXP r_tthis, SEXP r_opac)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -785,6 +864,7 @@ SEXP R_GfxState_setFillOpacity(SEXP r_tthis, SEXP r_opac)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setStrokeOpacity(SEXP r_tthis, SEXP r_opac)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -794,6 +874,7 @@ SEXP R_GfxState_setStrokeOpacity(SEXP r_tthis, SEXP r_opac)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setFillOverprint(SEXP r_tthis, SEXP r_op)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -803,6 +884,7 @@ SEXP R_GfxState_setFillOverprint(SEXP r_tthis, SEXP r_op)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setStrokeOverprint(SEXP r_tthis, SEXP r_op)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -812,6 +894,7 @@ SEXP R_GfxState_setStrokeOverprint(SEXP r_tthis, SEXP r_op)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setOverprintMode(SEXP r_tthis, SEXP r_op)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -821,6 +904,7 @@ SEXP R_GfxState_setOverprintMode(SEXP r_tthis, SEXP r_op)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setTransfer(SEXP r_tthis, SEXP r_funcs)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -830,6 +914,7 @@ SEXP R_GfxState_setTransfer(SEXP r_tthis, SEXP r_funcs)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setLineWidth(SEXP r_tthis, SEXP r_width)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -839,6 +924,7 @@ SEXP R_GfxState_setLineWidth(SEXP r_tthis, SEXP r_width)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setLineDash(SEXP r_tthis, SEXP r_dash, SEXP r_length, SEXP r_start)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -852,6 +938,7 @@ SEXP R_GfxState_setLineDash(SEXP r_tthis, SEXP r_dash, SEXP r_length, SEXP r_sta
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setFlatness(SEXP r_tthis, SEXP r_flatness1)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -861,6 +948,7 @@ SEXP R_GfxState_setFlatness(SEXP r_tthis, SEXP r_flatness1)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setLineJoin(SEXP r_tthis, SEXP r_lineJoin1)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -870,6 +958,7 @@ SEXP R_GfxState_setLineJoin(SEXP r_tthis, SEXP r_lineJoin1)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setLineCap(SEXP r_tthis, SEXP r_lineCap1)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -879,6 +968,7 @@ SEXP R_GfxState_setLineCap(SEXP r_tthis, SEXP r_lineCap1)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setMiterLimit(SEXP r_tthis, SEXP r_limit)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -888,6 +978,7 @@ SEXP R_GfxState_setMiterLimit(SEXP r_tthis, SEXP r_limit)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setStrokeAdjust(SEXP r_tthis, SEXP r_sa)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -897,6 +988,7 @@ SEXP R_GfxState_setStrokeAdjust(SEXP r_tthis, SEXP r_sa)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setAlphaIsShape(SEXP r_tthis, SEXP r_ais)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -906,6 +998,7 @@ SEXP R_GfxState_setAlphaIsShape(SEXP r_tthis, SEXP r_ais)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setTextKnockout(SEXP r_tthis, SEXP r_tk)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -915,6 +1008,7 @@ SEXP R_GfxState_setTextKnockout(SEXP r_tthis, SEXP r_tk)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setFont(SEXP r_tthis, SEXP r_fontA, SEXP r_fontSizeA)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -926,6 +1020,7 @@ SEXP R_GfxState_setFont(SEXP r_tthis, SEXP r_fontA, SEXP r_fontSizeA)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setTextMat(SEXP r_tthis, SEXP r_a, SEXP r_b, SEXP r_c, SEXP r_d, SEXP r_e, SEXP r_f)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -945,6 +1040,7 @@ SEXP R_GfxState_setTextMat(SEXP r_tthis, SEXP r_a, SEXP r_b, SEXP r_c, SEXP r_d,
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setCharSpace(SEXP r_tthis, SEXP r_space)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -954,6 +1050,7 @@ SEXP R_GfxState_setCharSpace(SEXP r_tthis, SEXP r_space)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setWordSpace(SEXP r_tthis, SEXP r_space)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -963,6 +1060,7 @@ SEXP R_GfxState_setWordSpace(SEXP r_tthis, SEXP r_space)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setHorizScaling(SEXP r_tthis, SEXP r_scale)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -972,6 +1070,7 @@ SEXP R_GfxState_setHorizScaling(SEXP r_tthis, SEXP r_scale)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setLeading(SEXP r_tthis, SEXP r_leadingA)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -981,6 +1080,7 @@ SEXP R_GfxState_setLeading(SEXP r_tthis, SEXP r_leadingA)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setRise(SEXP r_tthis, SEXP r_riseA)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -990,6 +1090,7 @@ SEXP R_GfxState_setRise(SEXP r_tthis, SEXP r_riseA)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setRender(SEXP r_tthis, SEXP r_renderA)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -999,6 +1100,7 @@ SEXP R_GfxState_setRender(SEXP r_tthis, SEXP r_renderA)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setRenderingIntent(SEXP r_tthis, SEXP r_intent)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1008,6 +1110,7 @@ SEXP R_GfxState_setRenderingIntent(SEXP r_tthis, SEXP r_intent)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_setDisplayProfile(SEXP r_tthis, SEXP r_localDisplayProfileA)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1017,6 +1120,7 @@ SEXP R_GfxState_setDisplayProfile(SEXP r_tthis, SEXP r_localDisplayProfileA)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_getDisplayProfile(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1026,6 +1130,7 @@ SEXP R_GfxState_getDisplayProfile(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getXYZ2DisplayTransform(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1035,6 +1140,7 @@ SEXP R_GfxState_getXYZ2DisplayTransform(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_moveTo(SEXP r_tthis, SEXP r_x, SEXP r_y)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1046,6 +1152,7 @@ SEXP R_GfxState_moveTo(SEXP r_tthis, SEXP r_x, SEXP r_y)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_lineTo(SEXP r_tthis, SEXP r_x, SEXP r_y)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1057,6 +1164,7 @@ SEXP R_GfxState_lineTo(SEXP r_tthis, SEXP r_x, SEXP r_y)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_curveTo(SEXP r_tthis, SEXP r_x1, SEXP r_y1, SEXP r_x2, SEXP r_y2, SEXP r_x3, SEXP r_y3)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1076,6 +1184,7 @@ SEXP R_GfxState_curveTo(SEXP r_tthis, SEXP r_x1, SEXP r_y1, SEXP r_x2, SEXP r_y2
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_closePath(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1083,6 +1192,7 @@ SEXP R_GfxState_closePath(SEXP r_tthis)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_clearPath(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1090,6 +1200,7 @@ SEXP R_GfxState_clearPath(SEXP r_tthis)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_clip(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1097,6 +1208,7 @@ SEXP R_GfxState_clip(SEXP r_tthis)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_clipToStrokePath(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1104,6 +1216,7 @@ SEXP R_GfxState_clipToStrokePath(SEXP r_tthis)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_clipToRect(SEXP r_tthis, SEXP r_xMin, SEXP r_yMin, SEXP r_xMax, SEXP r_yMax)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1119,6 +1232,7 @@ SEXP R_GfxState_clipToRect(SEXP r_tthis, SEXP r_xMin, SEXP r_yMin, SEXP r_xMax, 
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_textSetPos(SEXP r_tthis, SEXP r_tx, SEXP r_ty)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1130,6 +1244,7 @@ SEXP R_GfxState_textSetPos(SEXP r_tthis, SEXP r_tx, SEXP r_ty)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_textMoveTo(SEXP r_tthis, SEXP r_tx, SEXP r_ty)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1141,6 +1256,7 @@ SEXP R_GfxState_textMoveTo(SEXP r_tthis, SEXP r_tx, SEXP r_ty)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_textShift(SEXP r_tthis, SEXP r_tx, SEXP r_ty)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1152,6 +1268,7 @@ SEXP R_GfxState_textShift(SEXP r_tthis, SEXP r_tx, SEXP r_ty)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_shift(SEXP r_tthis, SEXP r_dx, SEXP r_dy)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1163,6 +1280,7 @@ SEXP R_GfxState_shift(SEXP r_tthis, SEXP r_dx, SEXP r_dy)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxState_save(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1172,6 +1290,7 @@ SEXP R_GfxState_save(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_restore(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1181,6 +1300,7 @@ SEXP R_GfxState_restore(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_hasSaves(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1190,6 +1310,7 @@ SEXP R_GfxState_hasSaves(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_isParentState(SEXP r_tthis, SEXP r_state)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1201,6 +1322,7 @@ SEXP R_GfxState_isParentState(SEXP r_tthis, SEXP r_state)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_parseBlendMode(SEXP r_tthis, SEXP r_obj, SEXP r_mode)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
@@ -1214,6 +1336,7 @@ SEXP R_GfxState_parseBlendMode(SEXP r_tthis, SEXP r_obj, SEXP r_mode)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxState_getReusablePath(SEXP r_tthis)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);

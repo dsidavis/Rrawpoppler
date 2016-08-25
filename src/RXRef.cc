@@ -2,6 +2,7 @@
 
 #include "Rpoppler.h"
 
+extern "C"
 SEXP R_XRef_copy(SEXP r_tthis)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -11,6 +12,7 @@ SEXP R_XRef_copy(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_isOk(SEXP r_tthis)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -20,6 +22,7 @@ SEXP R_XRef_isOk(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_isXRefStream(SEXP r_tthis)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -29,6 +32,7 @@ SEXP R_XRef_isXRefStream(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_getErrorCode(SEXP r_tthis)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -38,6 +42,7 @@ SEXP R_XRef_getErrorCode(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_setEncryption(SEXP r_tthis, SEXP r_permFlagsA, SEXP r_ownerPasswordOkA, SEXP r_fileKeyA, SEXP r_keyLengthA, SEXP r_encVersionA, SEXP r_encRevisionA, SEXP r_encAlgorithmA)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -59,6 +64,7 @@ SEXP R_XRef_setEncryption(SEXP r_tthis, SEXP r_permFlagsA, SEXP r_ownerPasswordO
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_XRef_getEncryptionParameters(SEXP r_tthis, SEXP r_fileKeyA, SEXP r_encAlgorithmA, SEXP r_keyLengthA)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -72,6 +78,7 @@ SEXP R_XRef_getEncryptionParameters(SEXP r_tthis, SEXP r_fileKeyA, SEXP r_encAlg
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_XRef_isEncrypted(SEXP r_tthis)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -81,6 +88,7 @@ SEXP R_XRef_isEncrypted(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_okToPrint(SEXP r_tthis, SEXP r_ignoreOwnerPW)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -92,6 +100,7 @@ SEXP R_XRef_okToPrint(SEXP r_tthis, SEXP r_ignoreOwnerPW)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_okToPrintHighRes(SEXP r_tthis, SEXP r_ignoreOwnerPW)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -103,6 +112,7 @@ SEXP R_XRef_okToPrintHighRes(SEXP r_tthis, SEXP r_ignoreOwnerPW)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_okToChange(SEXP r_tthis, SEXP r_ignoreOwnerPW)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -114,6 +124,7 @@ SEXP R_XRef_okToChange(SEXP r_tthis, SEXP r_ignoreOwnerPW)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_okToCopy(SEXP r_tthis, SEXP r_ignoreOwnerPW)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -125,6 +136,7 @@ SEXP R_XRef_okToCopy(SEXP r_tthis, SEXP r_ignoreOwnerPW)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_okToAddNotes(SEXP r_tthis, SEXP r_ignoreOwnerPW)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -136,6 +148,7 @@ SEXP R_XRef_okToAddNotes(SEXP r_tthis, SEXP r_ignoreOwnerPW)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_okToFillForm(SEXP r_tthis, SEXP r_ignoreOwnerPW)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -147,6 +160,7 @@ SEXP R_XRef_okToFillForm(SEXP r_tthis, SEXP r_ignoreOwnerPW)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_okToAccessibility(SEXP r_tthis, SEXP r_ignoreOwnerPW)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -158,6 +172,7 @@ SEXP R_XRef_okToAccessibility(SEXP r_tthis, SEXP r_ignoreOwnerPW)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_okToAssemble(SEXP r_tthis, SEXP r_ignoreOwnerPW)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -169,6 +184,7 @@ SEXP R_XRef_okToAssemble(SEXP r_tthis, SEXP r_ignoreOwnerPW)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_getPermFlags(SEXP r_tthis)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -178,6 +194,7 @@ SEXP R_XRef_getPermFlags(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_getCatalog(SEXP r_tthis, SEXP r_obj)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -189,6 +206,7 @@ SEXP R_XRef_getCatalog(SEXP r_tthis, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_fetch(SEXP r_tthis, SEXP r_num, SEXP r_gen, SEXP r_obj, SEXP r_recursion)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -206,6 +224,7 @@ SEXP R_XRef_fetch(SEXP r_tthis, SEXP r_num, SEXP r_gen, SEXP r_obj, SEXP r_recur
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_getDocInfo(SEXP r_tthis, SEXP r_obj)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -217,6 +236,7 @@ SEXP R_XRef_getDocInfo(SEXP r_tthis, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_getDocInfoNF(SEXP r_tthis, SEXP r_obj)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -228,6 +248,7 @@ SEXP R_XRef_getDocInfoNF(SEXP r_tthis, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_createDocInfoIfNoneExists(SEXP r_tthis, SEXP r_obj)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -239,6 +260,7 @@ SEXP R_XRef_createDocInfoIfNoneExists(SEXP r_tthis, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_removeDocInfo(SEXP r_tthis)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -246,6 +268,7 @@ SEXP R_XRef_removeDocInfo(SEXP r_tthis)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_XRef_getNumObjects(SEXP r_tthis)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -255,6 +278,7 @@ SEXP R_XRef_getNumObjects(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_getRootNum(SEXP r_tthis)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -264,6 +288,7 @@ SEXP R_XRef_getRootNum(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_getRootGen(SEXP r_tthis)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -273,6 +298,7 @@ SEXP R_XRef_getRootGen(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_getStreamEnd(SEXP r_tthis, SEXP r_streamStart, SEXP r_streamEnd)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -286,6 +312,7 @@ SEXP R_XRef_getStreamEnd(SEXP r_tthis, SEXP r_streamStart, SEXP r_streamEnd)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_getNumEntry(SEXP r_tthis, SEXP r_offset)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -297,6 +324,7 @@ SEXP R_XRef_getNumEntry(SEXP r_tthis, SEXP r_offset)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_scanSpecialFlags(SEXP r_tthis)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -304,6 +332,7 @@ SEXP R_XRef_scanSpecialFlags(SEXP r_tthis)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_XRef_getEntry(SEXP r_tthis, SEXP r_i, SEXP r_complainIfMissing)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -317,6 +346,7 @@ SEXP R_XRef_getEntry(SEXP r_tthis, SEXP r_i, SEXP r_complainIfMissing)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_getTrailerDict(SEXP r_tthis)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -326,6 +356,7 @@ SEXP R_XRef_getTrailerDict(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_isModified(SEXP r_tthis)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -335,6 +366,7 @@ SEXP R_XRef_isModified(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_XRef_setModified(SEXP r_tthis)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -342,6 +374,7 @@ SEXP R_XRef_setModified(SEXP r_tthis)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_XRef_setModifiedObject(SEXP r_tthis, SEXP r_o, SEXP r_r)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -353,6 +386,7 @@ SEXP R_XRef_setModifiedObject(SEXP r_tthis, SEXP r_o, SEXP r_r)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_XRef_removeIndirectObject(SEXP r_tthis, SEXP r_r)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -362,6 +396,7 @@ SEXP R_XRef_removeIndirectObject(SEXP r_tthis, SEXP r_r)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_XRef_add(SEXP r_tthis, SEXP r_num, SEXP r_gen, SEXP r_offs, SEXP r_used)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -377,6 +412,7 @@ SEXP R_XRef_add(SEXP r_tthis, SEXP r_num, SEXP r_gen, SEXP r_offs, SEXP r_used)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_XRef_writeTableToFile(SEXP r_tthis, SEXP r_outStr, SEXP r_writeAllEntries)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -388,11 +424,12 @@ SEXP R_XRef_writeTableToFile(SEXP r_tthis, SEXP r_outStr, SEXP r_writeAllEntries
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_XRef_writeStreamToBuffer(SEXP r_tthis, SEXP r_stmBuf, SEXP r_xrefDict, SEXP r_xref)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
     GooString * stmBuf;
-    stmBuf = GET_REF(r_stmBuf, GooString );
+    stmBuf = GooStringFromR(r_stmBuf);
     Dict * xrefDict;
     xrefDict = GET_REF(r_xrefDict, Dict );
     XRef * xref;
@@ -401,6 +438,7 @@ SEXP R_XRef_writeStreamToBuffer(SEXP r_tthis, SEXP r_stmBuf, SEXP r_xrefDict, SE
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_XRef_lock(SEXP r_tthis)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);
@@ -408,6 +446,7 @@ SEXP R_XRef_lock(SEXP r_tthis)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_XRef_unlock(SEXP r_tthis)
 {
     XRef *tthis = GET_REF(r_tthis, XRef);

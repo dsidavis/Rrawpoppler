@@ -2,6 +2,7 @@
 
 #include "Rpoppler.h"
 
+extern "C"
 SEXP R_GfxColorSpace_copy(SEXP r_tthis)
 {
     GfxColorSpace *tthis = GET_REF(r_tthis, GfxColorSpace);
@@ -11,6 +12,7 @@ SEXP R_GfxColorSpace_copy(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_parse(SEXP r_res, SEXP r_csObj, SEXP r_out, SEXP r_state, SEXP r_recursion)
 {
     GfxResources * res;
@@ -29,6 +31,7 @@ SEXP R_GfxColorSpace_parse(SEXP r_res, SEXP r_csObj, SEXP r_out, SEXP r_state, S
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_getGray(SEXP r_tthis, SEXP r_color, SEXP r_gray)
 {
     GfxColorSpace *tthis = GET_REF(r_tthis, GfxColorSpace);
@@ -40,6 +43,7 @@ SEXP R_GfxColorSpace_getGray(SEXP r_tthis, SEXP r_color, SEXP r_gray)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_getRGB(SEXP r_tthis, SEXP r_color, SEXP r_rgb)
 {
     GfxColorSpace *tthis = GET_REF(r_tthis, GfxColorSpace);
@@ -51,6 +55,7 @@ SEXP R_GfxColorSpace_getRGB(SEXP r_tthis, SEXP r_color, SEXP r_rgb)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_getCMYK(SEXP r_tthis, SEXP r_color, SEXP r_cmyk)
 {
     GfxColorSpace *tthis = GET_REF(r_tthis, GfxColorSpace);
@@ -62,6 +67,7 @@ SEXP R_GfxColorSpace_getCMYK(SEXP r_tthis, SEXP r_color, SEXP r_cmyk)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_getDeviceN(SEXP r_tthis, SEXP r_color, SEXP r_deviceN)
 {
     GfxColorSpace *tthis = GET_REF(r_tthis, GfxColorSpace);
@@ -73,6 +79,7 @@ SEXP R_GfxColorSpace_getDeviceN(SEXP r_tthis, SEXP r_color, SEXP r_deviceN)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_createMapping(SEXP r_tthis, SEXP r_separationList, SEXP r_maxSepComps)
 {
     GfxColorSpace *tthis = GET_REF(r_tthis, GfxColorSpace);
@@ -84,6 +91,7 @@ SEXP R_GfxColorSpace_createMapping(SEXP r_tthis, SEXP r_separationList, SEXP r_m
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_useGetRGBLine(SEXP r_tthis)
 {
     GfxColorSpace *tthis = GET_REF(r_tthis, GfxColorSpace);
@@ -93,6 +101,7 @@ SEXP R_GfxColorSpace_useGetRGBLine(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_useGetGrayLine(SEXP r_tthis)
 {
     GfxColorSpace *tthis = GET_REF(r_tthis, GfxColorSpace);
@@ -102,6 +111,7 @@ SEXP R_GfxColorSpace_useGetGrayLine(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_useGetCMYKLine(SEXP r_tthis)
 {
     GfxColorSpace *tthis = GET_REF(r_tthis, GfxColorSpace);
@@ -111,6 +121,7 @@ SEXP R_GfxColorSpace_useGetCMYKLine(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_useGetDeviceNLine(SEXP r_tthis)
 {
     GfxColorSpace *tthis = GET_REF(r_tthis, GfxColorSpace);
@@ -120,6 +131,7 @@ SEXP R_GfxColorSpace_useGetDeviceNLine(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_getNComps(SEXP r_tthis)
 {
     GfxColorSpace *tthis = GET_REF(r_tthis, GfxColorSpace);
@@ -129,6 +141,7 @@ SEXP R_GfxColorSpace_getNComps(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_getDefaultColor(SEXP r_tthis, SEXP r_color)
 {
     GfxColorSpace *tthis = GET_REF(r_tthis, GfxColorSpace);
@@ -138,6 +151,7 @@ SEXP R_GfxColorSpace_getDefaultColor(SEXP r_tthis, SEXP r_color)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_getDefaultRanges(SEXP r_tthis, SEXP r_decodeLow, SEXP r_decodeRange, SEXP r_maxImgPixel)
 {
     GfxColorSpace *tthis = GET_REF(r_tthis, GfxColorSpace);
@@ -151,6 +165,7 @@ SEXP R_GfxColorSpace_getDefaultRanges(SEXP r_tthis, SEXP r_decodeLow, SEXP r_dec
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_isNonMarking(SEXP r_tthis)
 {
     GfxColorSpace *tthis = GET_REF(r_tthis, GfxColorSpace);
@@ -160,6 +175,7 @@ SEXP R_GfxColorSpace_isNonMarking(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_getOverprintMask(SEXP r_tthis)
 {
     GfxColorSpace *tthis = GET_REF(r_tthis, GfxColorSpace);
@@ -169,6 +185,7 @@ SEXP R_GfxColorSpace_getOverprintMask(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_getNumColorSpaceModes()
 {
     int ans;
@@ -177,6 +194,7 @@ SEXP R_GfxColorSpace_getNumColorSpaceModes()
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_getColorSpaceModeName(SEXP r_idx)
 {
     int idx;
@@ -187,6 +205,7 @@ SEXP R_GfxColorSpace_getColorSpaceModeName(SEXP r_idx)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_setupColorProfiles()
 {
     int ans;
@@ -195,6 +214,7 @@ SEXP R_GfxColorSpace_setupColorProfiles()
     return(r_ans);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_setDisplayProfile(SEXP r_displayProfileA)
 {
     void * displayProfileA;
@@ -203,14 +223,16 @@ SEXP R_GfxColorSpace_setDisplayProfile(SEXP r_displayProfileA)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_setDisplayProfileName(SEXP r_name)
 {
     GooString * name;
-    name = GET_REF(r_name, GooString );
+    name = GooStringFromR(r_name);
     GfxColorSpace::setDisplayProfileName(name);
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_GfxColorSpace_getRGBProfile()
 {
     void * ans;

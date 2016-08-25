@@ -2,6 +2,7 @@
 
 #include "Rpoppler.h"
 
+extern "C"
 SEXP R_Page_isOk(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -11,6 +12,7 @@ SEXP R_Page_isOk(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getNum(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -20,6 +22,7 @@ SEXP R_Page_getNum(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getMediaBox(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -29,6 +32,7 @@ SEXP R_Page_getMediaBox(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getCropBox(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -38,6 +42,7 @@ SEXP R_Page_getCropBox(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_isCropped(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -47,6 +52,7 @@ SEXP R_Page_isCropped(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getMediaWidth(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -56,6 +62,7 @@ SEXP R_Page_getMediaWidth(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getMediaHeight(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -65,6 +72,7 @@ SEXP R_Page_getMediaHeight(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getCropWidth(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -74,6 +82,7 @@ SEXP R_Page_getCropWidth(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getCropHeight(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -83,6 +92,7 @@ SEXP R_Page_getCropHeight(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getBleedBox(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -92,6 +102,7 @@ SEXP R_Page_getBleedBox(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getTrimBox(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -101,6 +112,7 @@ SEXP R_Page_getTrimBox(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getArtBox(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -110,6 +122,7 @@ SEXP R_Page_getArtBox(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getRotate(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -119,6 +132,7 @@ SEXP R_Page_getRotate(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getLastModified(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -128,6 +142,7 @@ SEXP R_Page_getLastModified(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getBoxColorInfo(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -137,6 +152,7 @@ SEXP R_Page_getBoxColorInfo(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getGroup(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -146,6 +162,7 @@ SEXP R_Page_getGroup(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getMetadata(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -155,6 +172,7 @@ SEXP R_Page_getMetadata(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getPieceInfo(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -164,6 +182,7 @@ SEXP R_Page_getPieceInfo(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getSeparationInfo(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -173,6 +192,7 @@ SEXP R_Page_getSeparationInfo(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getDoc(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -182,6 +202,7 @@ SEXP R_Page_getDoc(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getResourceDict(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -191,6 +212,7 @@ SEXP R_Page_getResourceDict(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getResourceDictCopy(SEXP r_tthis, SEXP r_xrefA)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -202,6 +224,7 @@ SEXP R_Page_getResourceDictCopy(SEXP r_tthis, SEXP r_xrefA)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getAnnots(SEXP r_tthis, SEXP r_xrefA)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -213,6 +236,7 @@ SEXP R_Page_getAnnots(SEXP r_tthis, SEXP r_xrefA)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_addAnnot(SEXP r_tthis, SEXP r_annot)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -222,6 +246,7 @@ SEXP R_Page_addAnnot(SEXP r_tthis, SEXP r_annot)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Page_removeAnnot(SEXP r_tthis, SEXP r_annot)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -231,6 +256,7 @@ SEXP R_Page_removeAnnot(SEXP r_tthis, SEXP r_annot)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Page_getLinks(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -240,6 +266,7 @@ SEXP R_Page_getLinks(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getContents(SEXP r_tthis, SEXP r_obj)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -251,6 +278,7 @@ SEXP R_Page_getContents(SEXP r_tthis, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getThumb(SEXP r_tthis, SEXP r_obj)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -262,6 +290,7 @@ SEXP R_Page_getThumb(SEXP r_tthis, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_loadThumb(SEXP r_tthis, SEXP r_data, SEXP r_width, SEXP r_height, SEXP r_rowstride)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -279,6 +308,7 @@ SEXP R_Page_loadThumb(SEXP r_tthis, SEXP r_data, SEXP r_width, SEXP r_height, SE
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getTrans(SEXP r_tthis, SEXP r_obj)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -290,6 +320,7 @@ SEXP R_Page_getTrans(SEXP r_tthis, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getFormWidgets(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -299,6 +330,7 @@ SEXP R_Page_getFormWidgets(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getDuration(SEXP r_tthis)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -308,6 +340,7 @@ SEXP R_Page_getDuration(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getActions(SEXP r_tthis, SEXP r_obj)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -319,6 +352,7 @@ SEXP R_Page_getActions(SEXP r_tthis, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_getAdditionalAction(SEXP r_tthis, SEXP r_type)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -330,6 +364,7 @@ SEXP R_Page_getAdditionalAction(SEXP r_tthis, SEXP r_type)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Page_display(SEXP r_tthis, SEXP r_gfx)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -339,6 +374,7 @@ SEXP R_Page_display(SEXP r_tthis, SEXP r_gfx)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Page_makeBox(SEXP r_tthis, SEXP r_hDPI, SEXP r_vDPI, SEXP r_rotate, SEXP r_useMediaBox, SEXP r_upsideDown, SEXP r_sliceX, SEXP r_sliceY, SEXP r_sliceW, SEXP r_sliceH, SEXP r_box, SEXP r_crop)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -368,6 +404,7 @@ SEXP R_Page_makeBox(SEXP r_tthis, SEXP r_hDPI, SEXP r_vDPI, SEXP r_rotate, SEXP 
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Page_processLinks(SEXP r_tthis, SEXP r_out)
 {
     Page *tthis = GET_REF(r_tthis, Page);
@@ -377,6 +414,7 @@ SEXP R_Page_processLinks(SEXP r_tthis, SEXP r_out)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Page_getDefaultCTM(SEXP r_tthis, SEXP r_ctm, SEXP r_hDPI, SEXP r_vDPI, SEXP r_rotate, SEXP r_useMediaBox, SEXP r_upsideDown)
 {
     Page *tthis = GET_REF(r_tthis, Page);

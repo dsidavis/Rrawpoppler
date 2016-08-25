@@ -2,6 +2,7 @@
 
 #include "Rpoppler.h"
 
+extern "C"
 SEXP R_Dict_copy(SEXP r_tthis, SEXP r_xrefA)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);
@@ -13,6 +14,7 @@ SEXP R_Dict_copy(SEXP r_tthis, SEXP r_xrefA)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Dict_incRef(SEXP r_tthis)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);
@@ -22,6 +24,7 @@ SEXP R_Dict_incRef(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Dict_decRef(SEXP r_tthis)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);
@@ -31,6 +34,7 @@ SEXP R_Dict_decRef(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Dict_getLength(SEXP r_tthis)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);
@@ -40,6 +44,7 @@ SEXP R_Dict_getLength(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Dict_add(SEXP r_tthis, SEXP r_key, SEXP r_val)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);
@@ -51,6 +56,7 @@ SEXP R_Dict_add(SEXP r_tthis, SEXP r_key, SEXP r_val)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Dict_set(SEXP r_tthis, SEXP r_key, SEXP r_val)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);
@@ -62,6 +68,7 @@ SEXP R_Dict_set(SEXP r_tthis, SEXP r_key, SEXP r_val)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Dict_remove(SEXP r_tthis, SEXP r_key)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);
@@ -71,6 +78,7 @@ SEXP R_Dict_remove(SEXP r_tthis, SEXP r_key)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Dict_is(SEXP r_tthis, SEXP r_type)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);
@@ -82,6 +90,7 @@ SEXP R_Dict_is(SEXP r_tthis, SEXP r_type)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Dict_lookup(SEXP r_tthis, SEXP r_key, SEXP r_obj, SEXP r_recursion)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);
@@ -97,6 +106,7 @@ SEXP R_Dict_lookup(SEXP r_tthis, SEXP r_key, SEXP r_obj, SEXP r_recursion)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Dict_lookupNF(SEXP r_tthis, SEXP r_key, SEXP r_obj)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);
@@ -110,6 +120,7 @@ SEXP R_Dict_lookupNF(SEXP r_tthis, SEXP r_key, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Dict_lookupInt(SEXP r_tthis, SEXP r_key, SEXP r_alt_key, SEXP r_value)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);
@@ -125,6 +136,7 @@ SEXP R_Dict_lookupInt(SEXP r_tthis, SEXP r_key, SEXP r_alt_key, SEXP r_value)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Dict_getKey(SEXP r_tthis, SEXP r_i)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);
@@ -136,6 +148,7 @@ SEXP R_Dict_getKey(SEXP r_tthis, SEXP r_i)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Dict_getVal(SEXP r_tthis, SEXP r_i, SEXP r_obj)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);
@@ -149,6 +162,7 @@ SEXP R_Dict_getVal(SEXP r_tthis, SEXP r_i, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Dict_getValNF(SEXP r_tthis, SEXP r_i, SEXP r_obj)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);
@@ -162,6 +176,7 @@ SEXP R_Dict_getValNF(SEXP r_tthis, SEXP r_i, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Dict_setXRef(SEXP r_tthis, SEXP r_xrefA)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);
@@ -171,6 +186,7 @@ SEXP R_Dict_setXRef(SEXP r_tthis, SEXP r_xrefA)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_Dict_getXRef(SEXP r_tthis)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);
@@ -180,6 +196,7 @@ SEXP R_Dict_getXRef(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Dict_hasKey(SEXP r_tthis, SEXP r_key)
 {
     Dict *tthis = GET_REF(r_tthis, Dict);

@@ -12,3 +12,4 @@ SEXP createRef(void *ptr, const char * const classname, R_CFinalizer_t fin);
 void R_freeAPI(SEXP obj);
 
 SEXP GooStringToR(GooString *ans);
+GooString * GooStringFromR(SEXP rstr);

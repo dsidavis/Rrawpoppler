@@ -25,6 +25,7 @@ R_PDFDoc_constructor(SEXP r_file, SEXP r_password)
 }
 
 
+#if 0
 extern "C"
 SEXP
 R_PDFDoc_getNumPages(SEXP r_pdf)
@@ -44,6 +45,7 @@ R_PDFDoc_readMetadata(SEXP r_pdf)
       ans = pdf->readMetadata();
       return(GooStringToR(ans));
 }
+#endif
 
 
 
@@ -54,6 +56,24 @@ GooStringToR(GooString *ans)
         return(ScalarString(NA_STRING));
     char *str = ans->getCString();
     return(ScalarString(str ? mkChar(str) : NA_STRING));
+}
+
+
+GooString *
+GooStringFromR(SEXP rstr)
+{
+    GooString *ans = NULL;
+    if(TYPEOF(rstr) == STRSXP) {
+        ans = new GooString(CHAR(STRING_ELT(rstr, 0)));
+    } else
+        ans = GET_REF(rstr, GooString);
+
+    if(!ans) {
+        PROBLEM  "C-level NULL value for a GooString"
+            ERROR;
+    }
+
+    return(ans);
 }
 
 

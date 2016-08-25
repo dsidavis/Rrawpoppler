@@ -2,6 +2,7 @@
 
 #include "Rpoppler.h"
 
+extern "C"
 SEXP R_Catalog_isOk(SEXP r_tthis)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -11,6 +12,7 @@ SEXP R_Catalog_isOk(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_getNumPages(SEXP r_tthis)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -20,6 +22,7 @@ SEXP R_Catalog_getNumPages(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_getPage(SEXP r_tthis, SEXP r_i)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -31,6 +34,7 @@ SEXP R_Catalog_getPage(SEXP r_tthis, SEXP r_i)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_getPageRef(SEXP r_tthis, SEXP r_i)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -42,6 +46,7 @@ SEXP R_Catalog_getPageRef(SEXP r_tthis, SEXP r_i)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_getBaseURI(SEXP r_tthis)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -51,6 +56,7 @@ SEXP R_Catalog_getBaseURI(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_readMetadata(SEXP r_tthis)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -60,6 +66,7 @@ SEXP R_Catalog_readMetadata(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_getStructTreeRoot(SEXP r_tthis)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -69,6 +76,7 @@ SEXP R_Catalog_getStructTreeRoot(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_getMarkInfo(SEXP r_tthis)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -78,6 +86,7 @@ SEXP R_Catalog_getMarkInfo(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_findPage(SEXP r_tthis, SEXP r_num, SEXP r_gen)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -91,17 +100,19 @@ SEXP R_Catalog_findPage(SEXP r_tthis, SEXP r_num, SEXP r_gen)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_findDest(SEXP r_tthis, SEXP r_name)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
     GooString * name;
-    name = GET_REF(r_name, GooString );
+    name = GooStringFromR(r_name);
     LinkDest * ans;
     ans = tthis->findDest(name);
     SEXP r_ans = R_createRef(ans, "LinkDestPtr");
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_getDests(SEXP r_tthis)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -111,6 +122,7 @@ SEXP R_Catalog_getDests(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_numEmbeddedFiles(SEXP r_tthis)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -120,6 +132,7 @@ SEXP R_Catalog_numEmbeddedFiles(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_embeddedFile(SEXP r_tthis, SEXP r_i)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -131,6 +144,7 @@ SEXP R_Catalog_embeddedFile(SEXP r_tthis, SEXP r_i)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_numJS(SEXP r_tthis)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -140,6 +154,7 @@ SEXP R_Catalog_numJS(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_getJSName(SEXP r_tthis, SEXP r_i)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -151,6 +166,7 @@ SEXP R_Catalog_getJSName(SEXP r_tthis, SEXP r_i)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_getJS(SEXP r_tthis, SEXP r_i)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -162,11 +178,12 @@ SEXP R_Catalog_getJS(SEXP r_tthis, SEXP r_i)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_labelToIndex(SEXP r_tthis, SEXP r_label, SEXP r_index)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
     GooString * label;
-    label = GET_REF(r_label, GooString );
+    label = GooStringFromR(r_label);
     int * index;
     index = INTEGER(r_index);
     GBool ans;
@@ -175,19 +192,21 @@ SEXP R_Catalog_labelToIndex(SEXP r_tthis, SEXP r_label, SEXP r_index)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_indexToLabel(SEXP r_tthis, SEXP r_index, SEXP r_label)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
     int index;
     index = INTEGER(r_index)[0];
     GooString * label;
-    label = GET_REF(r_label, GooString );
+    label = GooStringFromR(r_label);
     GBool ans;
     ans = tthis->indexToLabel(index, label);
     SEXP r_ans = Rf_ScalarLogical(ans);
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_getOutline(SEXP r_tthis)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -197,6 +216,7 @@ SEXP R_Catalog_getOutline(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_getAcroForm(SEXP r_tthis)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -206,6 +226,7 @@ SEXP R_Catalog_getAcroForm(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_getOptContentConfig(SEXP r_tthis)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -215,6 +236,7 @@ SEXP R_Catalog_getOptContentConfig(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_getForm(SEXP r_tthis)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -224,6 +246,7 @@ SEXP R_Catalog_getForm(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_getViewerPreferences(SEXP r_tthis)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);
@@ -233,6 +256,7 @@ SEXP R_Catalog_getViewerPreferences(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_Catalog_getAdditionalAction(SEXP r_tthis, SEXP r_type)
 {
     Catalog *tthis = GET_REF(r_tthis, Catalog);

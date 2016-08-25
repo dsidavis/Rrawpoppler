@@ -2,18 +2,20 @@
 
 #include "Rpoppler.h"
 
+extern "C"
 SEXP R_PDFDoc_ErrorPDFDoc(SEXP r_errorCode, SEXP r_fileNameA)
 {
     int errorCode;
     errorCode = INTEGER(r_errorCode)[0];
     GooString * fileNameA;
-    fileNameA = GET_REF(r_fileNameA, GooString );
+    fileNameA = GooStringFromR(r_fileNameA);
     PDFDoc * ans;
     ans = PDFDoc::ErrorPDFDoc(errorCode, fileNameA);
     SEXP r_ans = R_createRef(ans, "PDFDocPtr");
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_isOk(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -23,6 +25,7 @@ SEXP R_PDFDoc_isOk(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getErrorCode(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -32,6 +35,7 @@ SEXP R_PDFDoc_getErrorCode(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getFopenErrno(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -41,6 +45,7 @@ SEXP R_PDFDoc_getFopenErrno(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getFileName(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -50,6 +55,7 @@ SEXP R_PDFDoc_getFileName(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getLinearization(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -59,6 +65,7 @@ SEXP R_PDFDoc_getLinearization(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_checkLinearization(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -68,6 +75,7 @@ SEXP R_PDFDoc_checkLinearization(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getXRef(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -77,6 +85,7 @@ SEXP R_PDFDoc_getXRef(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getCatalog(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -86,6 +95,7 @@ SEXP R_PDFDoc_getCatalog(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getOptContentConfig(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -95,6 +105,7 @@ SEXP R_PDFDoc_getOptContentConfig(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getBaseStream(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -104,6 +115,7 @@ SEXP R_PDFDoc_getBaseStream(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getPageMediaWidth(SEXP r_tthis, SEXP r_page)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -115,6 +127,7 @@ SEXP R_PDFDoc_getPageMediaWidth(SEXP r_tthis, SEXP r_page)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getPageMediaHeight(SEXP r_tthis, SEXP r_page)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -126,6 +139,7 @@ SEXP R_PDFDoc_getPageMediaHeight(SEXP r_tthis, SEXP r_page)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getPageCropWidth(SEXP r_tthis, SEXP r_page)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -137,6 +151,7 @@ SEXP R_PDFDoc_getPageCropWidth(SEXP r_tthis, SEXP r_page)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getPageCropHeight(SEXP r_tthis, SEXP r_page)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -148,6 +163,7 @@ SEXP R_PDFDoc_getPageCropHeight(SEXP r_tthis, SEXP r_page)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getPageRotate(SEXP r_tthis, SEXP r_page)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -159,6 +175,7 @@ SEXP R_PDFDoc_getPageRotate(SEXP r_tthis, SEXP r_page)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getNumPages(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -168,6 +185,7 @@ SEXP R_PDFDoc_getNumPages(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_readMetadata(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -177,6 +195,7 @@ SEXP R_PDFDoc_readMetadata(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getStructTreeRoot(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -186,6 +205,7 @@ SEXP R_PDFDoc_getStructTreeRoot(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getPage(SEXP r_tthis, SEXP r_page)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -197,6 +217,7 @@ SEXP R_PDFDoc_getPage(SEXP r_tthis, SEXP r_page)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_findPage(SEXP r_tthis, SEXP r_num, SEXP r_gen)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -210,6 +231,7 @@ SEXP R_PDFDoc_findPage(SEXP r_tthis, SEXP r_num, SEXP r_gen)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getLinks(SEXP r_tthis, SEXP r_page)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -221,17 +243,19 @@ SEXP R_PDFDoc_getLinks(SEXP r_tthis, SEXP r_page)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_findDest(SEXP r_tthis, SEXP r_name)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     GooString * name;
-    name = GET_REF(r_name, GooString );
+    name = GooStringFromR(r_name);
     LinkDest * ans;
     ans = tthis->findDest(name);
     SEXP r_ans = R_createRef(ans, "LinkDestPtr");
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_processLinks(SEXP r_tthis, SEXP r_out, SEXP r_page)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -243,6 +267,7 @@ SEXP R_PDFDoc_processLinks(SEXP r_tthis, SEXP r_out, SEXP r_page)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_PDFDoc_getOutline(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -252,6 +277,7 @@ SEXP R_PDFDoc_getOutline(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_isEncrypted(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -261,6 +287,7 @@ SEXP R_PDFDoc_isEncrypted(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_okToPrint(SEXP r_tthis, SEXP r_ignoreOwnerPW)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -272,6 +299,7 @@ SEXP R_PDFDoc_okToPrint(SEXP r_tthis, SEXP r_ignoreOwnerPW)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_okToPrintHighRes(SEXP r_tthis, SEXP r_ignoreOwnerPW)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -283,6 +311,7 @@ SEXP R_PDFDoc_okToPrintHighRes(SEXP r_tthis, SEXP r_ignoreOwnerPW)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_okToChange(SEXP r_tthis, SEXP r_ignoreOwnerPW)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -294,6 +323,7 @@ SEXP R_PDFDoc_okToChange(SEXP r_tthis, SEXP r_ignoreOwnerPW)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_okToCopy(SEXP r_tthis, SEXP r_ignoreOwnerPW)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -305,6 +335,7 @@ SEXP R_PDFDoc_okToCopy(SEXP r_tthis, SEXP r_ignoreOwnerPW)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_okToAddNotes(SEXP r_tthis, SEXP r_ignoreOwnerPW)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -316,6 +347,7 @@ SEXP R_PDFDoc_okToAddNotes(SEXP r_tthis, SEXP r_ignoreOwnerPW)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_okToFillForm(SEXP r_tthis, SEXP r_ignoreOwnerPW)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -327,6 +359,7 @@ SEXP R_PDFDoc_okToFillForm(SEXP r_tthis, SEXP r_ignoreOwnerPW)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_okToAccessibility(SEXP r_tthis, SEXP r_ignoreOwnerPW)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -338,6 +371,7 @@ SEXP R_PDFDoc_okToAccessibility(SEXP r_tthis, SEXP r_ignoreOwnerPW)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_okToAssemble(SEXP r_tthis, SEXP r_ignoreOwnerPW)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -349,6 +383,7 @@ SEXP R_PDFDoc_okToAssemble(SEXP r_tthis, SEXP r_ignoreOwnerPW)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_isLinearized(SEXP r_tthis, SEXP r_tryingToReconstruct)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -360,6 +395,7 @@ SEXP R_PDFDoc_isLinearized(SEXP r_tthis, SEXP r_tryingToReconstruct)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getDocInfo(SEXP r_tthis, SEXP r_obj)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -371,6 +407,7 @@ SEXP R_PDFDoc_getDocInfo(SEXP r_tthis, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getDocInfoNF(SEXP r_tthis, SEXP r_obj)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -382,6 +419,7 @@ SEXP R_PDFDoc_getDocInfoNF(SEXP r_tthis, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_createDocInfoIfNoneExists(SEXP r_tthis, SEXP r_obj)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -393,6 +431,7 @@ SEXP R_PDFDoc_createDocInfoIfNoneExists(SEXP r_tthis, SEXP r_obj)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_removeDocInfo(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -400,89 +439,99 @@ SEXP R_PDFDoc_removeDocInfo(SEXP r_tthis)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_PDFDoc_setDocInfoStringEntry(SEXP r_tthis, SEXP r_key, SEXP r_value)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     const char * key;
     key = CHAR(STRING_ELT(r_key, 0));
     GooString * value;
-    value = GET_REF(r_value, GooString );
+    value = GooStringFromR(r_value);
     tthis->setDocInfoStringEntry(key, value);
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_PDFDoc_setDocInfoTitle(SEXP r_tthis, SEXP r_title)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     GooString * title;
-    title = GET_REF(r_title, GooString );
+    title = GooStringFromR(r_title);
     tthis->setDocInfoTitle(title);
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_PDFDoc_setDocInfoAuthor(SEXP r_tthis, SEXP r_author)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     GooString * author;
-    author = GET_REF(r_author, GooString );
+    author = GooStringFromR(r_author);
     tthis->setDocInfoAuthor(author);
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_PDFDoc_setDocInfoSubject(SEXP r_tthis, SEXP r_subject)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     GooString * subject;
-    subject = GET_REF(r_subject, GooString );
+    subject = GooStringFromR(r_subject);
     tthis->setDocInfoSubject(subject);
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_PDFDoc_setDocInfoKeywords(SEXP r_tthis, SEXP r_keywords)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     GooString * keywords;
-    keywords = GET_REF(r_keywords, GooString );
+    keywords = GooStringFromR(r_keywords);
     tthis->setDocInfoKeywords(keywords);
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_PDFDoc_setDocInfoCreator(SEXP r_tthis, SEXP r_creator)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     GooString * creator;
-    creator = GET_REF(r_creator, GooString );
+    creator = GooStringFromR(r_creator);
     tthis->setDocInfoCreator(creator);
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_PDFDoc_setDocInfoProducer(SEXP r_tthis, SEXP r_producer)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     GooString * producer;
-    producer = GET_REF(r_producer, GooString );
+    producer = GooStringFromR(r_producer);
     tthis->setDocInfoProducer(producer);
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_PDFDoc_setDocInfoCreatDate(SEXP r_tthis, SEXP r_creatDate)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     GooString * creatDate;
-    creatDate = GET_REF(r_creatDate, GooString );
+    creatDate = GooStringFromR(r_creatDate);
     tthis->setDocInfoCreatDate(creatDate);
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_PDFDoc_setDocInfoModDate(SEXP r_tthis, SEXP r_modDate)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     GooString * modDate;
-    modDate = GET_REF(r_modDate, GooString );
+    modDate = GooStringFromR(r_modDate);
     tthis->setDocInfoModDate(modDate);
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_PDFDoc_getDocInfoStringEntry(SEXP r_tthis, SEXP r_key)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -494,6 +543,7 @@ SEXP R_PDFDoc_getDocInfoStringEntry(SEXP r_tthis, SEXP r_key)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getDocInfoTitle(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -503,6 +553,7 @@ SEXP R_PDFDoc_getDocInfoTitle(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getDocInfoAuthor(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -512,6 +563,7 @@ SEXP R_PDFDoc_getDocInfoAuthor(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getDocInfoSubject(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -521,6 +573,7 @@ SEXP R_PDFDoc_getDocInfoSubject(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getDocInfoKeywords(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -530,6 +583,7 @@ SEXP R_PDFDoc_getDocInfoKeywords(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getDocInfoCreator(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -539,6 +593,7 @@ SEXP R_PDFDoc_getDocInfoCreator(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getDocInfoProducer(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -548,6 +603,7 @@ SEXP R_PDFDoc_getDocInfoProducer(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getDocInfoCreatDate(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -557,6 +613,7 @@ SEXP R_PDFDoc_getDocInfoCreatDate(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getDocInfoModDate(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -566,6 +623,7 @@ SEXP R_PDFDoc_getDocInfoModDate(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getPDFMajorVersion(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -575,6 +633,7 @@ SEXP R_PDFDoc_getPDFMajorVersion(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getPDFMinorVersion(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -584,24 +643,26 @@ SEXP R_PDFDoc_getPDFMinorVersion(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getID(SEXP r_tthis, SEXP r_permanent_id, SEXP r_update_id)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     GooString * permanent_id;
-    permanent_id = GET_REF(r_permanent_id, GooString );
+    permanent_id = GooStringFromR(r_permanent_id);
     GooString * update_id;
-    update_id = GET_REF(r_update_id, GooString );
+    update_id = GooStringFromR(r_update_id);
     GBool ans;
     ans = tthis->getID(permanent_id, update_id);
     SEXP r_ans = Rf_ScalarLogical(ans);
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_savePageAs(SEXP r_tthis, SEXP r_name, SEXP r_pageNo)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     GooString * name;
-    name = GET_REF(r_name, GooString );
+    name = GooStringFromR(r_name);
     int pageNo;
     pageNo = INTEGER(r_pageNo)[0];
     int ans;
@@ -610,6 +671,7 @@ SEXP R_PDFDoc_savePageAs(SEXP r_tthis, SEXP r_name, SEXP r_pageNo)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_saveAs(SEXP r_tthis, SEXP r_outStr, SEXP r_mode)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -623,6 +685,7 @@ SEXP R_PDFDoc_saveAs(SEXP r_tthis, SEXP r_outStr, SEXP r_mode)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_saveWithoutChangesAs(SEXP r_tthis, SEXP r_outStr)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -634,6 +697,7 @@ SEXP R_PDFDoc_saveWithoutChangesAs(SEXP r_tthis, SEXP r_outStr)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_getGUIData(SEXP r_tthis)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -643,6 +707,7 @@ SEXP R_PDFDoc_getGUIData(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_replacePageDict(SEXP r_tthis, SEXP r_pageNo, SEXP r_rotate, SEXP r_mediaBox, SEXP r_cropBox)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -658,6 +723,7 @@ SEXP R_PDFDoc_replacePageDict(SEXP r_tthis, SEXP r_pageNo, SEXP r_rotate, SEXP r
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_PDFDoc_markPageObjects(SEXP r_tthis, SEXP r_pageDict, SEXP r_xRef, SEXP r_countRef, SEXP r_numOffset, SEXP r_oldRefNum, SEXP r_newRefNum)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -677,6 +743,7 @@ SEXP R_PDFDoc_markPageObjects(SEXP r_tthis, SEXP r_pageDict, SEXP r_xRef, SEXP r
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_PDFDoc_markAnnotations(SEXP r_tthis, SEXP r_annots, SEXP r_xRef, SEXP r_countRef, SEXP r_numOffset, SEXP r_oldPageNum, SEXP r_newPageNum)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -698,6 +765,7 @@ SEXP R_PDFDoc_markAnnotations(SEXP r_tthis, SEXP r_annots, SEXP r_xRef, SEXP r_c
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_markAcroForm(SEXP r_tthis, SEXP r_acrpForm, SEXP r_xRef, SEXP r_countRef, SEXP r_numOffset, SEXP r_oldPageNum, SEXP r_newPageNum)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -717,6 +785,7 @@ SEXP R_PDFDoc_markAcroForm(SEXP r_tthis, SEXP r_acrpForm, SEXP r_xRef, SEXP r_co
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_PDFDoc_writePageObjects(SEXP r_tthis, SEXP r_outStr, SEXP r_xRef, SEXP r_numOffset, SEXP r_combine)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
@@ -734,6 +803,7 @@ SEXP R_PDFDoc_writePageObjects(SEXP r_tthis, SEXP r_outStr, SEXP r_xRef, SEXP r_
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_writeHeader(SEXP r_outStr, SEXP r_major, SEXP r_minor)
 {
     OutStream * outStr;
@@ -746,6 +816,7 @@ SEXP R_PDFDoc_writeHeader(SEXP r_outStr, SEXP r_major, SEXP r_minor)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_PDFDoc_createTrailerDict(SEXP r_uxrefSize, SEXP r_incrUpdate, SEXP r_startxRef, SEXP r_root, SEXP r_xRef, SEXP r_fileName, SEXP r_fileSize)
 {
     int uxrefSize;
@@ -768,6 +839,7 @@ SEXP R_PDFDoc_createTrailerDict(SEXP r_uxrefSize, SEXP r_incrUpdate, SEXP r_star
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PDFDoc_writeXRefStreamTrailer(SEXP r_trailerDict, SEXP r_uxref, SEXP r_uxrefStreamRef, SEXP r_uxrefOffset, SEXP r_outStr, SEXP r_xRef)
 {
     Dict * trailerDict;

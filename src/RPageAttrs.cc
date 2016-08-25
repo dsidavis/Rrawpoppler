@@ -2,6 +2,7 @@
 
 #include "Rpoppler.h"
 
+extern "C"
 SEXP R_PageAttrs_getMediaBox(SEXP r_tthis)
 {
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
@@ -11,6 +12,7 @@ SEXP R_PageAttrs_getMediaBox(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PageAttrs_getCropBox(SEXP r_tthis)
 {
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
@@ -20,6 +22,7 @@ SEXP R_PageAttrs_getCropBox(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PageAttrs_isCropped(SEXP r_tthis)
 {
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
@@ -29,6 +32,7 @@ SEXP R_PageAttrs_isCropped(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PageAttrs_getBleedBox(SEXP r_tthis)
 {
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
@@ -38,6 +42,7 @@ SEXP R_PageAttrs_getBleedBox(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PageAttrs_getTrimBox(SEXP r_tthis)
 {
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
@@ -47,6 +52,7 @@ SEXP R_PageAttrs_getTrimBox(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PageAttrs_getArtBox(SEXP r_tthis)
 {
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
@@ -56,6 +62,7 @@ SEXP R_PageAttrs_getArtBox(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PageAttrs_getRotate(SEXP r_tthis)
 {
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
@@ -65,6 +72,7 @@ SEXP R_PageAttrs_getRotate(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PageAttrs_getLastModified(SEXP r_tthis)
 {
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
@@ -74,6 +82,7 @@ SEXP R_PageAttrs_getLastModified(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PageAttrs_getBoxColorInfo(SEXP r_tthis)
 {
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
@@ -83,6 +92,7 @@ SEXP R_PageAttrs_getBoxColorInfo(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PageAttrs_getGroup(SEXP r_tthis)
 {
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
@@ -92,6 +102,7 @@ SEXP R_PageAttrs_getGroup(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PageAttrs_getMetadata(SEXP r_tthis)
 {
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
@@ -101,6 +112,7 @@ SEXP R_PageAttrs_getMetadata(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PageAttrs_getPieceInfo(SEXP r_tthis)
 {
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
@@ -110,6 +122,7 @@ SEXP R_PageAttrs_getPieceInfo(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PageAttrs_getSeparationInfo(SEXP r_tthis)
 {
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
@@ -119,6 +132,7 @@ SEXP R_PageAttrs_getSeparationInfo(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PageAttrs_getResourceDict(SEXP r_tthis)
 {
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
@@ -128,6 +142,7 @@ SEXP R_PageAttrs_getResourceDict(SEXP r_tthis)
     return(r_ans);
 }
 
+extern "C"
 SEXP R_PageAttrs_replaceResource(SEXP r_tthis, SEXP r_obj1)
 {
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
@@ -137,6 +152,7 @@ SEXP R_PageAttrs_replaceResource(SEXP r_tthis, SEXP r_obj1)
     return(R_NilValue);
 }
 
+extern "C"
 SEXP R_PageAttrs_clipBoxes(SEXP r_tthis)
 {
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
