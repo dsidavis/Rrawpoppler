@@ -1,0 +1,28 @@
+
+We can find the default value of a parameter with defaultParamValue.
+This gives us back the literal text for the parameter's default.
+For poppler, the full set based the 12 classes we processed is
+
+df = lapply(k, function(x) lapply(x@methods, function(m) lapply(m@params, defaultParamValue)))
+table(unlist(df))
+
+              0               1            4096 CALC_STRING_LEN           false       formUndef          gFalse           gTrue            NULL          stdout 
+             19               1               2               3               2               1              27              12              22               1 
+  writeStandard 
+              1 
+
+
+We can handle the literal values 0, 1, 4096, false, NULL.
+The gFalse and gTrue are from glib and we can add these to the customization layer, e.g., the typeMap.
+
+We could recognize stdout. However, for R this is problematic and not something we are supposed to use. (Instead, we write to the console.)
+
+CALC_STRING_LEN, formUndef and writeStandard are specific to poppler.
+
+CALC_STRING_LEN is defined in GooString.h as -1
+writeStandard is an enum value in PDFDoc.h
+formUndef is an enum in Form.h
+
+If speed is not a concern, we can process the header files for enums and global/non-local variables
+and find these three.
+Alternatively, we can chose to ignore them and require an argument.
