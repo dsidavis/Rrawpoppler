@@ -8,9 +8,8 @@ function(file, password = NA)
   .Call("R_PDFDoc_constructor", file, as.character(password))
 }
 
-getNumPages =
-function(doc)
-{
-    .Call("R_PDFDoc_getNumPages", as(doc, "PDFDoc"))
-}
+#getNumPages =
+#function(doc)
+#    .Call("R_PDFDoc_getNumPages", as(doc, "PDFDoc"))
+
 
