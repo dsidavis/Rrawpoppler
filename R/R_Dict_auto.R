@@ -49,7 +49,7 @@ function( this, type )
 }
 
 lookup <-
-function( this, key, obj, recursion )
+function( this, key, obj, recursion = 0 )
 {
     .Call('R_Dict_lookup', as(this, 'Dict'), as(key, 'character'), as(obj, 'ObjectPtr'), as(recursion, 'integer'))
 }

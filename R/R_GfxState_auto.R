@@ -1,5 +1,5 @@
 setMethod( 'copy' , c( 'GfxState' ),       
-function( this, copyPath )
+function( this, copyPath = FALSE )
 {
     .Call('R_GfxState_copy', as(this, 'GfxState'), as(copyPath, 'GBool'))
 } )

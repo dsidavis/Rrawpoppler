@@ -6,7 +6,7 @@ function( this )
 
 
 parse <-
-function( res, csObj, out, state, recursion )
+function( res, csObj, out, state, recursion = 0 )
 {
     .Call('R_GfxColorSpace_parse', as(res, 'GfxResourcesPtr'), as(csObj, 'ObjectPtr'), as(out, 'OutputDevPtr'), as(state, 'GfxStatePtr'), as(recursion, 'integer'))
 }

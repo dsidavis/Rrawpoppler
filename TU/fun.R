@@ -95,7 +95,7 @@ cpp.state = genClassCode(k$GfxState, typemap)
 cppCodeToFile(cpp.state, "../src/RGfxState.cc")
 }
 
-ids = c("PDFDoc", "Object", "GfxState", "Catalog", "Dict", "GfxColorSpace", "GfxPath", "GfxSubpath", "Page", "PDFRectangle", "XRef") # "PageAttrs",
+ids = c("PDFDoc", "Object", "GfxState", "Catalog", "Dict", "GfxColorSpace", "GfxPath", "GfxSubpath", "Page", "PDFRectangle", "XRef", "PageAttrs")
 code = lapply(ids, function(x) genClassCode(k[[x]], typemap, c("displayPage", "displayPages", "displayPageSlice", "displaySlice", "getSignatureWidgets", "createGfx"), "get(RGB|RGBX|CMYK|DeviceN|Gray)Line"))
 invisible(mapply(cppCodeToFile, code, sprintf("../src/R%s.cc", ids)))
 

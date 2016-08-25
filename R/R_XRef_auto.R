@@ -45,56 +45,56 @@ function( this )
 
 
 setMethod( 'okToPrint' , c( 'XRef' ),       
-function( this, ignoreOwnerPW )
+function( this, ignoreOwnerPW = FALSE )
 {
     .Call('R_XRef_okToPrint', as(this, 'XRef'), as(ignoreOwnerPW, 'GBool'))
 } )
 
 
 setMethod( 'okToPrintHighRes' , c( 'XRef' ),       
-function( this, ignoreOwnerPW )
+function( this, ignoreOwnerPW = FALSE )
 {
     .Call('R_XRef_okToPrintHighRes', as(this, 'XRef'), as(ignoreOwnerPW, 'GBool'))
 } )
 
 
 setMethod( 'okToChange' , c( 'XRef' ),       
-function( this, ignoreOwnerPW )
+function( this, ignoreOwnerPW = FALSE )
 {
     .Call('R_XRef_okToChange', as(this, 'XRef'), as(ignoreOwnerPW, 'GBool'))
 } )
 
 
 setMethod( 'okToCopy' , c( 'XRef' ),       
-function( this, ignoreOwnerPW )
+function( this, ignoreOwnerPW = FALSE )
 {
     .Call('R_XRef_okToCopy', as(this, 'XRef'), as(ignoreOwnerPW, 'GBool'))
 } )
 
 
 setMethod( 'okToAddNotes' , c( 'XRef' ),       
-function( this, ignoreOwnerPW )
+function( this, ignoreOwnerPW = FALSE )
 {
     .Call('R_XRef_okToAddNotes', as(this, 'XRef'), as(ignoreOwnerPW, 'GBool'))
 } )
 
 
 setMethod( 'okToFillForm' , c( 'XRef' ),       
-function( this, ignoreOwnerPW )
+function( this, ignoreOwnerPW = FALSE )
 {
     .Call('R_XRef_okToFillForm', as(this, 'XRef'), as(ignoreOwnerPW, 'GBool'))
 } )
 
 
 setMethod( 'okToAccessibility' , c( 'XRef' ),       
-function( this, ignoreOwnerPW )
+function( this, ignoreOwnerPW = FALSE )
 {
     .Call('R_XRef_okToAccessibility', as(this, 'XRef'), as(ignoreOwnerPW, 'GBool'))
 } )
 
 
 setMethod( 'okToAssemble' , c( 'XRef' ),       
-function( this, ignoreOwnerPW )
+function( this, ignoreOwnerPW = FALSE )
 {
     .Call('R_XRef_okToAssemble', as(this, 'XRef'), as(ignoreOwnerPW, 'GBool'))
 } )
@@ -114,7 +114,7 @@ function( this, obj )
 
 
 setMethod( 'fetch' , c( 'XRef' ),       
-function( this, num, gen, obj, recursion )
+function( this, num, gen, obj, recursion = 0 )
 {
     .Call('R_XRef_fetch', as(this, 'XRef'), as(num, 'integer'), as(gen, 'integer'), as(obj, 'ObjectPtr'), as(recursion, 'integer'))
 } )
@@ -185,7 +185,7 @@ function( this )
 }
 
 getEntry <-
-function( this, i, complainIfMissing )
+function( this, i, complainIfMissing = TRUE )
 {
     .Call('R_XRef_getEntry', as(this, 'XRef'), as(i, 'integer'), as(complainIfMissing, 'GBool'))
 }

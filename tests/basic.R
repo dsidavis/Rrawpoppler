@@ -5,8 +5,8 @@ isOk(doc) # conflicts with XRef, but okay now.
 
 isEncrypted(doc)
 
-#  Currently need the second argument. Will be able to use default.
-okToPrint(doc, FALSE)
+# [Fixed] Currently need the second argument. Will be able to use default.
+okToPrint(doc)
 okToCopy(doc, FALSE)
 okToAddNotes(doc, FALSE)
 

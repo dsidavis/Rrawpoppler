@@ -102,7 +102,7 @@ function( this, obj )
 }
 
 setMethod( 'fetch' , c( 'Object' ),       
-function( this, xref, obj, recursion )
+function( this, xref, obj, recursion = 0 )
 {
     .Call('R_Object_fetch', as(this, 'Object'), as(xref, 'XRefPtr'), as(obj, 'ObjectPtr'), as(recursion, 'integer'))
 } )
@@ -368,7 +368,7 @@ function( this, dictType )
 }
 
 dictLookup <-
-function( this, key, obj, recursion )
+function( this, key, obj, recursion = 0 )
 {
     .Call('R_Object_dictLookup', as(this, 'Object'), as(key, 'character'), as(obj, 'ObjectPtr'), as(recursion, 'integer'))
 }
@@ -446,7 +446,7 @@ function( this )
 }
 
 streamSetPos <-
-function( this, pos, dir )
+function( this, pos, dir = 0 )
 {
     .Call('R_Object_streamSetPos', as(this, 'Object'), as(pos, 'Goffset'), as(dir, 'integer'))
 }

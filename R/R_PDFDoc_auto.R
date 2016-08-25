@@ -170,63 +170,63 @@ function( this )
 
 
 setMethod( 'okToPrint' , c( 'PDFDoc' ),       
-function( this, ignoreOwnerPW )
+function( this, ignoreOwnerPW = FALSE )
 {
     .Call('R_PDFDoc_okToPrint', as(this, 'PDFDoc'), as(ignoreOwnerPW, 'GBool'))
 } )
 
 
 setMethod( 'okToPrintHighRes' , c( 'PDFDoc' ),       
-function( this, ignoreOwnerPW )
+function( this, ignoreOwnerPW = FALSE )
 {
     .Call('R_PDFDoc_okToPrintHighRes', as(this, 'PDFDoc'), as(ignoreOwnerPW, 'GBool'))
 } )
 
 
 setMethod( 'okToChange' , c( 'PDFDoc' ),       
-function( this, ignoreOwnerPW )
+function( this, ignoreOwnerPW = FALSE )
 {
     .Call('R_PDFDoc_okToChange', as(this, 'PDFDoc'), as(ignoreOwnerPW, 'GBool'))
 } )
 
 
 setMethod( 'okToCopy' , c( 'PDFDoc' ),       
-function( this, ignoreOwnerPW )
+function( this, ignoreOwnerPW = FALSE )
 {
     .Call('R_PDFDoc_okToCopy', as(this, 'PDFDoc'), as(ignoreOwnerPW, 'GBool'))
 } )
 
 
 setMethod( 'okToAddNotes' , c( 'PDFDoc' ),       
-function( this, ignoreOwnerPW )
+function( this, ignoreOwnerPW = FALSE )
 {
     .Call('R_PDFDoc_okToAddNotes', as(this, 'PDFDoc'), as(ignoreOwnerPW, 'GBool'))
 } )
 
 
 setMethod( 'okToFillForm' , c( 'PDFDoc' ),       
-function( this, ignoreOwnerPW )
+function( this, ignoreOwnerPW = FALSE )
 {
     .Call('R_PDFDoc_okToFillForm', as(this, 'PDFDoc'), as(ignoreOwnerPW, 'GBool'))
 } )
 
 
 setMethod( 'okToAccessibility' , c( 'PDFDoc' ),       
-function( this, ignoreOwnerPW )
+function( this, ignoreOwnerPW = FALSE )
 {
     .Call('R_PDFDoc_okToAccessibility', as(this, 'PDFDoc'), as(ignoreOwnerPW, 'GBool'))
 } )
 
 
 setMethod( 'okToAssemble' , c( 'PDFDoc' ),       
-function( this, ignoreOwnerPW )
+function( this, ignoreOwnerPW = FALSE )
 {
     .Call('R_PDFDoc_okToAssemble', as(this, 'PDFDoc'), as(ignoreOwnerPW, 'GBool'))
 } )
 
 
 isLinearized <-
-function( this, tryingToReconstruct )
+function( this, tryingToReconstruct = FALSE )
 {
     .Call('R_PDFDoc_isLinearized', as(this, 'PDFDoc'), as(tryingToReconstruct, 'GBool'))
 }
@@ -434,7 +434,7 @@ function( this, acrpForm, xRef, countRef, numOffset, oldPageNum, newPageNum )
 }
 
 writePageObjects <-
-function( this, outStr, xRef, numOffset, combine )
+function( this, outStr, xRef, numOffset, combine = FALSE )
 {
     .Call('R_PDFDoc_writePageObjects', as(this, 'PDFDoc'), as(outStr, 'OutStreamPtr'), as(xRef, 'XRefPtr'), as(numOffset, 'Guint'), as(combine, 'GBool'))
 }
