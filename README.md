@@ -2,6 +2,34 @@ This is an R package that provides an interface to the poppler library.
 poppler is a C++ library for reading and querying PDF documents.
 This package allows us to read and query PDF documents directly in R.
 
+There is the Rpoppler package on CRAN by Kurt Hornik.
+Also, Jeroen Ooms created the pdftools package. 
+Both of these provide excellent high-level facilities for extracting certain
+information from PDF documents.  Rrawpoppler provides lower-level facilities
+for working with a lot more of the PDF contents. Rpoppler and pdftools
+are higher-level and easier to use.  Rrawpoppler is good for building
+new functionality.
+
+Rrawpoppler is a direct interface to (almost) all methods in 13 C++
+classes in the poppler software.  The bindings are programmatically
+generated using the RCIndex and RCodeGen packages.
+
+One of the motivations for creating Rrawpoppler is to be able to
+recover tabular data in PDF documents.  Previously we used pdfminer
+and pdftohtml and wanted to make extending these easy via R code.  We
+can often recover tables if we have the location of each text segment
+in the table, and also if we know about horizontal and vertical lines
+that appear on the page(s).  We can recover these details and then
+can often determine rows and columns and process tables with missing
+cells. We have been doing this with a modified version of pdftohtml
+and using it to generate XML which we read into R and process.
+pdftohtml uses the same basic xpdf libraries in poppler, and
+so Rrawpoppler allows us to customize how we extract the data
+rather than having to modify and recompile pdftohtml.
+
+
+# Alterntive Approaches
+
 We have been working with PDF over the last few months and have used
 (and adapted)
 * pdfminer  (to XML)
@@ -63,6 +91,9 @@ R user to create an OutputDev implemented using R functions for the methods
 of OutputDev. One can implement zero or more of these functions/methods.
 When a C++ method in the device is invoked, we find the corresponding 
 R function or use the default routine.
+
+This is the most likely mechanism for extracting information from a document.
+We are notified
 
 Examples of this device are in tests/dev.R and tests/testDev.R and 
 tests/collectText.R

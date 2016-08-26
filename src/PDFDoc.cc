@@ -5,6 +5,14 @@
 
 extern "C"
 SEXP
+R_Object_new()
+{
+    return(createRef(new Object(), "Object", NULL));     // XXX finalizer    
+}
+
+
+extern "C"
+SEXP
 R_GlobalParams_init(SEXP r_args)
 {
   globalParams = new GlobalParams();
@@ -18,8 +26,6 @@ R_PDFDoc_constructor(SEXP r_file, SEXP r_password)
 {
     GooString *str = new GooString(CHAR(STRING_ELT(r_file, 0)));
     PDFDoc *doc = new PDFDoc(str);
-
-
 
     return(createRef(doc, "PDFDoc", NULL));     // XXX finalizer
 }

@@ -1,23 +1,25 @@
-useDynLib(Rpoppler)
+useDynLib(Rrawpoppler)
 
 import(methods)
 import(RAutoGenRunTime)
 
-exportPattern(".*")
+#exportPattern(".*")
 
 
+export(pdfDoc)
 exportClasses(PDFDoc)
+exportMethods("[", "[[")
+exportMethods("lapply", "sapply")
+exportMethods("names", "dim")
+export(Object)
 
+export(pdf_info)
 
 exportClasses(GfxState, GfxStatePtr, XRef, XRefPtr)
-
 
 export(displayPages)
 
 export(ROutputDevice, ROutputFunctions)
-
-
-
 
 
 
@@ -615,3 +617,5 @@ writeStreamToBuffer,
 lock,
 unlock
     )
+
+
