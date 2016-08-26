@@ -1,0 +1,24 @@
+```
+library(Rrawpoppler)
+```
+
+```r
+doc = pdfDoc("inst/samples/plot.pdf")
+```
+
+```r
+p = doc[[1]]
+```
+
+```r
+dim(p)
+```
+
+```r
+getNum(p)
+```
+
+
+```
+d = getResourceDict(p)
+```
