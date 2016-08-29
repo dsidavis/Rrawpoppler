@@ -7,10 +7,29 @@ ROutputDev::lookupRMethod(const char *name)
     SEXP names = GET_NAMES(r_method_funcs);
     int n = Rf_length(r_method_funcs);
     for(int i = 0; i < n; i++) {
-        if(strcmp(CHAR(STRING_ELT(names, i)), name) == 0)
+        if(strcmp(CHAR(STRING_ELT(names, i)), name) == 0) {
+//            Rprintf("Found R function for method %s\n", name);
             return(VECTOR_ELT(r_method_funcs, i));
+        }
     }
     return(R_NilValue);
+}
+
+
+extern "C"
+SEXP
+R_ROutputDev_setFunctions(SEXP r_dev, SEXP r_funs, SEXP r_preserve)
+{
+    ROutputDev *dev = GET_REF(r_dev, ROutputDev);
+    return(dev->setFunctions(r_funs, LOGICAL(r_preserve)[0]));
+}
+
+extern "C"
+SEXP
+R_ROutputDev_getFunctions(SEXP r_dev)
+{
+    ROutputDev *dev = GET_REF(r_dev, ROutputDev);
+    return(dev->getFunctions());
 }
 
 

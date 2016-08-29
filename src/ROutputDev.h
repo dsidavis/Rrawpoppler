@@ -8,7 +8,9 @@ public:
 
 #include "ROutputDev_auto.h"
 
-    ROutputDev(SEXP funs) : r_method_funcs(funs) {}
+    ROutputDev(SEXP funs) {
+	setFunctions(funs, true) ;
+    }
 
 #if 0
 
@@ -23,11 +25,30 @@ public:
     void updateFillColor(GfxState * state);
 #endif
 
+    ~ROutputDev() {
+	if(needsRelease)
+	    R_ReleaseObject(r_method_funcs);
+    }
 protected:
+    bool needsRelease;
     SEXP r_method_funcs; // use a hash table.
 
     SEXP lookupRMethod(const char *name);
     SEXP invokeMethod(SEXP e) {
 	return(Rf_eval(e, R_GlobalEnv));
+    }
+
+
+public:
+    SEXP getFunctions() { return(r_method_funcs); }
+
+    SEXP setFunctions(SEXP funcs, bool preserve) {
+	SEXP old = r_method_funcs;
+	r_method_funcs = funcs;
+	if(preserve) {
+	   R_PreserveObject(r_method_funcs);
+	   needsRelease = true;
+	}
+	return(old);
     }
 };
