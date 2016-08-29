@@ -13,3 +13,8 @@ void R_freeAPI(SEXP obj);
 
 SEXP GooStringToR(GooString *ans);
 GooString * GooStringFromR(SEXP rstr);
+
+
+SEXP R_makeEnumValue(int val, const char *elName, const char *className);
+
+#include "R_auto_enums.h"
