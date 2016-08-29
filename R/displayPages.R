@@ -14,7 +14,7 @@ function(doc, dev = ROutputDevice(doc), pageNum = c(1, getNumPages(doc)), dpi = 
                                 as.integer(rotate), as.logical(useMediaBox), as.logical(crop), as.logical(printing))
 }
     
-ROutputDevice =
+ROutputDev = ROutputDevice =
 function(..., .funs = list(...))
 {
     funs = ROutputFunctions(.funs = .funs)
@@ -30,6 +30,7 @@ DefaultDeviceFunctions =
 ROutputFunctions =
 function(..., .funs = list(...), defaults = DefaultDeviceFunctions)
 {
+ #XXX Check the names.    
    defaults[names(.funs)] = .funs
    defaults
 }

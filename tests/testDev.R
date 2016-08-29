@@ -1,4 +1,4 @@
-library(Rpoppler)
+library(Rrawpoppler)
 
 dev =
 function()
@@ -29,14 +29,15 @@ function()
 # Generate the list of functions
 D = dev()
 # Generate the ROutputDev instance, passing it the list of functions to implement the methods
-dev = .Call("R_ROutputDev_new", D)
+dev = ROutputDev(.funs = D)
 
 # Create a PDFDoc with a PDF file
-doc = pdfDoc(system.file("samples", "map.pdf", package = "Rpoppler"))
+doc = pdfDoc(system.file("samples", "map.pdf", package = "Rrawpoppler"))
 
 # Process one page
-invisible()
+displayPages(doc, dev, 1)
 
 # Process 3 pages
-invisible(.Call("R_PDFDoc_displayPage", doc, dev, c(1L, 3L), c(300, 300), 0L, TRUE, FALSE, FALSE))
+displayPages(doc, dev, c(1, 3))
+
 
