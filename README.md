@@ -1,3 +1,5 @@
+# The Rrawpoppler package
+
 This is an R package that provides an interface to the poppler library. 
 poppler is a C++ library for reading and querying PDF documents.
 This package allows us to read and query PDF documents directly in R.
@@ -12,7 +14,9 @@ new functionality.
 
 Rrawpoppler is a direct interface to (almost) all methods in 13 C++
 classes in the poppler software.  The bindings are programmatically
-generated using the RCIndex and RCodeGen packages.
+generated using the RCIndex and RCodeGen packages.  What this means is
+that we can readily expand the functionality to more classes and
+methods. It takes very little human time.
 
 One of the motivations for creating Rrawpoppler is to be able to
 recover tabular data in PDF documents.  Previously we used pdfminer
@@ -28,7 +32,7 @@ so Rrawpoppler allows us to customize how we extract the data
 rather than having to modify and recompile pdftohtml.
 
 
-# Alterntive Approaches
+# Alternative Approaches
 
 We have been working with PDF over the last few months and have used
 (and adapted)
@@ -48,7 +52,7 @@ adapt. It is slower than the other approaches and its support for
 Unicode characters became challenging.
 
 
-pdftohtml is a standalone program written in C++ that uses the xpdf libraries. This was easy 
+[pdftohtml](http://pdftohtml.sourceforge.net/)C is a standalone program written in C++ that uses the xpdf libraries. This was easy 
 to adapt to make it do what we wanted. Importantly, we used its -xml command line flag to 
 generate XML.  This gave us the text.  We modified the code to get the rectangles, lines
 and images. This is much faster than pdfminer.
@@ -56,15 +60,15 @@ and images. This is much faster than pdfminer.
 pdf2htmlEX generates HTML rather than XML. It creates faithful renderings of the 
 original pages. However, it is cumbersome to query the contents. Using the XML and RCSS
 packages, we could recover much of the information and details. 
-Unfortunately, the tool collapses contents into <div> elements, but does not combine
-all <div>s at the same location into the same element. As a result, we have to do 
+Unfortunately, the tool collapses contents into &lt;div&gt; elements, but does not combine
+all &lt;divs&gt; at the same location into the same element. As a result, we have to do 
 computations to identify cells at the same location. Importantly for our application,
 this tool does not give information about lines and rectangles. Instead, it renders
 them as background PNG files on the HTML, but conceals this information from those of
 use querying the HTML.
 
 
-The Rpoppler package (this package) is a reasonably low-cost interface
+The Rrawpoppler package (this package) is a reasonably low-cost interface
 to the poppler XPDF library(s).  This is the same code underlying
 pdftohtml so we already have some experience with using and adapting
 it.  After some initial configuration and experimentation, we
@@ -86,15 +90,55 @@ vistors's, etc.)
 
 # Streaming Devices
 
-We have extended OuptutDev with an R-specific class that allows the
+We have extended the OuptutDev class with an R-specific class that allows the
 R user to create an OutputDev implemented using R functions for the methods
 of OutputDev. One can implement zero or more of these functions/methods.
 When a C++ method in the device is invoked, we find the corresponding 
-R function or use the default routine.
+R function or we use the default routine.
 
 This is the most likely mechanism for extracting information from a document.
-We are notified
+We are notified for different events in the processing.
+The names of the methods for which we can provide an R function method are
+```
+  [1] "upsideDown"                 "useDrawChar"                "useTilingPatternFill"       "useShadedFills"             "useFillColorStop"          
+  [6] "useDrawForm"                "interpretType3Chars"        "needNonText"                "needCharCount"              "needClipToCropBox"         
+ [11] "setDefaultCTM"              "checkPageSlice"             "startPage"                  "endPage"                    "dump"                      
+ [16] "cvtDevToUser"               "cvtUserToDev"               "getDefCTM"                  "getDefICTM"                 "saveState"                 
+ [21] "restoreState"               "updateAll"                  "updateCTM"                  "updateLineDash"             "updateFlatness"            
+ [26] "updateLineJoin"             "updateLineCap"              "updateMiterLimit"           "updateLineWidth"            "updateStrokeAdjust"        
+ [31] "updateAlphaIsShape"         "updateTextKnockout"         "updateFillColorSpace"       "updateStrokeColorSpace"     "updateFillColor"           
+ [36] "updateStrokeColor"          "updateBlendMode"            "updateFillOpacity"          "updateStrokeOpacity"        "updatePatternOpacity"      
+ [41] "clearPatternOpacity"        "updateFillOverprint"        "updateStrokeOverprint"      "updateOverprintMode"        "updateTransfer"            
+ [46] "updateFillColorStop"        "updateFont"                 "updateTextMat"              "updateCharSpace"            "updateRender"              
+ [51] "updateRise"                 "updateWordSpace"            "updateHorizScaling"         "updateTextPos"              "updateTextShift"           
+ [56] "saveTextPos"                "restoreTextPos"             "stroke"                     "fill"                       "eoFill"                    
+ [61] "tilingPatternFill"          "functionShadedFill"         "axialShadedFill"            "axialShadedSupportExtend"   "radialShadedFill"          
+ [66] "radialShadedSupportExtend"  "gouraudTriangleShadedFill"  "patchMeshShadedFill"        "clip"                       "eoClip"                    
+ [71] "clipToStrokePath"           "beginStringOp"              "endStringOp"                "beginString"                "endString"                 
+ [76] "drawChar"                   "drawString"                 "beginType3Char"             "endType3Char"               "beginTextObject"           
+ [81] "endTextObject"              "incCharCount"               "beginActualText"            "endActualText"              "drawImageMask"             
+ [86] "setSoftMaskFromImageMask"   "unsetSoftMaskFromImageMask" "drawImage"                  "drawMaskedImage"            "drawSoftMaskedImage"       
+ [91] "endMarkedContent"           "beginMarkedContent"         "markPoint"                  "opiBegin"                   "opiEnd"                    
+ [96] "type3D0"                    "type3D1"                    "drawForm"                   "psXObject"                  "startProfile"              
+[101] "getProfileHash"             "endProfile"                 "checkTransparencyGroup"     "beginTransparencyGroup"     "endTransparencyGroup"      
+[106] "paintTransparencyGroup"     "setSoftMask"                "clearSoftMask"              "processLink"                "getVectorAntialias"        
+[111] "setVectorAntialias"        
+```
+These are all the public methods.
 
-Examples of this device are in tests/dev.R and tests/testDev.R and 
-tests/collectText.R
+The idea is, for example, we can implement startPage() and endPage() to identify the transition between pages. 
+Methods such as updateLineCap(), updateMiterLimit(), updateLineDash(), updateLineWidth(), ... allow us to 
+update the current drawing state for lines.  Similarly, updateFillColor() and updateStrokeColor() update the current
+color to use for subsequent elements.  Likewise, updateFont() identifies a change for the font of the subsequent text.
+drawChar() and drawString().  useDrawChar() indicates whether the device uses drawChar() or drawSring().
+The methods stroke(), fill(), eoFill() ...  identify when we are drawing a shape.
+
+
+Simple examples of this device are in [tests/dev.R](tests/dev.R) and [tests/testDev.R](tests/testDev.R) and 
+[tests/collectText.R](tests/collectText.R).
+We'll add more "soon".
+
+Implementing devices with R functions is of course slower than using C++ methods.
+In the not-necessarily-near future, we hope to be able to compile R functions to native code
+using the RLLVMCompile and RLLVM packages and make the code fast.
 
