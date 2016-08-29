@@ -31,14 +31,23 @@ rcode = mapply(function(rfun, type) {
 
 
 
-m = k$OutputDev@methods
-m = m[-1] # remove the constructor
-m = m [ setdiff(names(m), c("checkPageSlice", "drawForm")) ]
+m = dev@methods
+m = m [ !(names(m) %in% c("checkPageSlice", "drawForm")) ]
 
+m = lapply(m, fixParamNames)
+             
+source("typemap.R")
 
-code = lapply(dev@methods, createMethod, className = "ROutputDev", typeMap = typemap, baseClassName = "OutputDev")
+code = lapply(m, createMethod, className = "ROutputDev", typeMap = typemap, baseClassName = "OutputDev")
 cat(unlist(sapply(code, `[[`, 1)), sep = "\n", file = "../src/ROutputDev_auto.cpp_code")
-cat(paste(sapply(code, `[[`, 2), ";"), sep = "\n", file = "../src/ROutputDev_auto.h")
+
+# Instead of this, generate the .h directly using
+#cat(paste(sapply(code, `[[`, 2), ";"), sep = "\n", file = "../src/ROutputDev_auto.h")
+
+cat(c(c('#include <poppler/PDFDoc.h>', '#include <poppler/OutputDev.h>', '#include "Rpoppler.h"'),
+      defineRSubclass(dev, m)), sep = "\n", file = "../src/ROutputDev.h")
+
+
 
 
 
