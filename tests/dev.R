@@ -1,32 +1,38 @@
 library(Rrawpoppler)
 
 devFuns =
-function()
-{    
-    list(upsideDown = function(){ message("in upsideDown") ;  TRUE},
-         useDrawChar = function() TRUE,
-         interpretType3Chars = function() FALSE,
-         startPage = function(num, state, xref) { message(paste("startPage", num)) },
-         endPage = function() {  message("endPage") },
-         updateFillColor = function(state) { message("setting fill color") },
-         beginStringOp = function(state) { message("begin string op") },
-         beginString = function(state, str) { message(paste("begin string ", str)); },
-         drawString = function(state, str) { message(paste("draw string ", str));  },
-         endString = function(state) { message(paste("end string ")) },
-         updateLineWidth = function(state) message("updateLineWidth"),
-         updateLineCap = function(state) message("updateLineWidth"),
-         updateLineDash = function(state) message("updateLineDash"),                  
-         dump = function() message("dump"),
-         beginActualText = function(state, str) message("beginActualText"),
-         endActualText = function(state) message("endActualText"),
-         updateFont = function(state) message("updateFont"),
-         eoFill = function(state) message("eoFill"),
-         fill = function(state) message("fill")
+function(withThis = TRUE)
+{
+
+  funs =  list(upsideDown = function(this){ message("in upsideDown") ;  TRUE},
+         useDrawChar = function(this) TRUE,
+         interpretType3Chars = function(this) FALSE,
+         startPage = function(this, num, state, xref) { message(paste("startPage", num)) },
+         endPage = function(this) {  message("endPage") },
+         updateFillColor = function(this, state) { message("setting fill color") },
+         beginStringOp = function(this,state) { message("begin string op") },
+         beginString = function(this, state, str) { message(paste("begin string ", str)); },
+         drawString = function(this, state, str) { message(paste("draw string ", str));  },
+         endString = function(this, state) { message(paste("end string ")) },
+         updateLineWidth = function(this, state) message("updateLineWidth"),
+         updateLineCap = function(this, state) message("updateLineWidth"),
+         updateLineDash = function(this, state) message("updateLineDash"),                  
+         dump = function(this) message("dump"),
+         beginActualText = function(this, state, str) message("beginActualText"),
+         endActualText = function(this, state) message("endActualText"),
+         updateFont = function(this, state) message("updateFont"),
+         eoFill = function(this, state) message("eoFill"),
+         fill = function(this, state) message("fill")
         )
+
+   if(!withThis) {
+       lapply(funs, removeThis)
+   else
+       funs
 }
 
 
-dev = ROutputDevice(.funs = devFuns())
+dev = ROutputDevice(devFuns())
 f = system.file("samples", "map.pdf", package = "Rrawpoppler")
 displayPages(f, dev)
 
