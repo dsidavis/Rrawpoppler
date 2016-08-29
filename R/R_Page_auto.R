@@ -146,11 +146,12 @@ function( this, xrefA )
     .Call('R_Page_getResourceDictCopy', as(this, 'Page'), as(xrefA, 'XRefPtr'))
 }
 
-getAnnots <-
-function( this, xrefA )
+setMethod( 'getAnnots' , c( 'Page' ),       
+function( this, obj, xrefA )
 {
-    .Call('R_Page_getAnnots', as(this, 'Page'), as(xrefA, 'XRefPtr'))
-}
+    .Call('R_Page_getAnnotsObject_Ptr_XRef_Ptr', as(this, 'Page'), as(obj, 'ObjectPtr'), as(xrefA, 'XRefPtr'))
+} )
+
 
 addAnnot <-
 function( this, annot )
@@ -170,6 +171,12 @@ function( this )
     .Call('R_Page_getLinks', as(this, 'Page'))
 } )
 
+
+getAnnots <-
+function( this, xrefA )
+{
+    .Call('R_Page_getAnnotsXRef_Ptr', as(this, 'Page'), as(xrefA, 'XRefPtr'))
+}
 
 getContents <-
 function( this, obj )
@@ -220,10 +227,17 @@ function( this, type )
 } )
 
 
+setMethod( 'display' , c( 'Page' ),       
+function( this, out, hDPI, vDPI, rotate, useMediaBox, crop, printing, abortCheckCbk, abortCheckCbkData, annotDisplayDecideCbk, annotDisplayDecideCbkData, copyXRef = FALSE )
+{
+    .Call('R_Page_displayOutputDev_Ptr_double_double_int_GBool_GBool_GBool_GBool_(Ptr)(void_Ptr)_void_Ptr_GBool_(Ptr)(Annot_Ptr,_void_Ptr)_void_Ptr_GBool', as(this, 'Page'), as(out, 'OutputDevPtr'), as(hDPI, 'numeric'), as(vDPI, 'numeric'), as(rotate, 'integer'), as(useMediaBox, 'GBool'), as(crop, 'GBool'), as(printing, 'GBool'), as(abortCheckCbk, 'GBool (void *)Ptr'), as(abortCheckCbkData, 'voidPtr'), as(annotDisplayDecideCbk, 'GBool (Annot *, void *)Ptr'), as(annotDisplayDecideCbkData, 'voidPtr'), as(copyXRef, 'GBool'))
+} )
+
+
 display <-
 function( this, gfx )
 {
-    .Call('R_Page_display', as(this, 'Page'), as(gfx, 'GfxPtr'))
+    .Call('R_Page_displayGfx_Ptr', as(this, 'Page'), as(gfx, 'GfxPtr'))
 }
 
 makeBox <-

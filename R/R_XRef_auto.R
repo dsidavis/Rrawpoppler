@@ -31,6 +31,12 @@ function( this, permFlagsA, ownerPasswordOkA, fileKeyA, keyLengthA, encVersionA,
     .Call('R_XRef_setEncryption', as(this, 'XRef'), as(permFlagsA, 'integer'), as(ownerPasswordOkA, 'GBool'), as(fileKeyA, 'GucharPtr'), as(keyLengthA, 'integer'), as(encVersionA, 'integer'), as(encRevisionA, 'integer'), as(encAlgorithmA, 'CryptAlgorithm'))
 }
 
+markUnencrypted <-
+function( this )
+{
+    .Call('R_XRef_markUnencrypted', as(this, 'XRef'))
+}
+
 getEncryptionParameters <-
 function( this, fileKeyA, encAlgorithmA, keyLengthA )
 {

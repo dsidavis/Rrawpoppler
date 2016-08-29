@@ -17,10 +17,17 @@ function( this )
     .Call('R_GfxState_getVDPI', as(this, 'GfxState'))
 }
 
+setMethod( 'getCTM' , c( 'GfxState' ),       
+function( this )
+{
+    .Call('R_GfxState_getCTM', as(this, 'GfxState'))
+} )
+
+
 getCTM <-
 function( this, m )
 {
-    .Call('R_GfxState_getCTM', as(this, 'GfxState'), as(m, 'MatrixPtr'))
+    .Call('R_GfxState_getCTMMatrix_Ptr', as(this, 'GfxState'), as(m, 'MatrixPtr'))
 }
 
 getX1 <-

@@ -391,16 +391,30 @@ function( this, name, pageNo )
     .Call('R_PDFDoc_savePageAs', as(this, 'PDFDoc'), as(name, 'GooStringOrCharacter'), as(pageNo, 'integer'))
 }
 
+setMethod( 'saveAs' , c( 'PDFDoc' ),       
+function( this, name, mode )
+{
+    .Call('R_PDFDoc_saveAsGooString_Ptr_PDFWriteMode', as(this, 'PDFDoc'), as(name, 'GooStringOrCharacter'), as(mode, 'PDFWriteMode'))
+} )
+
+
 saveAs <-
 function( this, outStr, mode )
 {
-    .Call('R_PDFDoc_saveAs', as(this, 'PDFDoc'), as(outStr, 'OutStreamPtr'), as(mode, 'PDFWriteMode'))
+    .Call('R_PDFDoc_saveAsOutStream_Ptr_PDFWriteMode', as(this, 'PDFDoc'), as(outStr, 'OutStreamPtr'), as(mode, 'PDFWriteMode'))
 }
+
+setMethod( 'saveWithoutChangesAs' , c( 'PDFDoc' ),       
+function( this, name )
+{
+    .Call('R_PDFDoc_saveWithoutChangesAsGooString_Ptr', as(this, 'PDFDoc'), as(name, 'GooStringOrCharacter'))
+} )
+
 
 saveWithoutChangesAs <-
 function( this, outStr )
 {
-    .Call('R_PDFDoc_saveWithoutChangesAs', as(this, 'PDFDoc'), as(outStr, 'OutStreamPtr'))
+    .Call('R_PDFDoc_saveWithoutChangesAsOutStream_Ptr', as(this, 'PDFDoc'), as(outStr, 'OutStreamPtr'))
 }
 
 getGUIData <-
@@ -439,6 +453,12 @@ function( this, outStr, xRef, numOffset, combine = FALSE )
     .Call('R_PDFDoc_writePageObjects', as(this, 'PDFDoc'), as(outStr, 'OutStreamPtr'), as(xRef, 'XRefPtr'), as(numOffset, 'Guint'), as(combine, 'GBool'))
 }
 
+writeObject <-
+function( obj, outStr, xref, numOffset, fileKey, encAlgorithm, keyLength, objNum, objGen )
+{
+    .Call('R_PDFDoc_writeObjectObject_Ptr_OutStream_Ptr_XRef_Ptr_Guint_Guchar_Ptr_CryptAlgorithm_int_int_int', as(obj, 'ObjectPtr'), as(outStr, 'OutStreamPtr'), as(xref, 'XRefPtr'), as(numOffset, 'Guint'), as(fileKey, 'GucharPtr'), as(encAlgorithm, 'CryptAlgorithm'), as(keyLength, 'integer'), as(objNum, 'integer'), as(objGen, 'integer'))
+}
+
 writeHeader <-
 function( outStr, major, minor )
 {
@@ -449,6 +469,12 @@ createTrailerDict <-
 function( uxrefSize, incrUpdate, startxRef, root, xRef, fileName, fileSize )
 {
     .Call('R_PDFDoc_createTrailerDict', as(uxrefSize, 'integer'), as(incrUpdate, 'GBool'), as(startxRef, 'Goffset'), as(root, 'RefPtr'), as(xRef, 'XRefPtr'), as(fileName, 'character'), as(fileSize, 'Goffset'))
+}
+
+writeXRefTableTrailer <-
+function( trailerDict, uxref, writeAllEntries, uxrefOffset, outStr, xRef )
+{
+    .Call('R_PDFDoc_writeXRefTableTrailerDict_Ptr_XRef_Ptr_GBool_Goffset_OutStream_Ptr_XRef_Ptr', as(trailerDict, 'DictPtr'), as(uxref, 'XRefPtr'), as(writeAllEntries, 'GBool'), as(uxrefOffset, 'Goffset'), as(outStr, 'OutStreamPtr'), as(xRef, 'XRefPtr'))
 }
 
 writeXRefStreamTrailer <-

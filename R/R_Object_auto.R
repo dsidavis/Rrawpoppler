@@ -46,10 +46,17 @@ function( this, xref )
     .Call('R_Object_initArray', as(this, 'Object'), as(xref, 'XRefPtr'))
 }
 
+setMethod( 'initDict' , c( 'Object' ),       
+function( this, xref )
+{
+    .Call('R_Object_initDictXRef_Ptr', as(this, 'Object'), as(xref, 'XRefPtr'))
+} )
+
+
 initDict <-
 function( this, dictA )
 {
-    .Call('R_Object_initDict', as(this, 'Object'), as(dictA, 'DictPtr'))
+    .Call('R_Object_initDictDict_Ptr', as(this, 'Object'), as(dictA, 'DictPtr'))
 }
 
 initStream <-
@@ -144,11 +151,12 @@ function( this )
     .Call('R_Object_isString', as(this, 'Object'))
 }
 
-isName <-
-function( this, nameA )
+setMethod( 'isName' , c( 'Object' ),       
+function( this )
 {
-    .Call('R_Object_isName', as(this, 'Object'), as(nameA, 'character'))
-}
+    .Call('R_Object_isName', as(this, 'Object'))
+} )
+
 
 isNull <-
 function( this )
@@ -162,17 +170,19 @@ function( this )
     .Call('R_Object_isArray', as(this, 'Object'))
 }
 
-isDict <-
-function( this, dictType )
+setMethod( 'isDict' , c( 'Object' ),       
+function( this )
 {
-    .Call('R_Object_isDict', as(this, 'Object'), as(dictType, 'character'))
-}
+    .Call('R_Object_isDict', as(this, 'Object'))
+} )
 
-isStream <-
-function( this, dictType )
+
+setMethod( 'isStream' , c( 'Object' ),       
+function( this )
 {
-    .Call('R_Object_isStream', as(this, 'Object'), as(dictType, 'character'))
-}
+    .Call('R_Object_isStream', as(this, 'Object'))
+} )
+
 
 isRef <-
 function( this )
@@ -180,11 +190,12 @@ function( this )
     .Call('R_Object_isRef', as(this, 'Object'))
 }
 
-isCmd <-
-function( this, cmdA )
+setMethod( 'isCmd' , c( 'Object' ),       
+function( this )
 {
-    .Call('R_Object_isCmd', as(this, 'Object'), as(cmdA, 'character'))
-}
+    .Call('R_Object_isCmd', as(this, 'Object'))
+} )
+
 
 isError <-
 function( this )
@@ -214,6 +225,30 @@ isIntOrInt64 <-
 function( this )
 {
     .Call('R_Object_isIntOrInt64', as(this, 'Object'))
+}
+
+isName <-
+function( this, nameA )
+{
+    .Call('R_Object_isNameconst_char_Ptr', as(this, 'Object'), as(nameA, 'character'))
+}
+
+isDict <-
+function( this, dictType )
+{
+    .Call('R_Object_isDictconst_char_Ptr', as(this, 'Object'), as(dictType, 'character'))
+}
+
+isStream <-
+function( this, dictType )
+{
+    .Call('R_Object_isStreamchar_Ptr', as(this, 'Object'), as(dictType, 'character'))
+}
+
+isCmd <-
+function( this, cmdA )
+{
+    .Call('R_Object_isCmdconst_char_Ptr', as(this, 'Object'), as(cmdA, 'character'))
 }
 
 getBool <-
