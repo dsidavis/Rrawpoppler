@@ -14,25 +14,4 @@ function(doc, dev = ROutputDevice(doc), pageNum = c(1, getNumPages(doc)), dpi = 
                                 as.integer(rotate), as.logical(useMediaBox), as.logical(crop), as.logical(printing))
 }
     
-ROutputDev = ROutputDevice =
-function(..., .funs = list(...))
-{
-    funs = ROutputFunctions(.funs = .funs)
-    .Call("R_ROutputDev_new", funs)
-}
-
-DefaultDeviceFunctions =
-    list(upsideDown = function(){ message("in upsideDown") ;  TRUE},
-         useDrawChar = function() TRUE,
-         interpretType3Chars = function() FALSE)
-
-
-ROutputFunctions =
-function(..., .funs = list(...), defaults = DefaultDeviceFunctions)
-{
- #XXX Check the names.    
-   defaults[names(.funs)] = .funs
-   defaults
-}
-
 
