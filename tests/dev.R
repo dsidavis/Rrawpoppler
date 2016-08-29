@@ -1,6 +1,6 @@
 library(Rrawpoppler)
 
-dev =
+devFuns =
 function()
 {    
     list(upsideDown = function(){ message("in upsideDown") ;  TRUE},
@@ -26,8 +26,14 @@ function()
 }
 
 
-dev = ROutputDevice(.funs = dev())
+dev = ROutputDevice(.funs = devFuns())
 f = system.file("samples", "map.pdf", package = "Rrawpoppler")
 displayPages(f, dev)
+
+rm(dev)
+gc()
+gc()
+
+
 
 

@@ -1,4 +1,4 @@
-library(Rpoppler)
+library(Rrawpoppler)
 doc = pdfDoc("inst/samples/map.pdf")
 getFileName(doc)
 isOk(doc) # conflicts with XRef, but okay now.

@@ -1,6 +1,6 @@
 library(Rrawpoppler)
 
-dev =
+devFuns =
 function()
 {    
     list(upsideDown = function(){ message("in upsideDown") ;  TRUE},
@@ -27,9 +27,10 @@ function()
 
 
 # Generate the list of functions
-D = dev()
+D = devFuns()
+
 # Generate the ROutputDev instance, passing it the list of functions to implement the methods
-dev = ROutputDev(.funs = D)
+dev = ROutputDev(D) 
 
 # Create a PDFDoc with a PDF file
 doc = pdfDoc(system.file("samples", "map.pdf", package = "Rrawpoppler"))

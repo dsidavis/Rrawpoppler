@@ -1,4 +1,4 @@
-library(Rpoppler)
+library(Rrawpoppler)
 
 dev =
 function()
@@ -19,7 +19,7 @@ function()
 
 d = dev()
 dev = ROutputDevice(.funs = d)
-f = system.file("samples", "map.pdf", package = "Rpoppler")
+f = system.file("samples", "map.pdf", package = "Rrawpoppler")
 displayPages(f, dev)
 
 text = d$text()
