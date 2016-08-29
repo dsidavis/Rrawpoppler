@@ -2,7 +2,8 @@
 #include "ROutputDev.h"
 
 SEXP 
-ROutputDev::lookupRMethod(const char *name)
+//ROutputDev::lookupRMethod(const char *name)
+RFunctionsNativeMethods::lookupRMethod(const char *name)
 {
     SEXP names = GET_NAMES(r_method_funcs);
     int n = Rf_length(r_method_funcs);
@@ -31,6 +32,7 @@ R_ROutputDev_getFunctions(SEXP r_dev)
     ROutputDev *dev = GET_REF(r_dev, ROutputDev);
     return(dev->getFunctions());
 }
+
 
 
 #if 0

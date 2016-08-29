@@ -83,6 +83,19 @@ GooStringFromR(SEXP rstr)
 }
 
 
+void
+ROutputDev_finalizer(SEXP ptr)
+{
+    ROutputDev *dev = (ROutputDev*) R_ExternalPtrAddr(ptr);
+    if(dev) {
+#ifdef R_DEBUG_DEVICE
+        Rprintf("Deleting ROutputDev via finalizer\n");
+#endif
+        delete dev;
+    }
+}
+
+
 extern "C"
 SEXP
 R_ROutputDev_new(SEXP r_funcs)
@@ -92,7 +105,7 @@ R_ROutputDev_new(SEXP r_funcs)
 
     dev->upsideDown();
 
-    return(createRef(dev, "ROutputDev", NULL));     // finalizer
+    return(createRef(dev, "ROutputDev", ROutputDev_finalizer));     // finalizer
 }
 
 
