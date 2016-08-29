@@ -8,7 +8,7 @@ SEXP R_XRef_copy(SEXP r_tthis)
     XRef *tthis = GET_REF(r_tthis, XRef);
     XRef * ans;
     ans = tthis->copy();
-    SEXP r_ans = R_createRef(ans, "XRefPtr");
+    SEXP r_ans = R_createRef(ans, "XRefPtr", NULL);
     return(r_ans);
 }
 
@@ -61,6 +61,14 @@ SEXP R_XRef_setEncryption(SEXP r_tthis, SEXP r_permFlagsA, SEXP r_ownerPasswordO
     CryptAlgorithm encAlgorithmA;
     encAlgorithmA = (CryptAlgorithm) INTEGER(r_encAlgorithmA)[0];
     tthis->setEncryption(permFlagsA, ownerPasswordOkA, fileKeyA, keyLengthA, encVersionA, encRevisionA, encAlgorithmA);
+    return(R_NilValue);
+}
+
+extern "C"
+SEXP R_XRef_markUnencrypted(SEXP r_tthis)
+{
+    XRef *tthis = GET_REF(r_tthis, XRef);
+    tthis->markUnencrypted();
     return(R_NilValue);
 }
 
@@ -202,7 +210,7 @@ SEXP R_XRef_getCatalog(SEXP r_tthis, SEXP r_obj)
     obj = GET_REF(r_obj, Object );
     Object * ans;
     ans = tthis->getCatalog(obj);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -220,7 +228,7 @@ SEXP R_XRef_fetch(SEXP r_tthis, SEXP r_num, SEXP r_gen, SEXP r_obj, SEXP r_recur
     recursion = INTEGER(r_recursion)[0];
     Object * ans;
     ans = tthis->fetch(num, gen, obj, recursion);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -232,7 +240,7 @@ SEXP R_XRef_getDocInfo(SEXP r_tthis, SEXP r_obj)
     obj = GET_REF(r_obj, Object );
     Object * ans;
     ans = tthis->getDocInfo(obj);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -244,7 +252,7 @@ SEXP R_XRef_getDocInfoNF(SEXP r_tthis, SEXP r_obj)
     obj = GET_REF(r_obj, Object );
     Object * ans;
     ans = tthis->getDocInfoNF(obj);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -256,7 +264,7 @@ SEXP R_XRef_createDocInfoIfNoneExists(SEXP r_tthis, SEXP r_obj)
     obj = GET_REF(r_obj, Object );
     Object * ans;
     ans = tthis->createDocInfoIfNoneExists(obj);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -342,7 +350,7 @@ SEXP R_XRef_getEntry(SEXP r_tthis, SEXP r_i, SEXP r_complainIfMissing)
     complainIfMissing = LOGICAL(r_complainIfMissing)[0];
     XRefEntry * ans;
     ans = tthis->getEntry(i, complainIfMissing);
-    SEXP r_ans = R_createRef(ans, "XRefEntryPtr");
+    SEXP r_ans = R_createRef(ans, "XRefEntryPtr", NULL);
     return(r_ans);
 }
 
@@ -352,7 +360,7 @@ SEXP R_XRef_getTrailerDict(SEXP r_tthis)
     XRef *tthis = GET_REF(r_tthis, XRef);
     Object * ans;
     ans = tthis->getTrailerDict();
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 

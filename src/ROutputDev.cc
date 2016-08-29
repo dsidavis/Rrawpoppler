@@ -1,6 +1,7 @@
 #include "Rpoppler.h"
 #include "ROutputDev.h"
 
+
 SEXP 
 //ROutputDev::lookupRMethod(const char *name)
 RFunctionsNativeMethods::lookupRMethod(const char *name)
@@ -10,8 +11,8 @@ RFunctionsNativeMethods::lookupRMethod(const char *name)
     for(int i = 0; i < n; i++) {
         if(strcmp(CHAR(STRING_ELT(names, i)), name) == 0) {
 #ifdef R_DEBUG_DEVICE
-//            Rprintf("Found R function for method %s\n", name);
-//            Rf_PrintValue(VECTOR_ELT(r_method_funcs, i));
+            Rprintf("Found R function for method %s in %p\n", name, this);
+            Rf_PrintValue(VECTOR_ELT(r_method_funcs, i));
 #endif
             return(VECTOR_ELT(r_method_funcs, i));
         }
@@ -36,6 +37,7 @@ R_ROutputDev_getFunctions(SEXP r_dev)
     ROutputDev *dev = GET_REF(r_dev, ROutputDev);
     return(dev->getFunctions());
 }
+
 #else
 
 extern "C"

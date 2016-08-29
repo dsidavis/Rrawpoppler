@@ -10,7 +10,7 @@ SEXP R_GfxState_copy(SEXP r_tthis, SEXP r_copyPath)
     copyPath = LOGICAL(r_copyPath)[0];
     GfxState * ans;
     ans = tthis->copy(copyPath);
-    SEXP r_ans = R_createRef(ans, "GfxStatePtr");
+    SEXP r_ans = R_createRef(ans, "GfxStatePtr", NULL);
     return(r_ans);
 }
 
@@ -35,7 +35,17 @@ SEXP R_GfxState_getVDPI(SEXP r_tthis)
 }
 
 extern "C"
-SEXP R_GfxState_getCTM(SEXP r_tthis, SEXP r_m)
+SEXP R_GfxState_getCTM(SEXP r_tthis)
+{
+    GfxState *tthis = GET_REF(r_tthis, GfxState);
+    double * ans;
+    ans = tthis->getCTM();
+    SEXP r_ans = R_createRef(ans, "doublePtr", NULL);
+    return(r_ans);
+}
+
+extern "C"
+SEXP R_GfxState_getCTMMatrix_Ptr(SEXP r_tthis, SEXP r_m)
 {
     GfxState *tthis = GET_REF(r_tthis, GfxState);
     Matrix * m;
@@ -120,7 +130,7 @@ SEXP R_GfxState_getFillColor(SEXP r_tthis)
     GfxState *tthis = GET_REF(r_tthis, GfxState);
     GfxColor * ans;
     ans = tthis->getFillColor();
-    SEXP r_ans = R_createRef(ans, "GfxColorPtr");
+    SEXP r_ans = R_createRef(ans, "GfxColorPtr", NULL);
     return(r_ans);
 }
 
@@ -130,7 +140,7 @@ SEXP R_GfxState_getStrokeColor(SEXP r_tthis)
     GfxState *tthis = GET_REF(r_tthis, GfxState);
     GfxColor * ans;
     ans = tthis->getStrokeColor();
-    SEXP r_ans = R_createRef(ans, "GfxColorPtr");
+    SEXP r_ans = R_createRef(ans, "GfxColorPtr", NULL);
     return(r_ans);
 }
 
@@ -220,7 +230,7 @@ SEXP R_GfxState_getFillColorSpace(SEXP r_tthis)
     GfxState *tthis = GET_REF(r_tthis, GfxState);
     GfxColorSpace * ans;
     ans = tthis->getFillColorSpace();
-    SEXP r_ans = R_createRef(ans, "GfxColorSpacePtr");
+    SEXP r_ans = R_createRef(ans, "GfxColorSpacePtr", NULL);
     return(r_ans);
 }
 
@@ -230,7 +240,7 @@ SEXP R_GfxState_getStrokeColorSpace(SEXP r_tthis)
     GfxState *tthis = GET_REF(r_tthis, GfxState);
     GfxColorSpace * ans;
     ans = tthis->getStrokeColorSpace();
-    SEXP r_ans = R_createRef(ans, "GfxColorSpacePtr");
+    SEXP r_ans = R_createRef(ans, "GfxColorSpacePtr", NULL);
     return(r_ans);
 }
 
@@ -240,7 +250,7 @@ SEXP R_GfxState_getFillPattern(SEXP r_tthis)
     GfxState *tthis = GET_REF(r_tthis, GfxState);
     GfxPattern * ans;
     ans = tthis->getFillPattern();
-    SEXP r_ans = R_createRef(ans, "GfxPatternPtr");
+    SEXP r_ans = R_createRef(ans, "GfxPatternPtr", NULL);
     return(r_ans);
 }
 
@@ -250,7 +260,7 @@ SEXP R_GfxState_getStrokePattern(SEXP r_tthis)
     GfxState *tthis = GET_REF(r_tthis, GfxState);
     GfxPattern * ans;
     ans = tthis->getStrokePattern();
-    SEXP r_ans = R_createRef(ans, "GfxPatternPtr");
+    SEXP r_ans = R_createRef(ans, "GfxPatternPtr", NULL);
     return(r_ans);
 }
 
@@ -310,7 +320,7 @@ SEXP R_GfxState_getTransfer(SEXP r_tthis)
     GfxState *tthis = GET_REF(r_tthis, GfxState);
     Function ** ans;
     ans = tthis->getTransfer();
-    SEXP r_ans = R_createRef(ans, "FunctionPtrPtr");
+    SEXP r_ans = R_createRef(ans, "FunctionPtrPtr", NULL);
     return(r_ans);
 }
 
@@ -414,7 +424,7 @@ SEXP R_GfxState_getFont(SEXP r_tthis)
     GfxState *tthis = GET_REF(r_tthis, GfxState);
     GfxFont * ans;
     ans = tthis->getFont();
-    SEXP r_ans = R_createRef(ans, "GfxFontPtr");
+    SEXP r_ans = R_createRef(ans, "GfxFontPtr", NULL);
     return(r_ans);
 }
 
@@ -434,7 +444,7 @@ SEXP R_GfxState_getTextMat(SEXP r_tthis)
     GfxState *tthis = GET_REF(r_tthis, GfxState);
     double * ans;
     ans = tthis->getTextMat();
-    SEXP r_ans = R_createRef(ans, "doublePtr");
+    SEXP r_ans = R_createRef(ans, "doublePtr", NULL);
     return(r_ans);
 }
 
@@ -514,7 +524,7 @@ SEXP R_GfxState_getPath(SEXP r_tthis)
     GfxState *tthis = GET_REF(r_tthis, GfxState);
     GfxPath * ans;
     ans = tthis->getPath();
-    SEXP r_ans = R_createRef(ans, "GfxPathPtr");
+    SEXP r_ans = R_createRef(ans, "GfxPathPtr", NULL);
     return(r_ans);
 }
 
@@ -1126,7 +1136,7 @@ SEXP R_GfxState_getDisplayProfile(SEXP r_tthis)
     GfxState *tthis = GET_REF(r_tthis, GfxState);
     void * ans;
     ans = tthis->getDisplayProfile();
-    SEXP r_ans = R_createRef(ans, "voidPtr");
+    SEXP r_ans = R_createRef(ans, "voidPtr", NULL);
     return(r_ans);
 }
 
@@ -1136,7 +1146,7 @@ SEXP R_GfxState_getXYZ2DisplayTransform(SEXP r_tthis)
     GfxState *tthis = GET_REF(r_tthis, GfxState);
     GfxColorTransform * ans;
     ans = tthis->getXYZ2DisplayTransform();
-    SEXP r_ans = R_createRef(ans, "GfxColorTransformPtr");
+    SEXP r_ans = R_createRef(ans, "GfxColorTransformPtr", NULL);
     return(r_ans);
 }
 
@@ -1286,7 +1296,7 @@ SEXP R_GfxState_save(SEXP r_tthis)
     GfxState *tthis = GET_REF(r_tthis, GfxState);
     GfxState * ans;
     ans = tthis->save();
-    SEXP r_ans = R_createRef(ans, "GfxStatePtr");
+    SEXP r_ans = R_createRef(ans, "GfxStatePtr", NULL);
     return(r_ans);
 }
 
@@ -1296,7 +1306,7 @@ SEXP R_GfxState_restore(SEXP r_tthis)
     GfxState *tthis = GET_REF(r_tthis, GfxState);
     GfxState * ans;
     ans = tthis->restore();
-    SEXP r_ans = R_createRef(ans, "GfxStatePtr");
+    SEXP r_ans = R_createRef(ans, "GfxStatePtr", NULL);
     return(r_ans);
 }
 
@@ -1342,6 +1352,6 @@ SEXP R_GfxState_getReusablePath(SEXP r_tthis)
     GfxState *tthis = GET_REF(r_tthis, GfxState);
     GfxState::ReusablePathIterator * ans;
     ans = tthis->getReusablePath();
-    SEXP r_ans = R_createRef(ans, "GfxState::ReusablePathIteratorPtr");
+    SEXP r_ans = R_createRef(ans, "GfxState::ReusablePathIteratorPtr", NULL);
     return(r_ans);
 }

@@ -8,7 +8,7 @@ SEXP R_PageAttrs_getMediaBox(SEXP r_tthis)
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
     PDFRectangle * ans;
     ans = tthis->getMediaBox();
-    SEXP r_ans = R_createRef(ans, "PDFRectanglePtr");
+    SEXP r_ans = R_createRef(ans, "PDFRectanglePtr", NULL);
     return(r_ans);
 }
 
@@ -18,7 +18,7 @@ SEXP R_PageAttrs_getCropBox(SEXP r_tthis)
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
     PDFRectangle * ans;
     ans = tthis->getCropBox();
-    SEXP r_ans = R_createRef(ans, "PDFRectanglePtr");
+    SEXP r_ans = R_createRef(ans, "PDFRectanglePtr", NULL);
     return(r_ans);
 }
 
@@ -38,7 +38,7 @@ SEXP R_PageAttrs_getBleedBox(SEXP r_tthis)
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
     PDFRectangle * ans;
     ans = tthis->getBleedBox();
-    SEXP r_ans = R_createRef(ans, "PDFRectanglePtr");
+    SEXP r_ans = R_createRef(ans, "PDFRectanglePtr", NULL);
     return(r_ans);
 }
 
@@ -48,7 +48,7 @@ SEXP R_PageAttrs_getTrimBox(SEXP r_tthis)
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
     PDFRectangle * ans;
     ans = tthis->getTrimBox();
-    SEXP r_ans = R_createRef(ans, "PDFRectanglePtr");
+    SEXP r_ans = R_createRef(ans, "PDFRectanglePtr", NULL);
     return(r_ans);
 }
 
@@ -58,7 +58,7 @@ SEXP R_PageAttrs_getArtBox(SEXP r_tthis)
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
     PDFRectangle * ans;
     ans = tthis->getArtBox();
-    SEXP r_ans = R_createRef(ans, "PDFRectanglePtr");
+    SEXP r_ans = R_createRef(ans, "PDFRectanglePtr", NULL);
     return(r_ans);
 }
 
@@ -88,7 +88,7 @@ SEXP R_PageAttrs_getBoxColorInfo(SEXP r_tthis)
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
     Dict * ans;
     ans = tthis->getBoxColorInfo();
-    SEXP r_ans = R_createRef(ans, "DictPtr");
+    SEXP r_ans = R_createRef(ans, "DictPtr", NULL);
     return(r_ans);
 }
 
@@ -98,7 +98,7 @@ SEXP R_PageAttrs_getGroup(SEXP r_tthis)
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
     Dict * ans;
     ans = tthis->getGroup();
-    SEXP r_ans = R_createRef(ans, "DictPtr");
+    SEXP r_ans = R_createRef(ans, "DictPtr", NULL);
     return(r_ans);
 }
 
@@ -108,7 +108,7 @@ SEXP R_PageAttrs_getMetadata(SEXP r_tthis)
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
     Stream * ans;
     ans = tthis->getMetadata();
-    SEXP r_ans = R_createRef(ans, "StreamPtr");
+    SEXP r_ans = R_createRef(ans, "StreamPtr", NULL);
     return(r_ans);
 }
 
@@ -118,7 +118,7 @@ SEXP R_PageAttrs_getPieceInfo(SEXP r_tthis)
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
     Dict * ans;
     ans = tthis->getPieceInfo();
-    SEXP r_ans = R_createRef(ans, "DictPtr");
+    SEXP r_ans = R_createRef(ans, "DictPtr", NULL);
     return(r_ans);
 }
 
@@ -128,7 +128,7 @@ SEXP R_PageAttrs_getSeparationInfo(SEXP r_tthis)
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
     Dict * ans;
     ans = tthis->getSeparationInfo();
-    SEXP r_ans = R_createRef(ans, "DictPtr");
+    SEXP r_ans = R_createRef(ans, "DictPtr", NULL);
     return(r_ans);
 }
 
@@ -138,7 +138,7 @@ SEXP R_PageAttrs_getResourceDict(SEXP r_tthis)
     PageAttrs *tthis = GET_REF(r_tthis, PageAttrs);
     Dict * ans;
     ans = tthis->getResourceDict();
-    SEXP r_ans = R_createRef(ans, "DictPtr");
+    SEXP r_ans = R_createRef(ans, "DictPtr", NULL);
     return(r_ans);
 }
 

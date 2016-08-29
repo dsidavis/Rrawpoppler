@@ -8,7 +8,7 @@ SEXP R_GfxSubpath_copy(SEXP r_tthis)
     GfxSubpath *tthis = GET_REF(r_tthis, GfxSubpath);
     GfxSubpath * ans;
     ans = tthis->copy();
-    SEXP r_ans = R_createRef(ans, "GfxSubpathPtr");
+    SEXP r_ans = R_createRef(ans, "GfxSubpathPtr", NULL);
     return(r_ans);
 }
 

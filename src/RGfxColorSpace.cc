@@ -8,7 +8,7 @@ SEXP R_GfxColorSpace_copy(SEXP r_tthis)
     GfxColorSpace *tthis = GET_REF(r_tthis, GfxColorSpace);
     GfxColorSpace * ans;
     ans = tthis->copy();
-    SEXP r_ans = R_createRef(ans, "GfxColorSpacePtr");
+    SEXP r_ans = R_createRef(ans, "GfxColorSpacePtr", NULL);
     return(r_ans);
 }
 
@@ -27,7 +27,7 @@ SEXP R_GfxColorSpace_parse(SEXP r_res, SEXP r_csObj, SEXP r_out, SEXP r_state, S
     recursion = INTEGER(r_recursion)[0];
     GfxColorSpace * ans;
     ans = GfxColorSpace::parse(res, csObj, out, state, recursion);
-    SEXP r_ans = R_createRef(ans, "GfxColorSpacePtr");
+    SEXP r_ans = R_createRef(ans, "GfxColorSpacePtr", NULL);
     return(r_ans);
 }
 
@@ -237,6 +237,15 @@ SEXP R_GfxColorSpace_getRGBProfile()
 {
     void * ans;
     ans = GfxColorSpace::getRGBProfile();
-    SEXP r_ans = R_createRef(ans, "voidPtr");
+    SEXP r_ans = R_createRef(ans, "voidPtr", NULL);
+    return(r_ans);
+}
+
+extern "C"
+SEXP R_GfxColorSpace_getDisplayProfile()
+{
+    void * ans;
+    ans = GfxColorSpace::getDisplayProfile();
+    SEXP r_ans = R_createRef(ans, "voidPtr", NULL);
     return(r_ans);
 }

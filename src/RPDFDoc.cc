@@ -11,7 +11,7 @@ SEXP R_PDFDoc_ErrorPDFDoc(SEXP r_errorCode, SEXP r_fileNameA)
     fileNameA = GooStringFromR(r_fileNameA);
     PDFDoc * ans;
     ans = PDFDoc::ErrorPDFDoc(errorCode, fileNameA);
-    SEXP r_ans = R_createRef(ans, "PDFDocPtr");
+    SEXP r_ans = R_createRef(ans, "PDFDocPtr", NULL);
     return(r_ans);
 }
 
@@ -61,7 +61,7 @@ SEXP R_PDFDoc_getLinearization(SEXP r_tthis)
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     Linearization * ans;
     ans = tthis->getLinearization();
-    SEXP r_ans = R_createRef(ans, "LinearizationPtr");
+    SEXP r_ans = R_createRef(ans, "LinearizationPtr", NULL);
     return(r_ans);
 }
 
@@ -81,7 +81,7 @@ SEXP R_PDFDoc_getXRef(SEXP r_tthis)
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     XRef * ans;
     ans = tthis->getXRef();
-    SEXP r_ans = R_createRef(ans, "XRefPtr");
+    SEXP r_ans = R_createRef(ans, "XRefPtr", NULL);
     return(r_ans);
 }
 
@@ -91,7 +91,7 @@ SEXP R_PDFDoc_getCatalog(SEXP r_tthis)
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     Catalog * ans;
     ans = tthis->getCatalog();
-    SEXP r_ans = R_createRef(ans, "CatalogPtr");
+    SEXP r_ans = R_createRef(ans, "CatalogPtr", NULL);
     return(r_ans);
 }
 
@@ -101,7 +101,7 @@ SEXP R_PDFDoc_getOptContentConfig(SEXP r_tthis)
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     OCGs * ans;
     ans = tthis->getOptContentConfig();
-    SEXP r_ans = R_createRef(ans, "OCGsPtr");
+    SEXP r_ans = R_createRef(ans, "OCGsPtr", NULL);
     return(r_ans);
 }
 
@@ -111,7 +111,7 @@ SEXP R_PDFDoc_getBaseStream(SEXP r_tthis)
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     BaseStream * ans;
     ans = tthis->getBaseStream();
-    SEXP r_ans = R_createRef(ans, "BaseStreamPtr");
+    SEXP r_ans = R_createRef(ans, "BaseStreamPtr", NULL);
     return(r_ans);
 }
 
@@ -201,7 +201,7 @@ SEXP R_PDFDoc_getStructTreeRoot(SEXP r_tthis)
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     StructTreeRoot * ans;
     ans = tthis->getStructTreeRoot();
-    SEXP r_ans = R_createRef(ans, "StructTreeRootPtr");
+    SEXP r_ans = R_createRef(ans, "StructTreeRootPtr", NULL);
     return(r_ans);
 }
 
@@ -213,7 +213,7 @@ SEXP R_PDFDoc_getPage(SEXP r_tthis, SEXP r_page)
     page = INTEGER(r_page)[0];
     Page * ans;
     ans = tthis->getPage(page);
-    SEXP r_ans = R_createRef(ans, "PagePtr");
+    SEXP r_ans = R_createRef(ans, "PagePtr", NULL);
     return(r_ans);
 }
 
@@ -239,7 +239,7 @@ SEXP R_PDFDoc_getLinks(SEXP r_tthis, SEXP r_page)
     page = INTEGER(r_page)[0];
     Links * ans;
     ans = tthis->getLinks(page);
-    SEXP r_ans = R_createRef(ans, "LinksPtr");
+    SEXP r_ans = R_createRef(ans, "LinksPtr", NULL);
     return(r_ans);
 }
 
@@ -251,7 +251,7 @@ SEXP R_PDFDoc_findDest(SEXP r_tthis, SEXP r_name)
     name = GooStringFromR(r_name);
     LinkDest * ans;
     ans = tthis->findDest(name);
-    SEXP r_ans = R_createRef(ans, "LinkDestPtr");
+    SEXP r_ans = R_createRef(ans, "LinkDestPtr", NULL);
     return(r_ans);
 }
 
@@ -273,7 +273,7 @@ SEXP R_PDFDoc_getOutline(SEXP r_tthis)
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     Outline * ans;
     ans = tthis->getOutline();
-    SEXP r_ans = R_createRef(ans, "OutlinePtr");
+    SEXP r_ans = R_createRef(ans, "OutlinePtr", NULL);
     return(r_ans);
 }
 
@@ -403,7 +403,7 @@ SEXP R_PDFDoc_getDocInfo(SEXP r_tthis, SEXP r_obj)
     obj = GET_REF(r_obj, Object );
     Object * ans;
     ans = tthis->getDocInfo(obj);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -415,7 +415,7 @@ SEXP R_PDFDoc_getDocInfoNF(SEXP r_tthis, SEXP r_obj)
     obj = GET_REF(r_obj, Object );
     Object * ans;
     ans = tthis->getDocInfoNF(obj);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -427,7 +427,7 @@ SEXP R_PDFDoc_createDocInfoIfNoneExists(SEXP r_tthis, SEXP r_obj)
     obj = GET_REF(r_obj, Object );
     Object * ans;
     ans = tthis->createDocInfoIfNoneExists(obj);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -672,7 +672,21 @@ SEXP R_PDFDoc_savePageAs(SEXP r_tthis, SEXP r_name, SEXP r_pageNo)
 }
 
 extern "C"
-SEXP R_PDFDoc_saveAs(SEXP r_tthis, SEXP r_outStr, SEXP r_mode)
+SEXP R_PDFDoc_saveAsGooString_Ptr_PDFWriteMode(SEXP r_tthis, SEXP r_name, SEXP r_mode)
+{
+    PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
+    GooString * name;
+    name = GooStringFromR(r_name);
+    PDFWriteMode mode;
+    mode = (PDFWriteMode) INTEGER(r_mode)[0];
+    int ans;
+    ans = tthis->saveAs(name, mode);
+    SEXP r_ans = Rf_ScalarInteger(ans);
+    return(r_ans);
+}
+
+extern "C"
+SEXP R_PDFDoc_saveAsOutStream_Ptr_PDFWriteMode(SEXP r_tthis, SEXP r_outStr, SEXP r_mode)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     OutStream * outStr;
@@ -686,7 +700,19 @@ SEXP R_PDFDoc_saveAs(SEXP r_tthis, SEXP r_outStr, SEXP r_mode)
 }
 
 extern "C"
-SEXP R_PDFDoc_saveWithoutChangesAs(SEXP r_tthis, SEXP r_outStr)
+SEXP R_PDFDoc_saveWithoutChangesAsGooString_Ptr(SEXP r_tthis, SEXP r_name)
+{
+    PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
+    GooString * name;
+    name = GooStringFromR(r_name);
+    int ans;
+    ans = tthis->saveWithoutChangesAs(name);
+    SEXP r_ans = Rf_ScalarInteger(ans);
+    return(r_ans);
+}
+
+extern "C"
+SEXP R_PDFDoc_saveWithoutChangesAsOutStream_Ptr(SEXP r_tthis, SEXP r_outStr)
 {
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     OutStream * outStr;
@@ -703,7 +729,7 @@ SEXP R_PDFDoc_getGUIData(SEXP r_tthis)
     PDFDoc *tthis = GET_REF(r_tthis, PDFDoc);
     void * ans;
     ans = tthis->getGUIData();
-    SEXP r_ans = R_createRef(ans, "voidPtr");
+    SEXP r_ans = R_createRef(ans, "voidPtr", NULL);
     return(r_ans);
 }
 
@@ -804,6 +830,31 @@ SEXP R_PDFDoc_writePageObjects(SEXP r_tthis, SEXP r_outStr, SEXP r_xRef, SEXP r_
 }
 
 extern "C"
+SEXP R_PDFDoc_writeObjectObject_Ptr_OutStream_Ptr_XRef_Ptr_Guint_Guchar_Ptr_CryptAlgorithm_int_int_int(SEXP r_obj, SEXP r_outStr, SEXP r_xref, SEXP r_numOffset, SEXP r_fileKey, SEXP r_encAlgorithm, SEXP r_keyLength, SEXP r_objNum, SEXP r_objGen)
+{
+    Object * obj;
+    obj = GET_REF(r_obj, Object );
+    OutStream * outStr;
+    outStr = GET_REF(r_outStr, OutStream );
+    XRef * xref;
+    xref = GET_REF(r_xref, XRef );
+    Guint numOffset;
+    numOffset = REAL(r_numOffset)[0];
+    Guchar * fileKey;
+    fileKey = (Guchar *) RAW(r_fileKey);
+    CryptAlgorithm encAlgorithm;
+    encAlgorithm = (CryptAlgorithm) INTEGER(r_encAlgorithm)[0];
+    int keyLength;
+    keyLength = INTEGER(r_keyLength)[0];
+    int objNum;
+    objNum = INTEGER(r_objNum)[0];
+    int objGen;
+    objGen = INTEGER(r_objGen)[0];
+    PDFDoc::writeObject(obj, outStr, xref, numOffset, fileKey, encAlgorithm, keyLength, objNum, objGen);
+    return(R_NilValue);
+}
+
+extern "C"
 SEXP R_PDFDoc_writeHeader(SEXP r_outStr, SEXP r_major, SEXP r_minor)
 {
     OutStream * outStr;
@@ -835,8 +886,27 @@ SEXP R_PDFDoc_createTrailerDict(SEXP r_uxrefSize, SEXP r_incrUpdate, SEXP r_star
     fileSize = REAL(r_fileSize)[0];
     Dict * ans;
     ans = PDFDoc::createTrailerDict(uxrefSize, incrUpdate, startxRef, root, xRef, fileName, fileSize);
-    SEXP r_ans = R_createRef(ans, "DictPtr");
+    SEXP r_ans = R_createRef(ans, "DictPtr", NULL);
     return(r_ans);
+}
+
+extern "C"
+SEXP R_PDFDoc_writeXRefTableTrailerDict_Ptr_XRef_Ptr_GBool_Goffset_OutStream_Ptr_XRef_Ptr(SEXP r_trailerDict, SEXP r_uxref, SEXP r_writeAllEntries, SEXP r_uxrefOffset, SEXP r_outStr, SEXP r_xRef)
+{
+    Dict * trailerDict;
+    trailerDict = GET_REF(r_trailerDict, Dict );
+    XRef * uxref;
+    uxref = GET_REF(r_uxref, XRef );
+    GBool writeAllEntries;
+    writeAllEntries = LOGICAL(r_writeAllEntries)[0];
+    Goffset uxrefOffset;
+    uxrefOffset = REAL(r_uxrefOffset)[0];
+    OutStream * outStr;
+    outStr = GET_REF(r_outStr, OutStream );
+    XRef * xRef;
+    xRef = GET_REF(r_xRef, XRef );
+    PDFDoc::writeXRefTableTrailer(trailerDict, uxref, writeAllEntries, uxrefOffset, outStr, xRef);
+    return(R_NilValue);
 }
 
 extern "C"

@@ -30,7 +30,7 @@ SEXP R_Catalog_getPage(SEXP r_tthis, SEXP r_i)
     i = INTEGER(r_i)[0];
     Page * ans;
     ans = tthis->getPage(i);
-    SEXP r_ans = R_createRef(ans, "PagePtr");
+    SEXP r_ans = R_createRef(ans, "PagePtr", NULL);
     return(r_ans);
 }
 
@@ -42,7 +42,7 @@ SEXP R_Catalog_getPageRef(SEXP r_tthis, SEXP r_i)
     i = INTEGER(r_i)[0];
     Ref * ans;
     ans = tthis->getPageRef(i);
-    SEXP r_ans = R_createRef(ans, "RefPtr");
+    SEXP r_ans = R_createRef(ans, "RefPtr", NULL);
     return(r_ans);
 }
 
@@ -72,7 +72,7 @@ SEXP R_Catalog_getStructTreeRoot(SEXP r_tthis)
     Catalog *tthis = GET_REF(r_tthis, Catalog);
     StructTreeRoot * ans;
     ans = tthis->getStructTreeRoot();
-    SEXP r_ans = R_createRef(ans, "StructTreeRootPtr");
+    SEXP r_ans = R_createRef(ans, "StructTreeRootPtr", NULL);
     return(r_ans);
 }
 
@@ -108,7 +108,7 @@ SEXP R_Catalog_findDest(SEXP r_tthis, SEXP r_name)
     name = GooStringFromR(r_name);
     LinkDest * ans;
     ans = tthis->findDest(name);
-    SEXP r_ans = R_createRef(ans, "LinkDestPtr");
+    SEXP r_ans = R_createRef(ans, "LinkDestPtr", NULL);
     return(r_ans);
 }
 
@@ -118,7 +118,7 @@ SEXP R_Catalog_getDests(SEXP r_tthis)
     Catalog *tthis = GET_REF(r_tthis, Catalog);
     Object * ans;
     ans = tthis->getDests();
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -140,7 +140,7 @@ SEXP R_Catalog_embeddedFile(SEXP r_tthis, SEXP r_i)
     i = INTEGER(r_i)[0];
     FileSpec * ans;
     ans = tthis->embeddedFile(i);
-    SEXP r_ans = R_createRef(ans, "FileSpecPtr");
+    SEXP r_ans = R_createRef(ans, "FileSpecPtr", NULL);
     return(r_ans);
 }
 
@@ -212,7 +212,7 @@ SEXP R_Catalog_getOutline(SEXP r_tthis)
     Catalog *tthis = GET_REF(r_tthis, Catalog);
     Object * ans;
     ans = tthis->getOutline();
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -222,7 +222,7 @@ SEXP R_Catalog_getAcroForm(SEXP r_tthis)
     Catalog *tthis = GET_REF(r_tthis, Catalog);
     Object * ans;
     ans = tthis->getAcroForm();
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -232,7 +232,7 @@ SEXP R_Catalog_getOptContentConfig(SEXP r_tthis)
     Catalog *tthis = GET_REF(r_tthis, Catalog);
     OCGs * ans;
     ans = tthis->getOptContentConfig();
-    SEXP r_ans = R_createRef(ans, "OCGsPtr");
+    SEXP r_ans = R_createRef(ans, "OCGsPtr", NULL);
     return(r_ans);
 }
 
@@ -242,7 +242,7 @@ SEXP R_Catalog_getForm(SEXP r_tthis)
     Catalog *tthis = GET_REF(r_tthis, Catalog);
     Form * ans;
     ans = tthis->getForm();
-    SEXP r_ans = R_createRef(ans, "FormPtr");
+    SEXP r_ans = R_createRef(ans, "FormPtr", NULL);
     return(r_ans);
 }
 
@@ -252,7 +252,7 @@ SEXP R_Catalog_getViewerPreferences(SEXP r_tthis)
     Catalog *tthis = GET_REF(r_tthis, Catalog);
     ViewerPreferences * ans;
     ans = tthis->getViewerPreferences();
-    SEXP r_ans = R_createRef(ans, "ViewerPreferencesPtr");
+    SEXP r_ans = R_createRef(ans, "ViewerPreferencesPtr", NULL);
     return(r_ans);
 }
 
@@ -264,6 +264,6 @@ SEXP R_Catalog_getAdditionalAction(SEXP r_tthis, SEXP r_type)
     type = (Catalog::DocumentAdditionalActionsType) INTEGER(r_type)[0];
     LinkAction * ans;
     ans = tthis->getAdditionalAction(type);
-    SEXP r_ans = R_createRef(ans, "LinkActionPtr");
+    SEXP r_ans = R_createRef(ans, "LinkActionPtr", NULL);
     return(r_ans);
 }

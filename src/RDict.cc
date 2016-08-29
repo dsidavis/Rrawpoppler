@@ -10,7 +10,7 @@ SEXP R_Dict_copy(SEXP r_tthis, SEXP r_xrefA)
     xrefA = GET_REF(r_xrefA, XRef );
     Dict * ans;
     ans = tthis->copy(xrefA);
-    SEXP r_ans = R_createRef(ans, "DictPtr");
+    SEXP r_ans = R_createRef(ans, "DictPtr", NULL);
     return(r_ans);
 }
 
@@ -102,7 +102,7 @@ SEXP R_Dict_lookup(SEXP r_tthis, SEXP r_key, SEXP r_obj, SEXP r_recursion)
     recursion = INTEGER(r_recursion)[0];
     Object * ans;
     ans = tthis->lookup(key, obj, recursion);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -116,7 +116,7 @@ SEXP R_Dict_lookupNF(SEXP r_tthis, SEXP r_key, SEXP r_obj)
     obj = GET_REF(r_obj, Object );
     Object * ans;
     ans = tthis->lookupNF(key, obj);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -158,7 +158,7 @@ SEXP R_Dict_getVal(SEXP r_tthis, SEXP r_i, SEXP r_obj)
     obj = GET_REF(r_obj, Object );
     Object * ans;
     ans = tthis->getVal(i, obj);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -172,7 +172,7 @@ SEXP R_Dict_getValNF(SEXP r_tthis, SEXP r_i, SEXP r_obj)
     obj = GET_REF(r_obj, Object );
     Object * ans;
     ans = tthis->getValNF(i, obj);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -192,7 +192,7 @@ SEXP R_Dict_getXRef(SEXP r_tthis)
     Dict *tthis = GET_REF(r_tthis, Dict);
     XRef * ans;
     ans = tthis->getXRef();
-    SEXP r_ans = R_createRef(ans, "XRefPtr");
+    SEXP r_ans = R_createRef(ans, "XRefPtr", NULL);
     return(r_ans);
 }
 

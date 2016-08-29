@@ -18,7 +18,7 @@ SEXP R_Object_initBool(SEXP r_tthis, SEXP r_boolnA)
     boolnA = LOGICAL(r_boolnA)[0];
     Object * ans;
     ans = tthis->initBool(boolnA);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -30,7 +30,7 @@ SEXP R_Object_initInt(SEXP r_tthis, SEXP r_intgA)
     intgA = INTEGER(r_intgA)[0];
     Object * ans;
     ans = tthis->initInt(intgA);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -42,7 +42,7 @@ SEXP R_Object_initReal(SEXP r_tthis, SEXP r_realA)
     realA = REAL(r_realA)[0];
     Object * ans;
     ans = tthis->initReal(realA);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -54,7 +54,7 @@ SEXP R_Object_initString(SEXP r_tthis, SEXP r_stringA)
     stringA = GooStringFromR(r_stringA);
     Object * ans;
     ans = tthis->initString(stringA);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -66,7 +66,7 @@ SEXP R_Object_initName(SEXP r_tthis, SEXP r_nameA)
     nameA = CHAR(STRING_ELT(r_nameA, 0));
     Object * ans;
     ans = tthis->initName(nameA);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -76,7 +76,7 @@ SEXP R_Object_initNull(SEXP r_tthis)
     Object *tthis = GET_REF(r_tthis, Object);
     Object * ans;
     ans = tthis->initNull();
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -88,19 +88,31 @@ SEXP R_Object_initArray(SEXP r_tthis, SEXP r_xref)
     xref = GET_REF(r_xref, XRef );
     Object * ans;
     ans = tthis->initArray(xref);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
 extern "C"
-SEXP R_Object_initDict(SEXP r_tthis, SEXP r_dictA)
+SEXP R_Object_initDictXRef_Ptr(SEXP r_tthis, SEXP r_xref)
+{
+    Object *tthis = GET_REF(r_tthis, Object);
+    XRef * xref;
+    xref = GET_REF(r_xref, XRef );
+    Object * ans;
+    ans = tthis->initDict(xref);
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
+    return(r_ans);
+}
+
+extern "C"
+SEXP R_Object_initDictDict_Ptr(SEXP r_tthis, SEXP r_dictA)
 {
     Object *tthis = GET_REF(r_tthis, Object);
     Dict * dictA;
     dictA = GET_REF(r_dictA, Dict );
     Object * ans;
     ans = tthis->initDict(dictA);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -112,7 +124,7 @@ SEXP R_Object_initStream(SEXP r_tthis, SEXP r_streamA)
     streamA = GET_REF(r_streamA, Stream );
     Object * ans;
     ans = tthis->initStream(streamA);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -126,7 +138,7 @@ SEXP R_Object_initRef(SEXP r_tthis, SEXP r_numA, SEXP r_genA)
     genA = INTEGER(r_genA)[0];
     Object * ans;
     ans = tthis->initRef(numA, genA);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -138,7 +150,7 @@ SEXP R_Object_initCmd(SEXP r_tthis, SEXP r_cmdA)
     cmdA = (char *)CHAR(STRING_ELT(r_cmdA, 0));
     Object * ans;
     ans = tthis->initCmd(cmdA);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -148,7 +160,7 @@ SEXP R_Object_initError(SEXP r_tthis)
     Object *tthis = GET_REF(r_tthis, Object);
     Object * ans;
     ans = tthis->initError();
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -158,7 +170,7 @@ SEXP R_Object_initEOF(SEXP r_tthis)
     Object *tthis = GET_REF(r_tthis, Object);
     Object * ans;
     ans = tthis->initEOF();
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -170,7 +182,7 @@ SEXP R_Object_initInt64(SEXP r_tthis, SEXP r_int64gA)
     int64gA = REAL(r_int64gA)[0];
     Object * ans;
     ans = tthis->initInt64(int64gA);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -182,7 +194,7 @@ SEXP R_Object_copy(SEXP r_tthis, SEXP r_obj)
     obj = GET_REF(r_obj, Object );
     Object * ans;
     ans = tthis->copy(obj);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -194,7 +206,7 @@ SEXP R_Object_shallowCopy(SEXP r_tthis, SEXP r_obj)
     obj = GET_REF(r_obj, Object );
     Object * ans;
     ans = tthis->shallowCopy(obj);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -210,7 +222,7 @@ SEXP R_Object_fetch(SEXP r_tthis, SEXP r_xref, SEXP r_obj, SEXP r_recursion)
     recursion = INTEGER(r_recursion)[0];
     Object * ans;
     ans = tthis->fetch(xref, obj, recursion);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -273,13 +285,11 @@ SEXP R_Object_isString(SEXP r_tthis)
 }
 
 extern "C"
-SEXP R_Object_isName(SEXP r_tthis, SEXP r_nameA)
+SEXP R_Object_isName(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
-    const char * nameA;
-    nameA = CHAR(STRING_ELT(r_nameA, 0));
     GBool ans;
-    ans = tthis->isName(nameA);
+    ans = tthis->isName();
     SEXP r_ans = Rf_ScalarLogical(ans);
     return(r_ans);
 }
@@ -305,25 +315,21 @@ SEXP R_Object_isArray(SEXP r_tthis)
 }
 
 extern "C"
-SEXP R_Object_isDict(SEXP r_tthis, SEXP r_dictType)
+SEXP R_Object_isDict(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
-    const char * dictType;
-    dictType = CHAR(STRING_ELT(r_dictType, 0));
     GBool ans;
-    ans = tthis->isDict(dictType);
+    ans = tthis->isDict();
     SEXP r_ans = Rf_ScalarLogical(ans);
     return(r_ans);
 }
 
 extern "C"
-SEXP R_Object_isStream(SEXP r_tthis, SEXP r_dictType)
+SEXP R_Object_isStream(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
-    char * dictType;
-    dictType = (char *)CHAR(STRING_ELT(r_dictType, 0));
     GBool ans;
-    ans = tthis->isStream(dictType);
+    ans = tthis->isStream();
     SEXP r_ans = Rf_ScalarLogical(ans);
     return(r_ans);
 }
@@ -339,13 +345,11 @@ SEXP R_Object_isRef(SEXP r_tthis)
 }
 
 extern "C"
-SEXP R_Object_isCmd(SEXP r_tthis, SEXP r_cmdA)
+SEXP R_Object_isCmd(SEXP r_tthis)
 {
     Object *tthis = GET_REF(r_tthis, Object);
-    const char * cmdA;
-    cmdA = CHAR(STRING_ELT(r_cmdA, 0));
     GBool ans;
-    ans = tthis->isCmd(cmdA);
+    ans = tthis->isCmd();
     SEXP r_ans = Rf_ScalarLogical(ans);
     return(r_ans);
 }
@@ -396,6 +400,54 @@ SEXP R_Object_isIntOrInt64(SEXP r_tthis)
     Object *tthis = GET_REF(r_tthis, Object);
     GBool ans;
     ans = tthis->isIntOrInt64();
+    SEXP r_ans = Rf_ScalarLogical(ans);
+    return(r_ans);
+}
+
+extern "C"
+SEXP R_Object_isNameconst_char_Ptr(SEXP r_tthis, SEXP r_nameA)
+{
+    Object *tthis = GET_REF(r_tthis, Object);
+    const char * nameA;
+    nameA = CHAR(STRING_ELT(r_nameA, 0));
+    GBool ans;
+    ans = tthis->isName(nameA);
+    SEXP r_ans = Rf_ScalarLogical(ans);
+    return(r_ans);
+}
+
+extern "C"
+SEXP R_Object_isDictconst_char_Ptr(SEXP r_tthis, SEXP r_dictType)
+{
+    Object *tthis = GET_REF(r_tthis, Object);
+    const char * dictType;
+    dictType = CHAR(STRING_ELT(r_dictType, 0));
+    GBool ans;
+    ans = tthis->isDict(dictType);
+    SEXP r_ans = Rf_ScalarLogical(ans);
+    return(r_ans);
+}
+
+extern "C"
+SEXP R_Object_isStreamchar_Ptr(SEXP r_tthis, SEXP r_dictType)
+{
+    Object *tthis = GET_REF(r_tthis, Object);
+    char * dictType;
+    dictType = (char *)CHAR(STRING_ELT(r_dictType, 0));
+    GBool ans;
+    ans = tthis->isStream(dictType);
+    SEXP r_ans = Rf_ScalarLogical(ans);
+    return(r_ans);
+}
+
+extern "C"
+SEXP R_Object_isCmdconst_char_Ptr(SEXP r_tthis, SEXP r_cmdA)
+{
+    Object *tthis = GET_REF(r_tthis, Object);
+    const char * cmdA;
+    cmdA = CHAR(STRING_ELT(r_cmdA, 0));
+    GBool ans;
+    ans = tthis->isCmd(cmdA);
     SEXP r_ans = Rf_ScalarLogical(ans);
     return(r_ans);
 }
@@ -476,7 +528,7 @@ SEXP R_Object_getArray(SEXP r_tthis)
     Object *tthis = GET_REF(r_tthis, Object);
     Array * ans;
     ans = tthis->getArray();
-    SEXP r_ans = R_createRef(ans, "ArrayPtr");
+    SEXP r_ans = R_createRef(ans, "ArrayPtr", NULL);
     return(r_ans);
 }
 
@@ -486,7 +538,7 @@ SEXP R_Object_getDict(SEXP r_tthis)
     Object *tthis = GET_REF(r_tthis, Object);
     Dict * ans;
     ans = tthis->getDict();
-    SEXP r_ans = R_createRef(ans, "DictPtr");
+    SEXP r_ans = R_createRef(ans, "DictPtr", NULL);
     return(r_ans);
 }
 
@@ -496,7 +548,7 @@ SEXP R_Object_getStream(SEXP r_tthis)
     Object *tthis = GET_REF(r_tthis, Object);
     Stream * ans;
     ans = tthis->getStream();
-    SEXP r_ans = R_createRef(ans, "StreamPtr");
+    SEXP r_ans = R_createRef(ans, "StreamPtr", NULL);
     return(r_ans);
 }
 
@@ -592,7 +644,7 @@ SEXP R_Object_arrayGet(SEXP r_tthis, SEXP r_i, SEXP r_obj, SEXP r_recursion)
     recursion = INTEGER(r_recursion)[0];
     Object * ans;
     ans = tthis->arrayGet(i, obj, recursion);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -606,7 +658,7 @@ SEXP R_Object_arrayGetNF(SEXP r_tthis, SEXP r_i, SEXP r_obj)
     obj = GET_REF(r_obj, Object );
     Object * ans;
     ans = tthis->arrayGetNF(i, obj);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -678,7 +730,7 @@ SEXP R_Object_dictLookup(SEXP r_tthis, SEXP r_key, SEXP r_obj, SEXP r_recursion)
     recursion = INTEGER(r_recursion)[0];
     Object * ans;
     ans = tthis->dictLookup(key, obj, recursion);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -692,7 +744,7 @@ SEXP R_Object_dictLookupNF(SEXP r_tthis, SEXP r_key, SEXP r_obj)
     obj = GET_REF(r_obj, Object );
     Object * ans;
     ans = tthis->dictLookupNF(key, obj);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -718,7 +770,7 @@ SEXP R_Object_dictGetVal(SEXP r_tthis, SEXP r_i, SEXP r_obj)
     obj = GET_REF(r_obj, Object );
     Object * ans;
     ans = tthis->dictGetVal(i, obj);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -732,7 +784,7 @@ SEXP R_Object_dictGetValNF(SEXP r_tthis, SEXP r_i, SEXP r_obj)
     obj = GET_REF(r_obj, Object );
     Object * ans;
     ans = tthis->dictGetValNF(i, obj);
-    SEXP r_ans = R_createRef(ans, "ObjectPtr");
+    SEXP r_ans = R_createRef(ans, "ObjectPtr", NULL);
     return(r_ans);
 }
 
@@ -840,7 +892,7 @@ SEXP R_Object_streamGetDict(SEXP r_tthis)
     Object *tthis = GET_REF(r_tthis, Object);
     Dict * ans;
     ans = tthis->streamGetDict();
-    SEXP r_ans = R_createRef(ans, "DictPtr");
+    SEXP r_ans = R_createRef(ans, "DictPtr", NULL);
     return(r_ans);
 }
 
