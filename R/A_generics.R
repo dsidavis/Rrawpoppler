@@ -4,6 +4,8 @@ setGeneric("close", function(this, ...) standardGeneric("close"))
 
 setGeneric("createDocInfoIfNoneExists", function(this, ...) standardGeneric("createDocInfoIfNoneExists"))
 
+setGeneric("display", function(this, ...) standardGeneric("display"))
+
 setGeneric("fetch", function(this, ...) standardGeneric("fetch"))
 
 setGeneric("findDest", function(this, ...) standardGeneric("findDest"))
@@ -11,6 +13,8 @@ setGeneric("findDest", function(this, ...) standardGeneric("findDest"))
 setGeneric("findPage", function(this, ...) standardGeneric("findPage"))
 
 setGeneric("getAdditionalAction", function(this, ...) standardGeneric("getAdditionalAction"))
+
+setGeneric("getAnnots", function(this, ...) standardGeneric("getAnnots"))
 
 setGeneric("getArtBox", function(this, ...) standardGeneric("getArtBox"))
 
@@ -21,6 +25,8 @@ setGeneric("getBoxColorInfo", function(this, ...) standardGeneric("getBoxColorIn
 setGeneric("getCatalog", function(this, ...) standardGeneric("getCatalog"))
 
 setGeneric("getCropBox", function(this, ...) standardGeneric("getCropBox"))
+
+setGeneric("getCTM", function(this, ...) standardGeneric("getCTM"))
 
 setGeneric("getDocInfo", function(this, ...) standardGeneric("getDocInfo"))
 
@@ -64,13 +70,23 @@ setGeneric("getTrimBox", function(this, ...) standardGeneric("getTrimBox"))
 
 setGeneric("getXRef", function(this, ...) standardGeneric("getXRef"))
 
+setGeneric("initDict", function(this, ...) standardGeneric("initDict"))
+
+setGeneric("isCmd", function(this, ...) standardGeneric("isCmd"))
+
 setGeneric("isCropped", function(this, ...) standardGeneric("isCropped"))
 
 setGeneric("isCurPt", function(this, ...) standardGeneric("isCurPt"))
 
+setGeneric("isDict", function(this, ...) standardGeneric("isDict"))
+
 setGeneric("isEncrypted", function(this, ...) standardGeneric("isEncrypted"))
 
+setGeneric("isName", function(this, ...) standardGeneric("isName"))
+
 setGeneric("isPath", function(this, ...) standardGeneric("isPath"))
+
+setGeneric("isStream", function(this, ...) standardGeneric("isStream"))
 
 setGeneric("moveTo", function(this, ...) standardGeneric("moveTo"))
 
@@ -97,6 +113,10 @@ setGeneric("processLinks", function(this, ...) standardGeneric("processLinks"))
 setGeneric("readMetadata", function(this, ...) standardGeneric("readMetadata"))
 
 setGeneric("removeDocInfo", function(this, ...) standardGeneric("removeDocInfo"))
+
+setGeneric("saveAs", function(this, ...) standardGeneric("saveAs"))
+
+setGeneric("saveWithoutChangesAs", function(this, ...) standardGeneric("saveWithoutChangesAs"))
 
 setGeneric("curveTo", function(this, ...) standardGeneric("curveTo"))
 
