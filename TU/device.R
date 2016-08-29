@@ -27,7 +27,18 @@ rcode = mapply(function(rfun, type) {
                },
                 rcode, sprintf("'%s'", lapply(rt, getName)))
 
-
 # Generate documentation for these methods.
+
+
+
+m = k$OutputDev@methods
+m = m[-1] # remove the constructor
+m = m [ setdiff(names(m), c("checkPageSlice", "drawForm")) ]
+
+
+code = lapply(dev@methods, createMethod, className = "ROutputDev", typeMap = typemap, baseClassName = "OutputDev")
+cat(unlist(sapply(code, `[[`, 1)), sep = "\n", file = "../src/ROutputDev_auto.cpp_code")
+cat(paste(sapply(code, `[[`, 2), ";"), sep = "\n", file = "../src/ROutputDev_auto.h")
+
 
 
