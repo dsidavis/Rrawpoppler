@@ -1,254 +1,294 @@
 GBool ROutputDev::upsideDown(  )
 {
 	SEXP fun = lookupRMethod("upsideDown");
-	if(fun == R_NilValue)
+	if(fun == R_NilValue) {
 	   return(0) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
 GBool ROutputDev::useDrawChar(  )
 {
 	SEXP fun = lookupRMethod("useDrawChar");
-	if(fun == R_NilValue)
+	if(fun == R_NilValue) {
 	   return(0) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
 GBool ROutputDev::useTilingPatternFill(  )
 {
 	SEXP fun = lookupRMethod("useTilingPatternFill");
-	if(fun == R_NilValue)
-	   return(0) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::useTilingPatternFill()) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
 GBool ROutputDev::useShadedFills( int type )
 {
 	SEXP fun = lookupRMethod("useShadedFills");
-	if(fun == R_NilValue)
-	   return(0) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::useShadedFills(type)) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(type)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(type)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
 GBool ROutputDev::useFillColorStop(  )
 {
 	SEXP fun = lookupRMethod("useFillColorStop");
-	if(fun == R_NilValue)
-	   return(0) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::useFillColorStop()) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
 GBool ROutputDev::useDrawForm(  )
 {
 	SEXP fun = lookupRMethod("useDrawForm");
-	if(fun == R_NilValue)
-	   return(0) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::useDrawForm()) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
 GBool ROutputDev::interpretType3Chars(  )
 {
 	SEXP fun = lookupRMethod("interpretType3Chars");
-	if(fun == R_NilValue)
+	if(fun == R_NilValue) {
 	   return(0) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
 GBool ROutputDev::needNonText(  )
 {
 	SEXP fun = lookupRMethod("needNonText");
-	if(fun == R_NilValue)
-	   return(0) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::needNonText()) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
 GBool ROutputDev::needCharCount(  )
 {
 	SEXP fun = lookupRMethod("needCharCount");
-	if(fun == R_NilValue)
-	   return(0) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::needCharCount()) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
 GBool ROutputDev::needClipToCropBox(  )
 {
 	SEXP fun = lookupRMethod("needClipToCropBox");
-	if(fun == R_NilValue)
-	   return(0) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::needClipToCropBox()) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
 void ROutputDev::setDefaultCTM( double * ctm )
 {
 	SEXP fun = lookupRMethod("setDefaultCTM");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::setDefaultCTM(ctm);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(ctm, "doublePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(ctm, "doublePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::startPage( int pageNum, GfxState * state, XRef * xref )
 {
 	SEXP fun = lookupRMethod("startPage");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::startPage(pageNum, state, xref);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 4));
+	PROTECT(e = cur = allocVector(LANGSXP, 5));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(pageNum)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(state, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(xref, "XRefPtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(pageNum)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(state, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(xref, "XRefPtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::endPage(  )
 {
 	SEXP fun = lookupRMethod("endPage");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::endPage();
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::dump(  )
 {
 	SEXP fun = lookupRMethod("dump");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::dump();
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::cvtDevToUser( double dx, double dy, double * ux, double * uy )
 {
 	SEXP fun = lookupRMethod("cvtDevToUser");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::cvtDevToUser(dx, dy, ux, uy);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 5));
+	PROTECT(e = cur = allocVector(LANGSXP, 6));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(dx)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(dy)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(ux, "doublePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(uy, "doublePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(dx)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(dy)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(ux, "doublePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(uy, "doublePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::cvtUserToDev( double ux, double uy, int * dx, int * dy )
 {
 	SEXP fun = lookupRMethod("cvtUserToDev");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::cvtUserToDev(ux, uy, dx, dy);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 5));
+	PROTECT(e = cur = allocVector(LANGSXP, 6));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(ux)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(uy)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(dx, "intPtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(dy, "intPtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(ux)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(uy)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(dx, "intPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(dy, "intPtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 double * ROutputDev::getDefCTM(  )
 {
 	SEXP fun = lookupRMethod("getDefCTM");
-	if(fun == R_NilValue)
-	   return(NULL) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::getDefCTM()) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
 	double * ans = GET_REF(r_ans, double ); ;
 	UNPROTECT(1);
@@ -257,1277 +297,1529 @@ double * ROutputDev::getDefCTM(  )
 double * ROutputDev::getDefICTM(  )
 {
 	SEXP fun = lookupRMethod("getDefICTM");
-	if(fun == R_NilValue)
-	   return(NULL) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::getDefICTM()) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
 	double * ans = GET_REF(r_ans, double ); ;
 	UNPROTECT(1);
 	return(ans);
 }
-void ROutputDev::saveState( GfxState * A )
+void ROutputDev::saveState( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("saveState");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::saveState(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::restoreState( GfxState * A )
+void ROutputDev::restoreState( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("restoreState");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::restoreState(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::updateAll( GfxState * state )
 {
 	SEXP fun = lookupRMethod("updateAll");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateAll(state);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(state, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(state, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateCTM( GfxState * A, double B, double C, double D, double E, double F, double G )
+void ROutputDev::updateCTM( GfxState * arg1, double arg2, double arg3, double arg4, double arg5, double arg6, double arg7 )
 {
 	SEXP fun = lookupRMethod("updateCTM");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateCTM(arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 8));
+	PROTECT(e = cur = allocVector(LANGSXP, 9));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(B)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(C)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(D)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(E)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(F)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(G)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg2)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg3)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg4)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg5)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg6)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg7)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateLineDash( GfxState * A )
+void ROutputDev::updateLineDash( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateLineDash");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateLineDash(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateFlatness( GfxState * A )
+void ROutputDev::updateFlatness( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateFlatness");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateFlatness(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateLineJoin( GfxState * A )
+void ROutputDev::updateLineJoin( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateLineJoin");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateLineJoin(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateLineCap( GfxState * A )
+void ROutputDev::updateLineCap( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateLineCap");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateLineCap(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateMiterLimit( GfxState * A )
+void ROutputDev::updateMiterLimit( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateMiterLimit");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateMiterLimit(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateLineWidth( GfxState * A )
+void ROutputDev::updateLineWidth( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateLineWidth");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateLineWidth(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateStrokeAdjust( GfxState * A )
+void ROutputDev::updateStrokeAdjust( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateStrokeAdjust");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateStrokeAdjust(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateAlphaIsShape( GfxState * A )
+void ROutputDev::updateAlphaIsShape( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateAlphaIsShape");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateAlphaIsShape(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateTextKnockout( GfxState * A )
+void ROutputDev::updateTextKnockout( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateTextKnockout");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateTextKnockout(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateFillColorSpace( GfxState * A )
+void ROutputDev::updateFillColorSpace( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateFillColorSpace");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateFillColorSpace(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateStrokeColorSpace( GfxState * A )
+void ROutputDev::updateStrokeColorSpace( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateStrokeColorSpace");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateStrokeColorSpace(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateFillColor( GfxState * A )
+void ROutputDev::updateFillColor( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateFillColor");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateFillColor(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateStrokeColor( GfxState * A )
+void ROutputDev::updateStrokeColor( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateStrokeColor");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateStrokeColor(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateBlendMode( GfxState * A )
+void ROutputDev::updateBlendMode( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateBlendMode");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateBlendMode(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateFillOpacity( GfxState * A )
+void ROutputDev::updateFillOpacity( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateFillOpacity");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateFillOpacity(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateStrokeOpacity( GfxState * A )
+void ROutputDev::updateStrokeOpacity( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateStrokeOpacity");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateStrokeOpacity(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updatePatternOpacity( GfxState * A )
+void ROutputDev::updatePatternOpacity( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updatePatternOpacity");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updatePatternOpacity(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::clearPatternOpacity( GfxState * A )
+void ROutputDev::clearPatternOpacity( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("clearPatternOpacity");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::clearPatternOpacity(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateFillOverprint( GfxState * A )
+void ROutputDev::updateFillOverprint( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateFillOverprint");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateFillOverprint(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateStrokeOverprint( GfxState * A )
+void ROutputDev::updateStrokeOverprint( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateStrokeOverprint");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateStrokeOverprint(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateOverprintMode( GfxState * A )
+void ROutputDev::updateOverprintMode( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateOverprintMode");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateOverprintMode(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateTransfer( GfxState * A )
+void ROutputDev::updateTransfer( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateTransfer");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateTransfer(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateFillColorStop( GfxState * A, double B )
+void ROutputDev::updateFillColorStop( GfxState * arg1, double arg2 )
 {
 	SEXP fun = lookupRMethod("updateFillColorStop");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateFillColorStop(arg1, arg2);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 3));
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(B)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg2)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateFont( GfxState * A )
+void ROutputDev::updateFont( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateFont");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateFont(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateTextMat( GfxState * A )
+void ROutputDev::updateTextMat( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateTextMat");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateTextMat(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateCharSpace( GfxState * A )
+void ROutputDev::updateCharSpace( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateCharSpace");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateCharSpace(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateRender( GfxState * A )
+void ROutputDev::updateRender( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateRender");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateRender(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateRise( GfxState * A )
+void ROutputDev::updateRise( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateRise");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateRise(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateWordSpace( GfxState * A )
+void ROutputDev::updateWordSpace( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateWordSpace");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateWordSpace(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateHorizScaling( GfxState * A )
+void ROutputDev::updateHorizScaling( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateHorizScaling");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateHorizScaling(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateTextPos( GfxState * A )
+void ROutputDev::updateTextPos( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("updateTextPos");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateTextPos(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::updateTextShift( GfxState * A, double B )
+void ROutputDev::updateTextShift( GfxState * arg1, double arg2 )
 {
 	SEXP fun = lookupRMethod("updateTextShift");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::updateTextShift(arg1, arg2);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 3));
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(B)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg2)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::saveTextPos( GfxState * A )
+void ROutputDev::saveTextPos( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("saveTextPos");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::saveTextPos(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::restoreTextPos( GfxState * A )
+void ROutputDev::restoreTextPos( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("restoreTextPos");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::restoreTextPos(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::stroke( GfxState * A )
+void ROutputDev::stroke( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("stroke");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::stroke(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::fill( GfxState * A )
+void ROutputDev::fill( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("fill");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::fill(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::eoFill( GfxState * A )
+void ROutputDev::eoFill( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("eoFill");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::eoFill(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-GBool ROutputDev::tilingPatternFill( GfxState * A, Gfx * B, Catalog * C, Object * D, double * E, int F, int G, Dict * H, double * I, double * J, int K, int L, int M, int N, double O, double P )
+GBool ROutputDev::tilingPatternFill( GfxState * arg1, Gfx * arg2, Catalog * arg3, Object * arg4, double * arg5, int arg6, int arg7, Dict * arg8, double * arg9, double * arg10, int arg11, int arg12, int arg13, int arg14, double arg15, double arg16 )
 {
 	SEXP fun = lookupRMethod("tilingPatternFill");
-	if(fun == R_NilValue)
-	   return(0) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::tilingPatternFill(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15, arg16)) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 17));
+	PROTECT(e = cur = allocVector(LANGSXP, 18));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(B, "GfxPtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(C, "CatalogPtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(D, "ObjectPtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(E, "doublePtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(F)); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(G)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(H, "DictPtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(I, "doublePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(J, "doublePtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(K)); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(L)); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(M)); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(N)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(O)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(P)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg2, "GfxPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg3, "CatalogPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg4, "ObjectPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg5, "doublePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(arg6)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(arg7)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg8, "DictPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg9, "doublePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg10, "doublePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(arg11)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(arg12)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(arg13)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(arg14)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg15)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg16)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
-GBool ROutputDev::functionShadedFill( GfxState * A, GfxFunctionShading * B )
+GBool ROutputDev::functionShadedFill( GfxState * arg1, GfxFunctionShading * arg2 )
 {
 	SEXP fun = lookupRMethod("functionShadedFill");
-	if(fun == R_NilValue)
-	   return(0) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::functionShadedFill(arg1, arg2)) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 3));
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(B, "GfxFunctionShadingPtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg2, "GfxFunctionShadingPtr", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
-GBool ROutputDev::axialShadedFill( GfxState * A, GfxAxialShading * B, double C, double D )
+GBool ROutputDev::axialShadedFill( GfxState * arg1, GfxAxialShading * arg2, double arg3, double arg4 )
 {
 	SEXP fun = lookupRMethod("axialShadedFill");
-	if(fun == R_NilValue)
-	   return(0) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::axialShadedFill(arg1, arg2, arg3, arg4)) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 5));
+	PROTECT(e = cur = allocVector(LANGSXP, 6));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(B, "GfxAxialShadingPtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(C)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(D)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg2, "GfxAxialShadingPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg3)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg4)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
-GBool ROutputDev::axialShadedSupportExtend( GfxState * A, GfxAxialShading * B )
+GBool ROutputDev::axialShadedSupportExtend( GfxState * arg1, GfxAxialShading * arg2 )
 {
 	SEXP fun = lookupRMethod("axialShadedSupportExtend");
-	if(fun == R_NilValue)
-	   return(0) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::axialShadedSupportExtend(arg1, arg2)) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 3));
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(B, "GfxAxialShadingPtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg2, "GfxAxialShadingPtr", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
-GBool ROutputDev::radialShadedFill( GfxState * A, GfxRadialShading * B, double C, double D )
+GBool ROutputDev::radialShadedFill( GfxState * arg1, GfxRadialShading * arg2, double arg3, double arg4 )
 {
 	SEXP fun = lookupRMethod("radialShadedFill");
-	if(fun == R_NilValue)
-	   return(0) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::radialShadedFill(arg1, arg2, arg3, arg4)) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 5));
+	PROTECT(e = cur = allocVector(LANGSXP, 6));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(B, "GfxRadialShadingPtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(C)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(D)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg2, "GfxRadialShadingPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg3)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg4)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
-GBool ROutputDev::radialShadedSupportExtend( GfxState * A, GfxRadialShading * B )
+GBool ROutputDev::radialShadedSupportExtend( GfxState * arg1, GfxRadialShading * arg2 )
 {
 	SEXP fun = lookupRMethod("radialShadedSupportExtend");
-	if(fun == R_NilValue)
-	   return(0) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::radialShadedSupportExtend(arg1, arg2)) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 3));
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(B, "GfxRadialShadingPtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg2, "GfxRadialShadingPtr", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
 GBool ROutputDev::gouraudTriangleShadedFill( GfxState * state, GfxGouraudTriangleShading * shading )
 {
 	SEXP fun = lookupRMethod("gouraudTriangleShadedFill");
-	if(fun == R_NilValue)
-	   return(0) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::gouraudTriangleShadedFill(state, shading)) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 3));
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(state, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(shading, "GfxGouraudTriangleShadingPtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(state, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(shading, "GfxGouraudTriangleShadingPtr", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
 GBool ROutputDev::patchMeshShadedFill( GfxState * state, GfxPatchMeshShading * shading )
 {
 	SEXP fun = lookupRMethod("patchMeshShadedFill");
-	if(fun == R_NilValue)
-	   return(0) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::patchMeshShadedFill(state, shading)) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 3));
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(state, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(shading, "GfxPatchMeshShadingPtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(state, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(shading, "GfxPatchMeshShadingPtr", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
-void ROutputDev::clip( GfxState * A )
+void ROutputDev::clip( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("clip");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::clip(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::eoClip( GfxState * A )
+void ROutputDev::eoClip( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("eoClip");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::eoClip(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::clipToStrokePath( GfxState * A )
+void ROutputDev::clipToStrokePath( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("clipToStrokePath");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::clipToStrokePath(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::beginStringOp( GfxState * A )
+void ROutputDev::beginStringOp( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("beginStringOp");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::beginStringOp(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::endStringOp( GfxState * A )
+void ROutputDev::endStringOp( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("endStringOp");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::endStringOp(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::beginString( GfxState * A, GooString * B )
+void ROutputDev::beginString( GfxState * arg1, GooString * arg2 )
 {
 	SEXP fun = lookupRMethod("beginString");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::beginString(arg1, arg2);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 3));
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, GooStringToR(B)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, GooStringToR(arg2)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::endString( GfxState * A )
+void ROutputDev::endString( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("endString");
-	if(fun == R_NilValue)
-	   return ;
-	
-	
-	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
-	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	 invokeMethod(e);
-	UNPROTECT(1);
-}
-void ROutputDev::drawChar( GfxState * A, double B, double C, double D, double E, double F, double G, CharCode H, int I, Unicode * J, int K )
-{
-	SEXP fun = lookupRMethod("drawChar");
-	if(fun == R_NilValue)
-	   return ;
-	
-	
-	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 12));
-	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(B)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(C)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(D)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(E)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(F)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(G)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(H)); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(I)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(J, "UnicodePtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(K)); cur = CDR(cur);
-	 invokeMethod(e);
-	UNPROTECT(1);
-}
-void ROutputDev::drawString( GfxState * A, GooString * B )
-{
-	SEXP fun = lookupRMethod("drawString");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::endString(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
 	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, GooStringToR(B)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-GBool ROutputDev::beginType3Char( GfxState * A, double B, double C, double D, double E, CharCode F, Unicode * G, int H )
+void ROutputDev::drawChar( GfxState * arg1, double arg2, double arg3, double arg4, double arg5, double arg6, double arg7, CharCode arg8, int arg9, Unicode * arg10, int arg11 )
 {
-	SEXP fun = lookupRMethod("beginType3Char");
-	if(fun == R_NilValue)
-	   return(0) ;
+	SEXP fun = lookupRMethod("drawChar");
+	if(fun == R_NilValue) {
+	   OutputDev::drawChar(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 9));
+	PROTECT(e = cur = allocVector(LANGSXP, 13));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(B)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(C)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(D)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(E)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(F)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(G, "UnicodePtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(H)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg2)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg3)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg4)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg5)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg6)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg7)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg8)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(arg9)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg10, "UnicodePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(arg11)); cur = CDR(cur);
+	 invokeMethod(e);
+	UNPROTECT(1);
+}
+void ROutputDev::drawString( GfxState * arg1, GooString * arg2 )
+{
+	SEXP fun = lookupRMethod("drawString");
+	if(fun == R_NilValue) {
+	   OutputDev::drawString(arg1, arg2);
+	   return; ;
+	}
+	
+	
+	SEXP e, cur;
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
+	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, GooStringToR(arg2)); cur = CDR(cur);
+	 invokeMethod(e);
+	UNPROTECT(1);
+}
+GBool ROutputDev::beginType3Char( GfxState * arg1, double arg2, double arg3, double arg4, double arg5, CharCode arg6, Unicode * arg7, int arg8 )
+{
+	SEXP fun = lookupRMethod("beginType3Char");
+	if(fun == R_NilValue) {
+	   return(OutputDev::beginType3Char(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)) ;
+	}
+	
+	
+	SEXP e, cur;
+	PROTECT(e = cur = allocVector(LANGSXP, 10));
+	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg2)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg3)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg4)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg5)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg6)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg7, "UnicodePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(arg8)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	GBool ans = LOGICAL(r_ans)[0]; ;
 	UNPROTECT(1);
 	return(ans);
 }
-void ROutputDev::endType3Char( GfxState * A )
+void ROutputDev::endType3Char( GfxState * arg1 )
 {
 	SEXP fun = lookupRMethod("endType3Char");
-	if(fun == R_NilValue)
-	   return ;
-	
-	
-	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
-	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	 invokeMethod(e);
-	UNPROTECT(1);
-}
-void ROutputDev::beginTextObject( GfxState * A )
-{
-	SEXP fun = lookupRMethod("beginTextObject");
-	if(fun == R_NilValue)
-	   return ;
-	
-	
-	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
-	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	 invokeMethod(e);
-	UNPROTECT(1);
-}
-void ROutputDev::endTextObject( GfxState * A )
-{
-	SEXP fun = lookupRMethod("endTextObject");
-	if(fun == R_NilValue)
-	   return ;
-	
-	
-	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
-	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	 invokeMethod(e);
-	UNPROTECT(1);
-}
-void ROutputDev::incCharCount( int A )
-{
-	SEXP fun = lookupRMethod("incCharCount");
-	if(fun == R_NilValue)
-	   return ;
-	
-	
-	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
-	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(A)); cur = CDR(cur);
-	 invokeMethod(e);
-	UNPROTECT(1);
-}
-void ROutputDev::beginActualText( GfxState * A, GooString * B )
-{
-	SEXP fun = lookupRMethod("beginActualText");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::endType3Char(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
 	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, GooStringToR(B)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::endActualText( GfxState * A )
+void ROutputDev::beginTextObject( GfxState * arg1 )
 {
-	SEXP fun = lookupRMethod("endActualText");
-	if(fun == R_NilValue)
-	   return ;
+	SEXP fun = lookupRMethod("beginTextObject");
+	if(fun == R_NilValue) {
+	   OutputDev::beginTextObject(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	 invokeMethod(e);
+	UNPROTECT(1);
+}
+void ROutputDev::endTextObject( GfxState * arg1 )
+{
+	SEXP fun = lookupRMethod("endTextObject");
+	if(fun == R_NilValue) {
+	   OutputDev::endTextObject(arg1);
+	   return; ;
+	}
+	
+	
+	SEXP e, cur;
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
+	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	 invokeMethod(e);
+	UNPROTECT(1);
+}
+void ROutputDev::incCharCount( int arg1 )
+{
+	SEXP fun = lookupRMethod("incCharCount");
+	if(fun == R_NilValue) {
+	   OutputDev::incCharCount(arg1);
+	   return; ;
+	}
+	
+	
+	SEXP e, cur;
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
+	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(arg1)); cur = CDR(cur);
+	 invokeMethod(e);
+	UNPROTECT(1);
+}
+void ROutputDev::beginActualText( GfxState * arg1, GooString * arg2 )
+{
+	SEXP fun = lookupRMethod("beginActualText");
+	if(fun == R_NilValue) {
+	   OutputDev::beginActualText(arg1, arg2);
+	   return; ;
+	}
+	
+	
+	SEXP e, cur;
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
+	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, GooStringToR(arg2)); cur = CDR(cur);
+	 invokeMethod(e);
+	UNPROTECT(1);
+}
+void ROutputDev::endActualText( GfxState * arg1 )
+{
+	SEXP fun = lookupRMethod("endActualText");
+	if(fun == R_NilValue) {
+	   OutputDev::endActualText(arg1);
+	   return; ;
+	}
+	
+	
+	SEXP e, cur;
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
+	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::drawImageMask( GfxState * state, Object * ref, Stream * str, int width, int height, GBool invert, GBool interpolate, GBool inlineImg )
 {
 	SEXP fun = lookupRMethod("drawImageMask");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::drawImageMask(state, ref, str, width, height, invert, interpolate, inlineImg);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 9));
+	PROTECT(e = cur = allocVector(LANGSXP, 10));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(state, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(ref, "ObjectPtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(str, "StreamPtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(width)); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(height)); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(invert)); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(interpolate)); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(inlineImg)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(state, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(ref, "ObjectPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(str, "StreamPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(width)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(height)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(invert)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(interpolate)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(inlineImg)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::setSoftMaskFromImageMask( GfxState * state, Object * ref, Stream * str, int width, int height, GBool invert, GBool inlineImg, double * baseMatrix )
 {
 	SEXP fun = lookupRMethod("setSoftMaskFromImageMask");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::setSoftMaskFromImageMask(state, ref, str, width, height, invert, inlineImg, baseMatrix);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 9));
+	PROTECT(e = cur = allocVector(LANGSXP, 10));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(state, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(ref, "ObjectPtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(str, "StreamPtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(width)); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(height)); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(invert)); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(inlineImg)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(baseMatrix, "doublePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(state, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(ref, "ObjectPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(str, "StreamPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(width)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(height)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(invert)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(inlineImg)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(baseMatrix, "doublePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::unsetSoftMaskFromImageMask( GfxState * state, double * baseMatrix )
 {
 	SEXP fun = lookupRMethod("unsetSoftMaskFromImageMask");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::unsetSoftMaskFromImageMask(state, baseMatrix);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 3));
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(state, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(baseMatrix, "doublePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(state, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(baseMatrix, "doublePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::drawImage( GfxState * state, Object * ref, Stream * str, int width, int height, GfxImageColorMap * colorMap, GBool interpolate, int * maskColors, GBool inlineImg )
 {
 	SEXP fun = lookupRMethod("drawImage");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::drawImage(state, ref, str, width, height, colorMap, interpolate, maskColors, inlineImg);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 10));
+	PROTECT(e = cur = allocVector(LANGSXP, 11));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(state, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(ref, "ObjectPtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(str, "StreamPtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(width)); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(height)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(colorMap, "GfxImageColorMapPtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(interpolate)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(maskColors, "intPtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(inlineImg)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(state, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(ref, "ObjectPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(str, "StreamPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(width)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(height)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(colorMap, "GfxImageColorMapPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(interpolate)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(maskColors, "intPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(inlineImg)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::drawMaskedImage( GfxState * state, Object * ref, Stream * str, int width, int height, GfxImageColorMap * colorMap, GBool interpolate, Stream * maskStr, int maskWidth, int maskHeight, GBool maskInvert, GBool maskInterpolate )
 {
 	SEXP fun = lookupRMethod("drawMaskedImage");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::drawMaskedImage(state, ref, str, width, height, colorMap, interpolate, maskStr, maskWidth, maskHeight, maskInvert, maskInterpolate);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 13));
+	PROTECT(e = cur = allocVector(LANGSXP, 14));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(state, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(ref, "ObjectPtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(str, "StreamPtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(width)); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(height)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(colorMap, "GfxImageColorMapPtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(interpolate)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(maskStr, "StreamPtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(maskWidth)); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(maskHeight)); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(maskInvert)); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(maskInterpolate)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(state, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(ref, "ObjectPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(str, "StreamPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(width)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(height)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(colorMap, "GfxImageColorMapPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(interpolate)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(maskStr, "StreamPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(maskWidth)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(maskHeight)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(maskInvert)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(maskInterpolate)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::drawSoftMaskedImage( GfxState * state, Object * ref, Stream * str, int width, int height, GfxImageColorMap * colorMap, GBool interpolate, Stream * maskStr, int maskWidth, int maskHeight, GfxImageColorMap * maskColorMap, GBool maskInterpolate )
 {
 	SEXP fun = lookupRMethod("drawSoftMaskedImage");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::drawSoftMaskedImage(state, ref, str, width, height, colorMap, interpolate, maskStr, maskWidth, maskHeight, maskColorMap, maskInterpolate);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 13));
+	PROTECT(e = cur = allocVector(LANGSXP, 14));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(state, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(ref, "ObjectPtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(str, "StreamPtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(width)); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(height)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(colorMap, "GfxImageColorMapPtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(interpolate)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(maskStr, "StreamPtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(maskWidth)); cur = CDR(cur);
-	SETCAR(cur, ScalarInteger(maskHeight)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(maskColorMap, "GfxImageColorMapPtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(maskInterpolate)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(state, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(ref, "ObjectPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(str, "StreamPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(width)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(height)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(colorMap, "GfxImageColorMapPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(interpolate)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(maskStr, "StreamPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(maskWidth)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarInteger(maskHeight)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(maskColorMap, "GfxImageColorMapPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(maskInterpolate)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::endMarkedContent( GfxState * state )
 {
 	SEXP fun = lookupRMethod("endMarkedContent");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::endMarkedContent(state);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(state, "GfxStatePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(state, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::beginMarkedContent( char * name, Dict * properties )
 {
 	SEXP fun = lookupRMethod("beginMarkedContent");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::beginMarkedContent(name, properties);
+	   return; ;
+	}
+	
+	
+	SEXP e, cur;
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
+	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_mkString(name)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(properties, "DictPtr", NULL)); cur = CDR(cur);
+	 invokeMethod(e);
+	UNPROTECT(1);
+}
+void ROutputDev::markPoint( char * name )
+{
+	SEXP fun = lookupRMethod("markPoint");
+	if(fun == R_NilValue) {
+	   OutputDev::markPoint(name);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
 	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, mkString(name)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(properties, "DictPtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_mkString(name)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::markPoint( char * name, Dict * properties )
 {
 	SEXP fun = lookupRMethod("markPoint");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::markPoint(name, properties);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 3));
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, mkString(name)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(properties, "DictPtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_mkString(name)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(properties, "DictPtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::opiBegin( GfxState * state, Dict * opiDict )
 {
 	SEXP fun = lookupRMethod("opiBegin");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::opiBegin(state, opiDict);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 3));
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(state, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(opiDict, "DictPtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(state, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(opiDict, "DictPtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::opiEnd( GfxState * state, Dict * opiDict )
 {
 	SEXP fun = lookupRMethod("opiEnd");
-	if(fun == R_NilValue)
-	   return ;
-	
-	
-	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 3));
-	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(state, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(opiDict, "DictPtr")); cur = CDR(cur);
-	 invokeMethod(e);
-	UNPROTECT(1);
-}
-void ROutputDev::type3D0( GfxState * A, double B, double C )
-{
-	SEXP fun = lookupRMethod("type3D0");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::opiEnd(state, opiDict);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
 	PROTECT(e = cur = allocVector(LANGSXP, 4));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(B)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(C)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(state, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(opiDict, "DictPtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::type3D1( GfxState * A, double B, double C, double D, double E, double F, double G )
+void ROutputDev::type3D0( GfxState * arg1, double arg2, double arg3 )
+{
+	SEXP fun = lookupRMethod("type3D0");
+	if(fun == R_NilValue) {
+	   OutputDev::type3D0(arg1, arg2, arg3);
+	   return; ;
+	}
+	
+	
+	SEXP e, cur;
+	PROTECT(e = cur = allocVector(LANGSXP, 5));
+	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg2)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg3)); cur = CDR(cur);
+	 invokeMethod(e);
+	UNPROTECT(1);
+}
+void ROutputDev::type3D1( GfxState * arg1, double arg2, double arg3, double arg4, double arg5, double arg6, double arg7 )
 {
 	SEXP fun = lookupRMethod("type3D1");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::type3D1(arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 8));
+	PROTECT(e = cur = allocVector(LANGSXP, 9));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(B)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(C)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(D)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(E)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(F)); cur = CDR(cur);
-	SETCAR(cur, ScalarReal(G)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg2)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg3)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg4)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg5)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg6)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarReal(arg7)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::psXObject( Stream * A, Stream * B )
+void ROutputDev::psXObject( Stream * arg1, Stream * arg2 )
 {
 	SEXP fun = lookupRMethod("psXObject");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::psXObject(arg1, arg2);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 3));
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "StreamPtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(B, "StreamPtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "StreamPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg2, "StreamPtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 void ROutputDev::startProfile(  )
 {
 	SEXP fun = lookupRMethod("startProfile");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::startProfile();
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 GooHash * ROutputDev::getProfileHash(  )
 {
 	SEXP fun = lookupRMethod("getProfileHash");
-	if(fun == R_NilValue)
-	   return(NULL) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::getProfileHash()) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
 	GooHash * ans = GET_REF(r_ans, GooHash ); ;
 	UNPROTECT(1);
@@ -1536,155 +1828,199 @@ GooHash * ROutputDev::getProfileHash(  )
 GooHash * ROutputDev::endProfile(  )
 {
 	SEXP fun = lookupRMethod("endProfile");
-	if(fun == R_NilValue)
-	   return(NULL) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::endProfile()) ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
 	SEXP r_ans = invokeMethod(e);
 	GooHash * ans = GET_REF(r_ans, GooHash ); ;
 	UNPROTECT(1);
 	return(ans);
 }
-GBool ROutputDev::checkTransparencyGroup( GfxState * A, GBool B )
+GBool ROutputDev::checkTransparencyGroup( GfxState * arg1, GBool arg2 )
 {
 	SEXP fun = lookupRMethod("checkTransparencyGroup");
-	if(fun == R_NilValue)
-	   return(0) ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::checkTransparencyGroup(arg1, arg2)) ;
+	}
+	
+	
+	SEXP e, cur;
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
+	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(arg2)); cur = CDR(cur);
+	SEXP r_ans = invokeMethod(e);
+	GBool ans = LOGICAL(r_ans)[0]; ;
+	UNPROTECT(1);
+	return(ans);
+}
+void ROutputDev::beginTransparencyGroup( GfxState * arg1, double * arg2, GfxColorSpace * arg3, GBool arg4, GBool arg5, GBool arg6 )
+{
+	SEXP fun = lookupRMethod("beginTransparencyGroup");
+	if(fun == R_NilValue) {
+	   OutputDev::beginTransparencyGroup(arg1, arg2, arg3, arg4, arg5, arg6);
+	   return; ;
+	}
+	
+	
+	SEXP e, cur;
+	PROTECT(e = cur = allocVector(LANGSXP, 8));
+	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg2, "doublePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg3, "GfxColorSpacePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(arg4)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(arg5)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(arg6)); cur = CDR(cur);
+	 invokeMethod(e);
+	UNPROTECT(1);
+}
+void ROutputDev::endTransparencyGroup( GfxState * arg1 )
+{
+	SEXP fun = lookupRMethod("endTransparencyGroup");
+	if(fun == R_NilValue) {
+	   OutputDev::endTransparencyGroup(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
 	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(B)); cur = CDR(cur);
-	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	 invokeMethod(e);
 	UNPROTECT(1);
-	return(ans);
 }
-void ROutputDev::beginTransparencyGroup( GfxState * A, double * B, GfxColorSpace * C, GBool D, GBool E, GBool F )
+void ROutputDev::paintTransparencyGroup( GfxState * arg1, double * arg2 )
 {
-	SEXP fun = lookupRMethod("beginTransparencyGroup");
-	if(fun == R_NilValue)
-	   return ;
+	SEXP fun = lookupRMethod("paintTransparencyGroup");
+	if(fun == R_NilValue) {
+	   OutputDev::paintTransparencyGroup(arg1, arg2);
+	   return; ;
+	}
+	
+	
+	SEXP e, cur;
+	PROTECT(e = cur = allocVector(LANGSXP, 4));
+	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg2, "doublePtr", NULL)); cur = CDR(cur);
+	 invokeMethod(e);
+	UNPROTECT(1);
+}
+void ROutputDev::setSoftMask( GfxState * arg1, double * arg2, GBool arg3, Function * arg4, GfxColor * arg5 )
+{
+	SEXP fun = lookupRMethod("setSoftMask");
+	if(fun == R_NilValue) {
+	   OutputDev::setSoftMask(arg1, arg2, arg3, arg4, arg5);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
 	PROTECT(e = cur = allocVector(LANGSXP, 7));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(B, "doublePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(C, "GfxColorSpacePtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(D)); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(E)); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(F)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg2, "doublePtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(arg3)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg4, "FunctionPtr", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg5, "GfxColorPtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::endTransparencyGroup( GfxState * A )
+void ROutputDev::clearSoftMask( GfxState * arg1 )
 {
-	SEXP fun = lookupRMethod("endTransparencyGroup");
-	if(fun == R_NilValue)
-	   return ;
-	
-	
-	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
-	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	 invokeMethod(e);
-	UNPROTECT(1);
-}
-void ROutputDev::paintTransparencyGroup( GfxState * A, double * B )
-{
-	SEXP fun = lookupRMethod("paintTransparencyGroup");
-	if(fun == R_NilValue)
-	   return ;
+	SEXP fun = lookupRMethod("clearSoftMask");
+	if(fun == R_NilValue) {
+	   OutputDev::clearSoftMask(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
 	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(B, "doublePtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "GfxStatePtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
-void ROutputDev::setSoftMask( GfxState * A, double * B, GBool C, Function * D, GfxColor * E )
-{
-	SEXP fun = lookupRMethod("setSoftMask");
-	if(fun == R_NilValue)
-	   return ;
-	
-	
-	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 6));
-	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(B, "doublePtr")); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(C)); cur = CDR(cur);
-	SETCAR(cur, R_createRef(D, "FunctionPtr")); cur = CDR(cur);
-	SETCAR(cur, R_createRef(E, "GfxColorPtr")); cur = CDR(cur);
-	 invokeMethod(e);
-	UNPROTECT(1);
-}
-void ROutputDev::clearSoftMask( GfxState * A )
-{
-	SEXP fun = lookupRMethod("clearSoftMask");
-	if(fun == R_NilValue)
-	   return ;
-	
-	
-	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
-	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "GfxStatePtr")); cur = CDR(cur);
-	 invokeMethod(e);
-	UNPROTECT(1);
-}
-void ROutputDev::processLink( AnnotLink * A )
+void ROutputDev::processLink( AnnotLink * arg1 )
 {
 	SEXP fun = lookupRMethod("processLink");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   OutputDev::processLink(arg1);
+	   return; ;
+	}
 	
 	
 	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, R_createRef(A, "AnnotLinkPtr")); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(arg1, "AnnotLinkPtr", NULL)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
 }
 GBool ROutputDev::getVectorAntialias(  )
 {
 	SEXP fun = lookupRMethod("getVectorAntialias");
-	if(fun == R_NilValue)
-	   return(0) ;
-	
-	
-	SEXP e, cur;
-	PROTECT(e = cur = allocVector(LANGSXP, 1));
-	SETCAR(cur, fun); cur = CDR(cur);
-	SEXP r_ans = invokeMethod(e);
-	GBool ans = LOGICAL(r_ans)[0] ;
-	UNPROTECT(1);
-	return(ans);
-}
-void ROutputDev::setVectorAntialias( GBool A )
-{
-	SEXP fun = lookupRMethod("setVectorAntialias");
-	if(fun == R_NilValue)
-	   return ;
+	if(fun == R_NilValue) {
+	   return(OutputDev::getVectorAntialias()) ;
+	}
 	
 	
 	SEXP e, cur;
 	PROTECT(e = cur = allocVector(LANGSXP, 2));
 	SETCAR(cur, fun); cur = CDR(cur);
-	SETCAR(cur, ScalarLogical(A)); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SEXP r_ans = invokeMethod(e);
+	GBool ans = LOGICAL(r_ans)[0]; ;
+	UNPROTECT(1);
+	return(ans);
+}
+void ROutputDev::setVectorAntialias( GBool arg1 )
+{
+	SEXP fun = lookupRMethod("setVectorAntialias");
+	if(fun == R_NilValue) {
+	   OutputDev::setVectorAntialias(arg1);
+	   return; ;
+	}
+	
+	
+	SEXP e, cur;
+	PROTECT(e = cur = allocVector(LANGSXP, 3));
+	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SETCAR(cur, Rf_ScalarLogical(arg1)); cur = CDR(cur);
 	 invokeMethod(e);
 	UNPROTECT(1);
+}
+PopplerCache * ROutputDev::getIccColorSpaceCache(  )
+{
+	SEXP fun = lookupRMethod("getIccColorSpaceCache");
+	if(fun == R_NilValue) {
+	   return(OutputDev::getIccColorSpaceCache()) ;
+	}
+	
+	
+	SEXP e, cur;
+	PROTECT(e = cur = allocVector(LANGSXP, 2));
+	SETCAR(cur, fun); cur = CDR(cur);
+	SETCAR(cur, R_createRef(this, "ROutputDev", NULL)); cur = CDR(cur);
+	SEXP r_ans = invokeMethod(e);
+	PopplerCache * ans = GET_REF(r_ans, PopplerCache ); ;
+	UNPROTECT(1);
+	return(ans);
 }
