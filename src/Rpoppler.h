@@ -7,7 +7,8 @@
 
 SEXP createRef(void *ptr, const char * const classname, R_CFinalizer_t fin);
 
-#define R_createRef(a, b)  createRef((a), (b), NULL)
+// #define R_createRef(a, b)  createRef((a), (b), NULL)
+#define R_createRef(a, b, c)  createRef((a), (b), (c))
 
 void R_freeAPI(SEXP obj);
 
