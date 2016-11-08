@@ -21,14 +21,26 @@ source("typemap.R")
 
 
 # Generate the C++ code for the following classes
-ids = c("PDFDoc", "Object", "GfxState", "Catalog", "Dict", "GfxColorSpace", "GfxPath", "GfxSubpath", "Page", "PDFRectangle", "XRef", "PageAttrs")
-code = lapply(ids, function(x) genClassCode(k[[x]], typemap, c("display", "displayPage", "displayPages", "displayPageSlice", "displaySlice", "getSignatureWidgets", "createGfx"), "get(RGB|RGBX|CMYK|DeviceN|Gray)Line"))
+ids = c("PDFDoc", "Object", "GfxState", "Catalog", "Dict", "GfxColorSpace", "GfxPath", "GfxSubpath", "Page", "PDFRectangle", "XRef", "PageAttrs", "GfxFont")
+
+# temporary
+ ids = ids[-length(ids)]
+
+omitMethods = c("display", "displayPage", "displayPages", "displayPageSlice", "displaySlice", "getSignatureWidgets", "createGfx")
+omitRX = "get(RGB|RGBX|CMYK|DeviceN|Gray)Line"
+
+
+source("overloadedFuns.R")
+generics = findOverloaded(k[ids], omitMethods, omitRX)
+
+
+code = lapply(ids, function(x) genClassCode(k[[x]], typemap, omitMethods, omitRX))
 names(code) = ids
 invisible(mapply(cppCodeToFile, code, sprintf("../src/R%s.cc", ids)))
 
 # Now generate the corresponding R code
 
-rcode = lapply(ids, function(x) genClassCode(k[[x]], typemap, c("displayPage", "displayPages", "displayPageSlice", "displaySlice", "getSignatureWidgets", "createGfx"), "get(RGB|RGBX|CMYK|DeviceN|Gray)Line", fun = createRProxy))
+rcode = lapply(ids, function(x) genClassCode(k[[x]], typemap, omitMethods, omitRX, fun = createRProxy, generics = generics))
 names(rcode) = ids
 
 #XXX Temp. This method causes problems. Will fix.
