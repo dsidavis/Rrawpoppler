@@ -2,7 +2,7 @@ Package: Rrawpoppler
 Title: Interface to the poppler PDF library for reading and querying details of PDF documents
 Description: This provides functionality to read PDF documents directly in R
   and query their contents in various ways. 
-  We can query the metadata, extract and save individual pages, process and entire
+  We can query the metadata, extract and save individual pages, process an entire
   document or one or more pages and respond to events during this processing.
   The interface is machine generated using the RCIndex and RCodeGen packages.
   This implies that we can both a) update the package for new versions of poppler,
