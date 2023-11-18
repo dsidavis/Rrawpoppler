@@ -24,7 +24,7 @@ source("typemap.R")
 ids = c("PDFDoc", "Object", "GfxState", "Catalog", "Dict", "GfxColorSpace", "GfxPath", "GfxSubpath", "Page", "PDFRectangle", "XRef", "PageAttrs", "GfxFont")
 
 # temporary
- ids = ids[-length(ids)]
+# ids = ids[-length(ids)]
 
 omitMethods = c("display", "displayPage", "displayPages", "displayPageSlice", "displaySlice", "getSignatureWidgets", "createGfx")
 omitRX = "get(RGB|RGBX|CMYK|DeviceN|Gray)Line"
